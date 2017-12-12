@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { MaintenanceService } from '../../services/maintenance.service';
 
 @Component({
   selector: 'app-maintenance',
   templateUrl: './maintenance.component.html',
-  styleUrls: ['./maintenance.component.css']
+  styleUrls: ['./maintenance.component.scss']
 })
 export class MaintenanceComponent implements OnInit {
 
-  constructor() { }
+  constructor(public maintenanceService: MaintenanceService) { }
 
   ngOnInit() {
   }
