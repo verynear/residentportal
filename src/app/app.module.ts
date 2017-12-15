@@ -5,7 +5,7 @@ import { MenuModule, MenubarModule } from 'primeng/primeng';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { BaseRequestOptions } from '@angular/http';
+import { BaseRequestOptions, HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +34,7 @@ import { AnnouncementService } from './services/announcement.service';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import { MenubarComponent } from './pages/menubar/menubar.component';
 import { ApplicantService } from './services/applicant.service';
+import { ApplicantComponent } from './pages/applicant/applicant.component';
 
 
 @NgModule({
@@ -51,13 +52,14 @@ import { ApplicantService } from './services/applicant.service';
     MaintenanceComponent,
     AnnouncementsComponent,
     MenubarComponent,
-    HomeComponent,
+    ApplicantComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    HttpModule,
     MenuModule,
     MenubarModule,
     AppRoutingModule
