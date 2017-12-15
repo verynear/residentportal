@@ -1,30 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-
-import { User } from '../../models/user';
-import { UserService } from '../../services/user.service';
+import { Applicant } from '../../models/applicant';
+import { ApplicantService } from '../../services/applicant.service';
 
 @Component({
-    moduleId: module.id.toString(),
-    templateUrl: './home.component.html'
+  moduleId: module.id.toString(),
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-
 export class HomeComponent implements OnInit {
-    currentUser: User;
-    users: User[] = [];
+  model: any = {};
+  loading = false;
+  message: string;
+  errorMessage: string;
 
-    constructor(private userService: UserService) {
-        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    }
+  constructor(private service: ApplicantService) { }
 
-    ngOnInit() {
-        this.loadAllUsers();
-    }
+  ngOnInit() {
+  }
 
-    deleteUser(id: number) {
-        this.userService.delete(id).subscribe(() => { this.loadAllUsers(); });
-    }
+  register() {
+    this.loading = true;
+    this.service.create(this.model)
+      .subscribe(
+        data => {
+          this.loading = false;
+          this.message = 'Success';
+          this.model = {};
+        },
+        error => {
+          this.errorMessage = 'Ops...';
+          this.loading = false;
+        });
+  }
 
-    private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
-    }
 }

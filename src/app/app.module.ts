@@ -33,18 +33,11 @@ import { MaintenanceComponent } from './pages/maintenance/maintenance.component'
 import { AnnouncementService } from './services/announcement.service';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import { MenubarComponent } from './pages/menubar/menubar.component';
+import {ApplicantService} from './services/applicant.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpModule,
-    MenuModule,
-    MenubarModule,
-    AppRoutingModule
-  ],
   declarations: [
     AppComponent,
     AlertComponent,
@@ -61,9 +54,19 @@ import { MenubarComponent } from './pages/menubar/menubar.component';
     MenubarComponent,
     HomeComponent,
   ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MenuModule,
+    MenubarModule,
+    AppRoutingModule
+  ],
   providers: [
       AuthGuard,
       AlertService,
+      ApplicantService,
       AuthenticationService,
       UserService,
       StatusService,
