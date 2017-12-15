@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   api: {
-    baseUrl: `${location.protocol}//api.${location.hostname === 'localhost' ? 'dev.betterleasing.com' : location.host}/resnet`
+    baseUrl: `${location.protocol}//api.${location.hostname === 'localhost' ? 'stage.betterleasing.com' : location.host}/resnet`
   }
 };
