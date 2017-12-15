@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {ApplicantService} from '../../services/applicant.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   moduleId: module.id.toString(),
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-applicant',
+  templateUrl: './applicant.component.html',
+  styleUrls: ['./applicant.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ApplicantComponent implements OnInit {
   model: any = {};
   loading = false;
   message: string;
@@ -19,6 +20,9 @@ export class HomeComponent implements OnInit {
   }
 
   register() {
+    this.message = '';
+    this.errorMessage = '';
+
     this.loading = true;
     this.service.create(this.model)
       .subscribe(
@@ -27,8 +31,8 @@ export class HomeComponent implements OnInit {
           this.message = 'Success';
           this.model = {};
         },
-        error => {
-          this.errorMessage = 'Ops...';
+        (res: HttpErrorResponse) => {
+          this.errorMessage = res.error ? res.error.message : 'Ops...';
           this.loading = false;
         });
   }
