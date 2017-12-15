@@ -5,7 +5,7 @@ import { MenuModule, MenubarModule } from 'primeng/primeng';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { fakeBackendProvider } from './services/fake-backend.service';
+import { MockHttpInterceptor } from './services/mock-http.service';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { BaseRequestOptions } from '@angular/http';
 

@@ -1,4 +1,5 @@
-import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
@@ -127,7 +128,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
             }
 
             // pass through any requests not handled above
-            const realHttp = new Http(realBackend, options);
+            const realHttp = new HttpClient(realBackend);
             const requestOptions = new RequestOptions({
                 method: connection.request.method,
                 headers: connection.request.headers,
@@ -153,7 +154,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
 
 export let fakeBackendProvider = {
     // use fake backend in place of Http service for backend-less development
-    provide: Http,
+    provide: HttpClient,
     useFactory: fakeBackendFactory,
     deps: [MockBackend, BaseRequestOptions, XHRBackend]
 };
