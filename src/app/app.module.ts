@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuModule, MenubarModule } from 'primeng/primeng';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -35,7 +35,6 @@ import { AnnouncementsComponent } from './pages/announcements/announcements.comp
 import { MenubarComponent } from './pages/menubar/menubar.component';
 import {ApplicantService} from './services/applicant.service';
 import {HttpClientModule} from '@angular/common/http';
-
 
 @NgModule({
   declarations: [

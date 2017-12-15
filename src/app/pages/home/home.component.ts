@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Applicant } from '../../models/applicant';
 import { ApplicantService } from '../../services/applicant.service';
 
