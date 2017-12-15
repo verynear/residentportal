@@ -6,6 +6,6 @@
 export const environment = {
   production: false,
   api: {
-    baseUrl : 'http://api.dev.betterleasing.com/resnet'
+    baseUrl: 'http://api.dev.betterleasing.com/resnet'
   }
 };

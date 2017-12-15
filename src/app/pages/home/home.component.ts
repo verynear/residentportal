@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {ApplicantService} from '../../services/applicant.service';
+
+import { Applicant } from '../../models/applicant';
+import { ApplicantService } from '../../services/applicant.service';
 
 @Component({
   moduleId: module.id.toString(),
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   model: any = {};
