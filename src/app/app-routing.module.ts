@@ -8,8 +8,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './auth.guard';
 import { StatusComponent } from './pages/status/status.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-
-
+import {ApplicantComponent} from './pages/applicant/applicant.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -17,6 +16,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'status', component: StatusComponent },
+  { path: 'applicant', component: ApplicantComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];

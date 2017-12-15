@@ -13,8 +13,7 @@ export class ApplicantService {
   constructor(private http: HttpClient) { }
 
   create(applicant: Applicant) {
-    return this.http.post(this.baseURL, applicant)
-      .map((response: Response) => response.json());
+    return this.http.post(this.baseURL, applicant);
   }
 
 }
