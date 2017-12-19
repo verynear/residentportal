@@ -15,26 +15,26 @@ export class UserService {
   }
 
   getAll() {
-    return this.http.get<User[]>(this.baseURL + '/api/users');
+    return this.http.get<User[]>(this.baseURL + '/users');
   }
 
   getById(id: number) {
-    return this.http.get(this.baseURL + '/api/users/' + id)
+    return this.http.get(this.baseURL + 'users/' + id)
       .map((response: Response) => response.json());
   }
 
   create(user: User) {
-    return this.http.post(this.baseURL + '/api/users', user)
+    return this.http.post(this.baseURL + 'users', user)
       .map((response: Response) => response.json());
   }
 
   update(user: User) {
-    return this.http.put(this.baseURL + '/api/users/' + user.id, user)
+    return this.http.put(this.baseURL + '/users/' + user.id, user)
       .map((response: Response) => response.json());
   }
 
   delete(id: number) {
-    return this.http.delete(this.baseURL + '/api/users/' + id)
+    return this.http.delete(this.baseURL + '/users/' + id)
       .map((response: Response) => response.json());
   }
 }

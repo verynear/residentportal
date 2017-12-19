@@ -35,6 +35,8 @@ import { AnnouncementsComponent } from './pages/announcements/announcements.comp
 import { MenubarComponent } from './pages/menubar/menubar.component';
 import { ApplicantService } from './services/applicant.service';
 import { ApplicantComponent } from './pages/applicant/applicant.component';
+import { SessionService } from './services/session.service';
+import { LoginService } from './services/login.service';
 
 
 @NgModule({
@@ -80,7 +82,10 @@ import { ApplicantComponent } from './pages/applicant/applicant.component';
       MessageService,
       PaymentService,
       MaintenanceService,
-      AnnouncementService
+      AnnouncementService,
+      SessionService,
+      LoginService,
+      AUTH_HEADER_INTERCEPTOR_PROVIDER
   ],
   bootstrap: [AppComponent]
 })
