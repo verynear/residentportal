@@ -17,7 +17,7 @@ export class LoginService {
   login(emailAddress: string, password: string): Promise<User> {
     return this.authService.login(emailAddress, password)
       .then((token: string) => {
-        console.log("In the Login Service");
+        console.log('In the Login Service');
         console.log(token);
         localStorage.setItem('authorizationToken', token);
         this.authInterceptor.setToken(token);
