@@ -21,14 +21,13 @@ export class UserService {
 
   getById(id: number) {
     return this.http.get(this.baseURL + '/users/' + id)
-      .map((response: Response) => response.json());
+    .map((response: Response) => response.json());
   }
 
   create(user: User) {
     return this.http.post(this.baseURL + '/sign-up', user);
       // .map( (response: Response) => response.json());
   }
-
   update(user: User) {
     return this.http.put(this.baseURL + '/users/' + user.id, user)
       .map((response: Response) => response.json());
