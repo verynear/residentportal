@@ -8,7 +8,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './auth.guard';
 import { StatusComponent } from './pages/status/status.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import {ApplicantComponent} from './pages/applicant/applicant.component';
+import { ApplicantComponent } from './pages/applicant/applicant.component';
+import { UnitSelectionComponent } from './pages/unit-selection/unit-selection.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'status', component: StatusComponent },
   { path: 'applicant', component: ApplicantComponent },
+  { path: 'unit-selection', component: UnitSelectionComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 ];
