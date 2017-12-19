@@ -87,13 +87,8 @@ import { SessionService } from './services/session.service';
       PaymentService,
       MaintenanceService,
       AnnouncementService,
-<<<<<<< HEAD
-      LoginService,
-      SessionService,
-=======
       SessionService,
       LoginService,
->>>>>>> 3d78328e3ab427a0cb51314ae1eec0e591d12764
       AUTH_HEADER_INTERCEPTOR_PROVIDER
   ],
   bootstrap: [AppComponent]
