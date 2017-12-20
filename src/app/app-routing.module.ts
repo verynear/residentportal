@@ -10,10 +10,15 @@ import { StatusComponent } from './pages/status/status.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ApplicantComponent } from './pages/applicant/applicant.component';
 import { UnitSelectionComponent } from './pages/unit-selection/unit-selection.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
+import { PaymentsComponent } from './pages/payments/payments.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'payment', component: PaymentsComponent, canActivate: [AuthGuard] },
+  { path: 'maintenance', component: MaintenanceComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'status', component: StatusComponent },
