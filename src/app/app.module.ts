@@ -25,6 +25,7 @@ import { MaintenanceComponent } from './pages/maintenance/maintenance.component'
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import { ApplicantComponent } from './pages/applicant/applicant.component';
 import { UnitSelectionComponent } from './pages/unit-selection/unit-selection.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 // Interceptor
 import { AuthGuard } from './auth.guard';
@@ -43,6 +44,7 @@ import { PaymentService } from './services/payment.service';
 import { MaintenanceService } from './services/maintenance.service';
 import { LoginService } from './services/login.service';
 import { SessionService } from './services/session.service';
+
 
 @NgModule({
   imports: [
@@ -68,7 +70,8 @@ import { SessionService } from './services/session.service';
     MaintenanceComponent,
     AnnouncementsComponent,
     ApplicantComponent,
-    UnitSelectionComponent
+    UnitSelectionComponent,
+    NavigationComponent
   ],
   providers: [
       {

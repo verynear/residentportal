@@ -1,3 +1,20 @@
-<div class="container">
-  <router-outlet></router-outlet>
+<div *ngIf="hasAuth">
+    <app-navigation></app-navigation>
 </div>
+
+<router-outlet></router-outlet>
+
+<!-- <div id="main">
+    <footer>
+        <small>&copy; 2018 BetterLeasing</small>
+    </footer>
+</div> -->
+<!-- 
+<div id="main">
+    <div class="main-content">
+<footer *ngIf="hasAuth">
+    <small>&copy; 2018 BetterLeasing</small>
+</footer>
+</div>
+</div> -->
+  
