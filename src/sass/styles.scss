@@ -4,6 +4,9 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #444;
 }
 
 @media (max-width: 768px) {
@@ -67,12 +70,5 @@ footer {
 	padding: 0.625rem 0.9375rem;
 	font-size: 0.75rem;
 	color: #777;
-}
-
-footer {
-	background-color: #ddd
-}
-
-.btn:focus {
-  outline: none;
+	background-color: #ddd;
 }
