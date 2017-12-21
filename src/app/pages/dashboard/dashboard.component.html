@@ -1,52 +1,135 @@
 <div id="main">
-<div class="main-content">
-<div class="container">
-	<div class="row">
-		<h2 class="text-center">Welcome</h2>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <div class="box">
-                        <div class="box-content">
-                            <h1 class="tag-title">Maintenance Requests</h1>
-                            <hr />
-                            <p>You have 1 pending request.</p>
-                            <br />
-                            <a href="ppc.html" class="btn btn-block btn-primary">View Request</a>
-                            <a href="ppc.html" class="btn btn-block btn-primary">Submit Request</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="box">
-                        <div class="box-content">
-                            <h1 class="tag-title">Payments</h1>
-                            <hr />
-                            <p>Payment due: $750</p>
-                            <br />
-                            <a href="ppc.html" class="btn btn-block btn-primary">Make Payment</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="box">
-                        <div class="box-content">
-                            <h1 class="tag-title">Messages</h1>
-                            <hr />
-                            <p>Need Assistance? Contact Us.</p>
-                            <br />
-                            <a href="ppc.html" class="btn btn-block btn-primary">View Messages</a>
-                            <a href="ppc.html" class="btn btn-block btn-primary">Send Message</a>
-                        </div>
-                    </div>
-                </div>
-            </div>           
-        </div>
+		<!-- Main Content Area -->
+		<div class="main-content">
+			<div class="container-fluid">
+				<h5><i class="fa fa-user"></i> Welcome, {{currentUser.firstname}}<br><small>Treetop Village Apartment Homes / 112A Madison St.</small></h5>
+				<hr>
+				<h1>Dashboard</h1>
+				
+				<div class="row">
+					<!-- Left Content Container -->
+					<div class="col-md-9">
+						<div class="alert alert-danger" role="alert">
+							<h4 class="alert-heading"><i class="fa fa-exclamation-circle"></i> Payment Overdue</h4>
+							<p>Please note that rent payment is due on the 1st of every month.</p>
+							<hr>
+							<a href="#" class="btn btn-danger">Make Payment</a>
+						</div>
+						<section id="quick-info">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="icon-box mb-4">
+										<div class="icon">
+											<div class="image">
+												<span class="badge badge-danger">2</span>
+												<i class="fa fa-wrench"></i>
+											</div>
+											<div class="card">
+												<div class="card-body">
+													<h4 class="card-title">Maintenance Request</h4>
+													<a href="#" class="btn btn-primary btn-sm mr-1">View Requests</a><a href="#" class="btn btn-default btn-sm">Submit Request</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="icon-box mb-4">
+										<div class="icon">
+											<div class="image">
+												<span class="badge badge-success">2</span>
+												<i class="fa fa-dollar"></i>
+											</div>
+											<div class="card">
+												<div class="card-body">
+													<h4 class="card-title">Payments</h4>
+													<a href="#" class="btn btn-primary btn-sm mr-1">View History</a><a href="#" class="btn btn-default btn-sm">Make Payment</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="icon-box">
+										<div class="icon">
+											<div class="image">
+												<span class="badge badge-info">2</span>
+												<i class="fa fa-envelope"></i>
+											</div>
+											<div class="card">
+												<div class="card-body">
+													<h4 class="card-title">Communications</h4>
+													<a href="#" class="btn btn-primary btn-sm mr-1">View History</a><a href="#" class="btn btn-default btn-sm">Send Message</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						
+						<section>
+							<h2>Announcements</h2>
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>
+											<h4>Fall Winter Cleanup<br><small>10/21/2017</small></h4>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<h4>Free Breakfast in Lobby Area<br><small>starting 12/01/2017</small></h4>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+					</div><!--/Left Content Container -->
+					<!-- Right Content Container -->
+					<div class="col-md-3">
+						<!-- Recent Activity -->
+						<div class="card">
+							<div class="card-header">
+								Recent Activity
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">
+									<h6><i class="fa fa-envelope float-right"></i>Messages<br><small>Community BBQ</small></h6>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
+								</li>
+								<li class="list-group-item">
+									<h6><i class="fa fa-dollar float-right"></i>Payments</h6>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
+								</li>
+								<li class="list-group-item">
+									<h6><i class="fa fa-wrench float-right"></i>Maintenance Requests</h6>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
+								</li>
+								<li class="list-group-item">
+									<h6><i class="fa fa-envelope float-right"></i>Messages<br><small>Community BBQ</small></h6>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
+								</li>
+								<li class="list-group-item">
+									<h6><i class="fa fa-wrench float-right"></i>Maintenance Requests</h6>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
+								</li>
+								<li class="list-group-item">
+									<h6><i class="fa fa-envelope float-right"></i>Messages<br><small>Community BBQ</small></h6>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
+								</li>
+							</ul>
+						</div>
+						<a href="#" class="btn btn-primary btn-sm btn-block">View More</a>
+					</div><!--/Right Content Container -->
+				</div><!--/.row -->
+				
+			</div>
+		</div>
+		
+		<footer>
+			<small>&copy; 2018 BetterLeasing</small>
+		</footer>
 	</div>
-    <br>
-    <br>
-    <br>
-
-<app-messages></app-messages>
-
-    </div>
-</div>

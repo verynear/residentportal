@@ -1,5 +1,6 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {AuthenticationService} from './authentication.service';
+import {Router, ActivatedRoute} from '@angular/router';
 import {User} from '../models/user';
 import {SessionService} from './session.service';
 import {AuthHeaderInterceptor} from '../auth-header.interceptor';
@@ -11,22 +12,22 @@ export class LoginService {
   constructor(
     private authService: AuthenticationService,
     private session: SessionService,
-    private authInterceptor: AuthHeaderInterceptor
+    private authInterceptor: AuthHeaderInterceptor,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   login(emailAddress: string, password: string): Promise<User> {
     return this.authService.login(emailAddress, password)
       .then((token: string) => {
-        console.log('In the Login Service');
-        console.log(token);
-        localStorage.setItem('authorizationToken', token);
+        this.session.set('authorizationToken', token);
         this.authInterceptor.setToken(token);
       })
       .then(() => this.getCurrentUser())
       .then((user: User) => {
+        console.log('The user is...');
         this.session.set('currentUser', user);
         return user;
-
       });
   }
 
@@ -34,7 +35,8 @@ export class LoginService {
     this.onLogin.emit(false);
     return this.authService.logout()
       .then(() => {
-        localStorage.removeItem('authorizationToken');
+        console.log('About to destroy..');
+        this.router.navigate(['login']);
       });
   }
 

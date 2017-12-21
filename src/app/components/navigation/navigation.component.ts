@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class NavigationComponent implements OnInit {
 
   public isCollapsed = true;
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
 
+  }
+
+  logout() {
+    this.loginService.logout();
   }
 
 
