@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Pages
 import { AlertComponent } from './pages/alert/alert.component';
-import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -62,7 +61,6 @@ import { SessionService } from './services/session.service';
     LoginComponent,
     RegisterComponent,
     StatusComponent,
-    HomeComponent,
     PageNotFoundComponent,
     DashboardComponent,
     MessagesComponent,
@@ -90,8 +88,8 @@ import { SessionService } from './services/session.service';
       PaymentService,
       MaintenanceService,
       AnnouncementService,
-      SessionService,
       LoginService,
+      SessionService,
       AUTH_HEADER_INTERCEPTOR_PROVIDER
   ],
   bootstrap: [AppComponent]

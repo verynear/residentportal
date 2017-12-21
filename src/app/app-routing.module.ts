@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './auth.guard';
@@ -16,7 +15,6 @@ import { PaymentsComponent } from './pages/payments/payments.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'payment', component: PaymentsComponent, canActivate: [AuthGuard] },
   { path: 'maintenance', component: MaintenanceComponent },
   { path: 'login', component: LoginComponent },
@@ -24,8 +22,8 @@ const routes: Routes = [
   { path: 'status', component: StatusComponent },
   { path: 'applicant', component: ApplicantComponent },
   { path: 'unit-selection', component: UnitSelectionComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '**', redirectTo: '/dashboard', pathMatch: 'full' }
 ];
 
 @NgModule({
