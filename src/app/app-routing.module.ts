@@ -12,6 +12,9 @@ import { UnitSelectionComponent } from './pages/unit-selection/unit-selection.co
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
+import { MessagesComponent } from './pages/messages/messages.component';
+import { InboxComponent } from './pages/messages/inbox/inbox.component';
+import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -20,11 +23,25 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'status', component: StatusComponent },
-  { path: 'applicant', component: ApplicantComponent },
+  { path: 'applicant', component: ApplicantComponent, canActivate: [AuthGuard] },
   { path: 'unit-selection', component: UnitSelectionComponent},
+  {
+    path: 'messages', 
+    component: MessagesComponent, 
+    canActivate: [AuthGuard],
+    // TODO create a page/component for each children
+    children: [
+      { path: '', redirectTo: '/messages/inbox', pathMatch: 'full' },
+      { path: 'inbox', component: InboxComponent },
+      { path: 'announcements', component: AnnouncementsComponent },
+    ]
+  },
+  { path: 'status', component: StatusComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: '/dashboard', pathMatch: 'full' }
+  { path: '**', component: PageNotFoundComponent }
 ];
+
+
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],

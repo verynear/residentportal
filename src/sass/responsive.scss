@@ -7,8 +7,8 @@
 		padding: 0;
 	}
 	.nav-side-menu {
-		position: relative;
-		width: 100%;
+		position: relative !important;
+		width: 100% !important;
 		border: 0;
 		margin-top: 2.188rem;
 		-moz-box-shadow: 0 0.3125rem 0.375rem 0 #aaa;
@@ -16,11 +16,11 @@
 		box-shadow: 0 0.3125rem 0.375rem 0 #aaa;
 	}
 	.nav-side-menu .toggle-btn {
-		display: block;
+		display: block !important;
 		cursor: pointer;
 		position: absolute;
 		right: 0.625rem;
-		top: 2.5rem;
+		top: 2.5rem !important;
 		z-index: 10 !important;
 		padding: 0.1875rem;
 		color: #333;
@@ -58,3 +58,4 @@
 		z-index: 9999;
 	}
 }
+

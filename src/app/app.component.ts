@@ -11,10 +11,16 @@ import {User} from './models/user';
 export class AppComponent {
   public hasAuth = false;
 
+  
+
   constructor(private loginService: LoginService) {
+    console.log("Hello from App component");
     this.loginService.onLogin
       .subscribe((user: User | boolean) => {
+        console.log("Hello from auth");
+        
         this.hasAuth = !!user;
+        console.log(this.hasAuth);
       });
   }
 }
