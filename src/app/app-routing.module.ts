@@ -26,8 +26,8 @@ const routes: Routes = [
   { path: 'applicant', component: ApplicantComponent, canActivate: [AuthGuard] },
   { path: 'unit-selection', component: UnitSelectionComponent},
   {
-    path: 'messages', 
-    component: MessagesComponent, 
+    path: 'messages',
+    component: MessagesComponent,
     canActivate: [AuthGuard],
     // TODO create a page/component for each children
     children: [

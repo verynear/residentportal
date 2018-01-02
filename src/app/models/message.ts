@@ -8,4 +8,4 @@ export class Message {
     subject: string;
     isRead: boolean;
   }
-  
+

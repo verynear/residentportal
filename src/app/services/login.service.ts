@@ -20,7 +20,7 @@ export class LoginService {
   login(emailAddress: string, password: string): Promise<User> {
     return this.authService.login(emailAddress, password)
       .then((token: string) => {
-        localStorage.setItem('authorizationToken', token);        
+        localStorage.setItem('authorizationToken', token);
         this.authInterceptor.setToken(token);
       })
       .then(() => this.getCurrentUser())
@@ -29,7 +29,7 @@ export class LoginService {
         return user;
       });
   }
-  
+
 
   logout(): Promise<any> {
     this.onLogin.emit(false);
