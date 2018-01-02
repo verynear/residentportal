@@ -23,12 +23,6 @@ export class SessionService {
     return this.session[key];
   }
 
-  destroy(key: string) {
-    if (this.session[key]) {
-      this.session[key] = null;
-    }
-  }
-
   getObservable(key: string): any {
     if (!this.observables[key]) {
       this.createObserver(key);
@@ -45,5 +39,4 @@ export class SessionService {
       }
     });
   }
-
 }

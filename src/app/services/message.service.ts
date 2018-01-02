@@ -1,14 +1,28 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpResponse } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { Message } from '../models/message';
 
 @Injectable()
 export class MessageService {
-  messages: string[] = [];
 
-  add(message: string) {
-    this.messages.push(message);
+  private baseURL = environment.api.baseUrl;
+
+  constructor(private http: HttpClient) {
   }
 
-  clear() {
-    this.messages = [];
+  get() {
+    return this.http.get<Message[]>(this.baseURL + '/message');
   }
+
+  // clear() {
+  //   this.messages = [];
+  // }
+
+  // add(message: string) {
+  //   this.messages.push(message);
+  // }
+
 }
+
+

@@ -19,6 +19,7 @@ import { StatusComponent } from './pages/status/status.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 import { MessagesComponent } from './pages/messages/messages.component';
+import { InboxComponent } from './pages/messages/inbox/inbox.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
@@ -45,6 +46,7 @@ import { LoginService } from './services/login.service';
 import { SessionService } from './services/session.service';
 
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { SessionService } from './services/session.service';
     AnnouncementsComponent,
     ApplicantComponent,
     UnitSelectionComponent,
-    NavigationComponent
+    NavigationComponent,
+    InboxComponent
   ],
   providers: [
       {

@@ -19,8 +19,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = this.sessionService.get('currentUser');
-    console.log('Received User In Dashboard: ');
-    console.log(this.currentUser);
   }
 
 }

@@ -20,22 +20,22 @@ export class LoginService {
   login(emailAddress: string, password: string): Promise<User> {
     return this.authService.login(emailAddress, password)
       .then((token: string) => {
-        this.session.set('authorizationToken', token);
+        localStorage.setItem('authorizationToken', token);        
         this.authInterceptor.setToken(token);
       })
       .then(() => this.getCurrentUser())
       .then((user: User) => {
-        console.log('The user is...');
         this.session.set('currentUser', user);
         return user;
       });
   }
+  
 
   logout(): Promise<any> {
     this.onLogin.emit(false);
     return this.authService.logout()
       .then(() => {
-        console.log('About to destroy..');
+        localStorage.removeItem('authorizationToken');
         this.router.navigate(['login']);
       });
   }
