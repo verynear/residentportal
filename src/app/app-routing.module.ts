@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'status', component: StatusComponent },
-  { path: 'applicant', component: ApplicantComponent, canActivate: [AuthGuard] },
+  { path: 'applicant', component: ApplicantComponent },
   { path: 'unit-selection', component: UnitSelectionComponent},
   {
     path: 'messages',
