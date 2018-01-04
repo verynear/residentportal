@@ -7,5 +7,5 @@ export class Message {
     rentalsitesId: number;
     subject: string;
     isRead: boolean;
-  }
+}
 
