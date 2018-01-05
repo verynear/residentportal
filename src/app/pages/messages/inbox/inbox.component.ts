@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../../services/message.service';
 import { Message } from '../../../models/message';
+import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-inbox',
@@ -8,19 +9,22 @@ import { Message } from '../../../models/message';
   styleUrls: ['./inbox.component.scss']
 })
 export class InboxComponent implements OnInit {
-
   messages: Array<any>;
-  itemsPerPage: number;    // The number of emails per page.
+  itemsPerPage: number;      // The number of emails per page.
   totalItems: number;
   page: number;
+  checkAll: boolean;
 
-  constructor(public messageService: MessageService) { }
+  constructor(public messageService: MessageService, config: NgbDropdownConfig) {
+    // Default values for dropdowns.
+    config.autoClose = 'outside';
+  }
 
   ngOnInit() {
-    this.itemsPerPage = 15;
-    this.page = 1;
-
-    this.getMessages();
+    this.itemsPerPage = 25;   // Number of Mail Items per page.
+    this.page = 1;            // Starting Page
+    this.checkAll = false;    // By Default, all mail items unchecked.
+    this.getMessages();       // Get Messages.
   }
 
   getMessages() {
@@ -32,6 +36,19 @@ export class InboxComponent implements OnInit {
       error => {
         console.log('Error');
       });
+  }
+
+  selectAllMessages(checkAll) {
+    for (const message of this.messages) {
+      message.selected = !checkAll;
+    }
+  }
+
+  // For sort event./
+  onSorted($event) {
+    console.log('Got Sort Event');
+    console.log($event);
+    this.messages = this.messageService.sortMessages(this.messages, $event);
   }
 
   openMessage(id) {

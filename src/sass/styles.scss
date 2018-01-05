@@ -1,6 +1,6 @@
 @import "variables";
 
-/* Default
+/* Default Reset
 -------------------------------------------------- */
 body {
 	margin: 0;
@@ -102,7 +102,7 @@ p {
 }
 .badge {
 	border-radius: 0.9375rem;
-	padding: 0.1875rem 0.3125rem 0.25rem;
+	padding: 0.25rem 0.3125rem;
 	font-size: 0.5625rem;
 }
 .page-header {
@@ -138,11 +138,8 @@ p {
 .list-group-item {
 	padding: 0.9375rem 0.9375rem;
 }
-.alert {
-	background-color: transparent;
-}
 .pagination .page-link {
-	padding: 0.47rem 1.05rem;
+	padding: 0.43rem 1.05rem 0.40rem;
 	font-size: 0.6875rem;
 	text-transform: uppercase;
 }
@@ -152,6 +149,111 @@ p {
 .modal {
 	z-index: 99999;
 }
+
+/* Alerts, Badges, Text-Highlights */
+.alert-primary h4 {
+    color: #777;
+}
+.alert-primary {
+    border-color: #a1afb6;
+}
+.alert-primary .btn-primary,
+.badge-primary {
+	background-color: #a1afb6;
+}
+.alert-primary a:hover.btn-primary,
+.alert-primary a:focus.btn-primary,
+.alert-primary a:active.btn-primary {
+	background-color: #93a0a6;
+}
+.alert-secondary h4 {
+    color: #546e7a;
+}
+.alert-secondary {
+    border-color: #546e7a;
+}
+.alert-secondary .btn-secondary,
+.badge-secondary {
+	background-color: #4d646f;
+}
+.alert-secondary a:hover.btn-secondary,
+.alert-secondary a:focus.btn-secondary,
+.alert-secondary a:active.btn-secondary {
+	background-color: #3d5056;
+}
+.alert-danger h4,
+.text-danger {
+    color: #d13431;
+}
+.alert-danger {
+    border-color: #d13431;
+}
+.alert-danger .btn-danger,
+.badge-danger {
+	background-color: #d13431;
+}
+.alert-danger a:hover.btn-danger,
+.alert-danger a:focus.btn-danger,
+.alert-danger a:active.btn-danger {
+	background-color: #be302d;
+}
+.alert-warning h4,
+.text-warning {
+    color: #ce7300;
+}
+.alert-warning {
+    border-color: #ce7300;
+}
+.alert-warning .btn-warning,
+.badge-warning {
+	background-color: #ce7300;
+	color: #fff;
+}
+.alert-warning a:hover.btn-warning,
+.alert-warning a:focus.btn-warning,
+.alert-warning a:active.btn-warning {
+	background-color: #bc6900;
+}
+.alert-success h4,
+.text-success {
+    color: #3d9241;
+}
+.alert-success {
+    border-color: #3d9241;
+}
+.alert-success .btn-success,
+.badge-success {
+	background-color: #3d9241;
+}
+.alert-success a:hover.btn-success,
+.alert-success a:focus.btn-success,
+.alert-success a:active.btn-success {
+	background-color: #38853c;
+}
+.alert-info h4,
+.text-info {
+    color: #1970bc;
+}
+.alert-info {
+    border-color: #1970bc;
+}
+.alert-info .btn-info,
+.badge-info {
+	background-color: #1970bc;
+}
+.alert-info a:hover.btn-info,
+.alert-info a:focus.btn-info,
+.alert-info a:active.btn-info {
+	background-color: #1766ab;
+}
+.alert {
+	background-color: transparent;
+	color: #555;
+}
+.alert hr {
+	border-top-color: #ddd;
+}
+
 
 
 /* Sticky Top
@@ -315,7 +417,7 @@ p {
 }
 section,
 .alert{
-	margin-bottom: 2.188rem;
+	margin-bottom: 20px;
 }
 footer {
 	padding: 0.625rem 0.9375rem;
@@ -351,11 +453,13 @@ footer {
 	color: #fff; 
 }
 .icon-box > .icon > .image > .badge {
-	font-size: 85%;
-	padding: 0.375rem 0.5625rem;
+	font-size: 80%;
+	padding: 6px 5px;
 	position: absolute;
 	top: -7px;
 	right: 0;
+	width: 25px;
+	height: 25px;
 }
 .icon-box > .icon > .card { 
 	margin-top: -2.5rem;
@@ -377,6 +481,19 @@ footer {
 	border: 0;
 }
 
-.btn {
-	cursor: pointer;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
