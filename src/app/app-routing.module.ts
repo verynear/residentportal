@@ -9,7 +9,6 @@ import { StatusComponent } from './pages/status/status.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { ApplicantComponent } from './pages/applicant/applicant.component';
 import { UnitSelectionComponent } from './pages/unit-selection/unit-selection.component';
-import { NavigationComponent } from './components/navigation/navigation.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { PaymentsComponent } from './pages/payments/payments.component';
 import { MessagesComponent } from './pages/messages/messages.component';
@@ -23,7 +22,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'status', component: StatusComponent },
-  { path: 'applicant', component: ApplicantComponent, canActivate: [AuthGuard] },
+  { path: 'applicant', component: ApplicantComponent },
   { path: 'unit-selection', component: UnitSelectionComponent},
   {
     path: 'messages',
@@ -36,12 +35,9 @@ const routes: Routes = [
       { path: 'announcements', component: AnnouncementsComponent },
     ]
   },
-  { path: 'status', component: StatusComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
-
-
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
