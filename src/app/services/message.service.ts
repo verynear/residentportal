@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 import { Message } from '../models/message';
 import { PACKAGE_ROOT_URL } from '@angular/core/src/application_tokens';
 import { dashCaseToCamelCase } from '@angular/compiler/src/util';
-import { SortService } from '../helpers/sortable-table/sort.service';
+import { SortService } from '../components/sortable-table/sort.service';
 
 @Injectable()
 export class MessageService {
@@ -22,10 +22,11 @@ export class MessageService {
 
   // Helpers
   sortMessages (messages, criteria: MessageSearchCriteria): Message[] {
-     return messages.sort((a,b) => {
+     return messages.sort((a, b) => {
       return this.sortService.sortHelper(a, b, criteria);
     }
-  )};
+  ); }
+
 }
 
 class MessageSearchCriteria {

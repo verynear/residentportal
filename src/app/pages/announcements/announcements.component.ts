@@ -10,7 +10,7 @@ export class AnnouncementsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 }

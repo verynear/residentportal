@@ -23,7 +23,7 @@
               <section>
                                     
                 <div class="btn-group-vertical btn-block mail-nav">
-                  <a class="btn btn-default"><span class="badge badge-info">3</span><i class="fa fa-inbox"></i> Inbox</a>
+                  <a class="btn btn-default"><span class="badge badge-info">{{totalItems}}</span><i class="fa fa-inbox"></i> Inbox</a>
                 </div>
                 
               </section>
@@ -91,14 +91,15 @@
               <!-- Mailbox -->
               <section class="inbox">
                 <div class="table-responsive">
-                  <table class="table table-hover mailTable" sortable-table (sorted)="onSorted($event)">
+                  <table appSortableTable class="table table-hover mailTable" (sorted)="onSorted($event)">
                     <thead class="mailHead">
+                      <!-- CUSTOM ANGULAR4 SORT DIRECTIVES -->
                         <th> 
                             <input type="checkbox" [(ngModel)]="checkAll" (click)="selectAllMessages(checkAll)" name="checkbox">
                         </th>
-                        <th class="mailHeader" sortable-column="id" sort-direction="asc">Name</th>
-                        <th class="mailHeader" sortable-column="subject">Message</th>
-                        <th class="mailHeader" sortable-column="createDate">Date</th>
+                        <th class="noPadding"><bl-th columnName="id" displayName="Name"></bl-th></th>
+                        <th class="noPadding"><bl-th columnName="subject" displayName="Subject"></bl-th></th>
+                        <th class="noPadding"><bl-th columnName="createDate" displayName="Date"></bl-th></th>
                     </thead>
                     <tbody>
                       <tr *ngFor='let message of messages | slice:(page-1)*itemsPerPage:itemsPerPage*page' (click)="openMessage(message.id)">

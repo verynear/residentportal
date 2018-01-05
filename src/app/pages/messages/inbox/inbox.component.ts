@@ -14,10 +14,10 @@ export class InboxComponent implements OnInit {
   totalItems: number;
   page: number;
   checkAll: boolean;
-  
+
   constructor(public messageService: MessageService, config: NgbDropdownConfig) {
     // Default values for dropdowns.
-    config.autoClose = "outside";
+    config.autoClose = 'outside';
   }
 
   ngOnInit() {
@@ -39,14 +39,14 @@ export class InboxComponent implements OnInit {
   }
 
   selectAllMessages(checkAll) {
-    for (let message of this.messages) {
+    for (const message of this.messages) {
       message.selected = !checkAll;
     }
   }
 
-  // For sort event./ 
+  // For sort event./
   onSorted($event) {
-    console.log("Got Sort Event");
+    console.log('Got Sort Event');
     console.log($event);
     this.messages = this.messageService.sortMessages(this.messages, $event);
   }

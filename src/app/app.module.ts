@@ -26,7 +26,7 @@ import { AnnouncementsComponent } from './pages/announcements/announcements.comp
 import { ApplicantComponent } from './pages/applicant/applicant.component';
 import { UnitSelectionComponent } from './pages/unit-selection/unit-selection.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { SortableColumnComponent } from './helpers/sortable-table/sortable-column.component';
+import { SortableColumnComponent } from './components/sortable-table/sortable-column.component';
 
 // Interceptor
 import { AuthGuard } from './auth.guard';
@@ -44,11 +44,11 @@ import { MessageService } from './services/message.service';
 import { PaymentService } from './services/payment.service';
 import { MaintenanceService } from './services/maintenance.service';
 import { LoginService } from './services/login.service';
-import { SessionService } from './services/session.service'; 
-import { SortService } from './helpers/sortable-table/sort.service';
+import { SessionService } from './services/session.service';
+import { SortService } from './components/sortable-table/sort.service';
 
-//Directives 
-import { SortableTableDirective } from './helpers/sortable-table/sortable-table.directive';
+// Directives
+import { SortableTableDirective } from './components/sortable-table/sortable-table.directive';
 
 
 @NgModule({
