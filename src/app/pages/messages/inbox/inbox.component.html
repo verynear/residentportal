@@ -91,8 +91,8 @@
               <!-- Mailbox -->
               <section class="inbox">
                 <div class="table-responsive">
-                  <table appSortableTable class="table table-hover mailTable" (sorted)="onSorted($event)">
-                    <thead class="mailHead">
+                  <table appSortableTable class="table table-hover" (sorted)="onSorted($event)">
+                    <thead class="thead-light">
                       <!-- CUSTOM ANGULAR4 SORT DIRECTIVES -->
                         <th> 
                             <input type="checkbox" [(ngModel)]="checkAll" (click)="selectAllMessages(checkAll)" name="checkbox">
