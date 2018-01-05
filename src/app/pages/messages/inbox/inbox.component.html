@@ -97,9 +97,9 @@
                         <th> 
                             <input type="checkbox" [(ngModel)]="checkAll" (click)="selectAllMessages(checkAll)" name="checkbox">
                         </th>
-                        <th class="noPadding"><bl-th columnName="id" displayName="Name"></bl-th></th>
-                        <th class="noPadding"><bl-th columnName="subject" displayName="Subject"></bl-th></th>
-                        <th class="noPadding"><bl-th columnName="createDate" displayName="Date"></bl-th></th>
+                        <th class="noPadding"><app-th columnName="id" displayName="Name"></app-th></th>
+                        <th class="noPadding"><app-th columnName="subject" displayName="Subject"></app-th></th>
+                        <th class="noPadding"><app-th columnName="createDate" displayName="Date"></app-th></th>
                     </thead>
                     <tbody>
                       <tr *ngFor='let message of messages | slice:(page-1)*itemsPerPage:itemsPerPage*page' (click)="openMessage(message.id)">

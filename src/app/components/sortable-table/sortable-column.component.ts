@@ -1,12 +1,9 @@
-/* tslint:disable */
-/* To-fix:  Angular wants all selectors to have a dash (bl-th or app-th), but making a dash in this case will make HTML not recognize the <th> element */
-
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { SortService } from './sort.service';
 
 @Component({
-    selector: 'bl-th',
+    selector: 'app-th',
     templateUrl: './sortable-column.component.html',
     styleUrls: ['./sortable-column.component.scss']
 })
