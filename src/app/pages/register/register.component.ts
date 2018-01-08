@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
     password: FormControl;
     birthdate: FormControl;
 
-    // For Custom Themes 
+    // For Custom Themes
     logo: string;
     aptName: string;
     unitID: number;
@@ -78,6 +78,6 @@ export class RegisterComponent implements OnInit {
     }
 
     backToUnitSelection() {
-        window.location.href="http://www.teamwebawesome.com/#FloorPlans";
+        window.location.href = 'http://www.teamwebawesome.com/#FloorPlans';
     }
 }
