@@ -1,35 +1,50 @@
 <div class="container">
     <div class="col-md-6 offset-md-3">
-        <div class="card">
-            <h5 class="card-header">Create an Account</h5>
+        <!-- After Successful Registration -->
+        <div class="card" *ngIf="submitSuccess">
+            <img class="card-img-top" src="assets/images/treehouse_2.png">
+            <h5 class="card-header">
+                Success
+            </h5>
             <div class="card-body">
-            <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
+                Thank you. Your application is being reviewed.  
+            </div>
+            <div class="card-footer text-center">
+                <button class="btn btn-primary backBtn" (click)="backToUnitSelection()"><i class="fa fa-caret-left"></i> Back </button>
+            </div> 
+        </div>
+
+        <!-- Registration -->
+        <div class="card" *ngIf="!submitSuccess">
+            <img class="card-img-top" src="assets/images/treehouse_2.png">
+            <h5 class="card-header"><i>New Applicant</i></h5>
+            <div class="card-body">
+            <form [formGroup]="registerForm" #f="ngForm" (ngSubmit)="register() && registerForm.valid" name="form" novalidate>
 
             <div class="form-group">
                 <label>First Name: </label>
                 <input type="text" class="form-control" formControlName="firstName" 
-                [ngClass]="{'is-invalid': !firstName.valid && firstName.dirty}" required>     
+                [ngClass]="{'is-invalid': !firstName.valid && f.submitted}" required>     
                 <div class="invalid-feedback" *ngIf="!firstName.valid">First Name is required</div>
             </div>
 
             <div class="form-group">
                 <label>Last Name: </label>
                 <input type="text" class="form-control" formControlName="lastName" 
-                [ngClass]="{'is-invalid': !lastName.valid && lastName.dirty}" required>
+                [ngClass]="{'is-invalid': !lastName.valid && f.submitted}" required>
                 <div class="invalid-feedback" *ngIf="!lastName.valid"> Last Name is required</div>
             </div>
 
             <div class="form-group">
                 <label>Email: </label>
                 <input type="email" class="form-control" formControlName="email" 
-                [ngClass]="{'is-invalid': !email.valid && email.touched}" required>
-                <div class="invalid-feedback" *ngIf="!email.valid">Email is required</div>
+                [ngClass]="{'is-invalid': !email.valid && f.submitted}" required>
+                <div class="invalid-feedback" *ngIf="!email.valid">Email is invalid</div>
             </div>
-
             <div class="form-group">
                 <label>Password: </label>
                 <input type="password" class="form-control" formControlName="password" 
-                [ngClass]="{'is-invalid': !password.valid && password.dirty}" required>
+                [ngClass]="{'is-invalid': !password.valid && f.submitted}" required>
                 <div class="invalid-feedback" *ngIf="!password.valid">Password is required</div>
             </div>
 
@@ -43,17 +58,15 @@
                   </div>
                 </div>
             </div>
-
-            <div class="form-group pull-left">
-                <button [disabled]="loading || !registerForm.valid" class="btn btn-primary">Submit</button>
+            <hr>
+            <div class="form-group float-left">
+                <button type="button" class="btn btn-primary backBtn" (click)="backToUnitSelection(); f.reset()"><i class="fa fa-caret-left"></i> Back </button>
+                <button type="submit" [disabled]="loading" class="btn btn-primary">Submit</button>
                 <i class="fa fa-spinner fa-spin" *ngIf="loading"></i>
             </div> 
-
             </form>
             </div>
         </div>
-        <button [routerLink]="['/login']" class="btn btn-link pull-right">Go to Login</button>
+        <small>&copy; 2018 BetterLeasing</small>
     </div>
 </div>
-
-
