@@ -21,12 +21,21 @@ export class RegisterComponent implements OnInit {
     password: FormControl;
     birthdate: FormControl;
 
+    // For Custom Themes
+    logo: string;
+    aptName: string;
+    unitID: number;
+
+    // For Success Splash upon user registration.
+    submitSuccess: boolean;
+
     constructor(private router: Router, private userService: UserService, private alertService: AlertService) {
     }
 
     ngOnInit() {
         this.createFormControls();
         this.createForm();
+        this.submitSuccess = false;
     }
 
     createFormControls() {
@@ -59,11 +68,16 @@ export class RegisterComponent implements OnInit {
         this.userService.create(user).subscribe(
             data => {
                 this.alertService.success('Registration successful', true);
-                this.router.navigate(['/login']);
+                this.submitSuccess = true;
+                // this.router.navigate(['/login']);
             },
             error => {
                 this.alertService.error(error);
                 this.loading = false;
             });
+    }
+
+    backToUnitSelection() {
+        window.location.href = 'http://www.teamwebawesome.com/#FloorPlans';
     }
 }
