@@ -14,6 +14,7 @@ import { PaymentsComponent } from './pages/payments/payments.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { InboxComponent } from './pages/messages/inbox/inbox.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
+import { MessageComponent } from './pages/messages/message/message.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'status', component: StatusComponent },
   { path: 'applicant', component: ApplicantComponent },
-  { path: 'unit-selection', component: UnitSelectionComponent},
+  { path: 'unit-selection', component: UnitSelectionComponent },
+  { path: 'announcements', component: AnnouncementsComponent },
   {
     path: 'messages',
     component: MessagesComponent,
@@ -32,7 +34,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/messages/inbox', pathMatch: 'full' },
       { path: 'inbox', component: InboxComponent },
-      { path: 'announcements', component: AnnouncementsComponent },
+      { path: 'view/:id', component: MessageComponent },
     ]
   },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

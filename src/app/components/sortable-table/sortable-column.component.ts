@@ -15,7 +15,7 @@ export class SortableColumnComponent implements OnInit, OnDestroy {
     @Input('displayName')
     displayName: string;
 
-    // The (data) valueI  for the column
+    // The (data) value for the column
     @Input('columnName')
     columnName: string;
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../../services/message.service';
 import { Message } from '../../../models/message';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inbox',
@@ -14,8 +15,9 @@ export class InboxComponent implements OnInit {
   totalItems: number;
   page: number;
   checkAll: boolean;
+  loading: boolean;
 
-  constructor(public messageService: MessageService, config: NgbDropdownConfig) {
+  constructor(private router: Router, public messageService: MessageService, config: NgbDropdownConfig) {
     // Default values for dropdowns.
     config.autoClose = 'outside';
   }
@@ -28,8 +30,10 @@ export class InboxComponent implements OnInit {
   }
 
   getMessages() {
+    this.loading = true;
     this.messageService.get().subscribe(
       data => {
+        this.loading = false;
         this.messages = data;
         this.totalItems = data.length;
       },
@@ -46,14 +50,11 @@ export class InboxComponent implements OnInit {
 
   // For sort event./
   onSorted($event) {
-    console.log('Got Sort Event');
-    console.log($event);
     this.messages = this.messageService.sortMessages(this.messages, $event);
   }
 
   openMessage(id) {
-    console.log('You\'ve Opened' + id);
-    // TODO: Create a new component for reading messages.
+    this.router.navigate(['/messages/view', id]);
   }
 
 }
