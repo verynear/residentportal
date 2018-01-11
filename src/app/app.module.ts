@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProgressSpinnerModule, ProgressBarModule } from 'primeng/primeng';
 
 // App Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -49,6 +50,7 @@ import { SortService } from './components/sortable-table/sort.service';
 
 // Directives
 import { SortableTableDirective } from './components/sortable-table/sortable-table.directive';
+import { MessageComponent } from './pages/messages/message/message.component';
 
 
 @NgModule({
@@ -59,6 +61,8 @@ import { SortableTableDirective } from './components/sortable-table/sortable-tab
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    ProgressSpinnerModule,
+    ProgressBarModule,
     NgbModule.forRoot()
   ],
   declarations: [
@@ -78,7 +82,8 @@ import { SortableTableDirective } from './components/sortable-table/sortable-tab
     NavigationComponent,
     InboxComponent,
     SortableColumnComponent,
-    SortableTableDirective
+    SortableTableDirective,
+    MessageComponent
   ],
   providers: [
       {
