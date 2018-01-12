@@ -18,43 +18,43 @@
     </li>
     <li class="nav-item"><a routerLink="/login" [queryParams]="{out: '1'}" class="nav-link"><i class="fa fa-power-off"></i> Logout</a></li>
   </ul>
+</div>
+
+<!-- Sticky Left Nav -->
+<div class="nav-side-menu">
+  <div class="user-logo">
+    <a href="#" class="navbar-brand">
+      <img *ngIf="rentalSite" [src]="rentalSite.logoUrl" alt="BetterLeasing" [title]="rentalSite.name">
+    </a>
+    <i class="fa fa-bars fa-2x toggle-btn" (click)="isCollapsed = !isCollapsed"></i>
   </div>
 
-  
-  <!-- Sticky Left Nav -->
-  <div class="nav-side-menu">
-    <div class="user-logo">
-      <a href="#" class="navbar-brand"><img src="assets/images/logo-demo.png" alt="BetterLeasing"></a>
-      <i class="fa fa-bars fa-2x toggle-btn" (click)="isCollapsed = !isCollapsed"></i>
-    </div>
-  
-    <div class="menu-list">
-      
-      <ul id="menu-content" class="menu-content collapse out" [ngbCollapse]="isCollapsed">
-        <li routerLink="/dashboard" routerLinkActive="active">
-          <a><i class="fa fa-dashboard"></i> Dashboard</a>
-        </li>
-        <li routerLink="/applicant" routerLinkActive="active">
-          <a><i class="fa fa-user"></i> Applicants</a>
-        </li>
-        <li routerLink="/payment" routerLinkActive="active">
-          <a><i class="fa fa-dollar"></i> Payments</a>
-        </li>
-        <li routerLink="/maintenance" routerLinkActive="active"> 
-          <a><i class="fa fa-wrench"></i> Maintenance</a>
-        </li>
-        <li routerLink="/messages" data-toggle="collapse" data-target="#products" class="collapsed">
-          <a><i class="fa fa-comments"></i> Message Center <span class="arrow"></span></a>
-        </li>
-        <ul class="sub-menu collapse" routerLinkActive="show">
-          <li routerLink="/messages/inbox" routerLinkActive="active"><a><i class="fa fa-envelope"></i> Mailbox</a></li>
-          <li routerLink="/announcements" routerLinkActive="active"><a><i class="fa fa-bullhorn"></i> Announcements</a></li>
-        </ul>
-        <li routerLink="/my-account" routerLinkActive="active">
-          <a><i class="fa fa-id-card-o"></i> My Account</a>
-        </li>
-      </ul><!-- /.menu-list -->
-     </div>
-  </div> 
+  <div class="menu-list">
 
-  
+    <ul id="menu-content" class="menu-content collapse out" [ngbCollapse]="isCollapsed">
+      <li routerLink="/dashboard" routerLinkActive="active">
+        <a><i class="fa fa-dashboard"></i> Dashboard</a>
+      </li>
+      <li routerLink="/applicant" routerLinkActive="active">
+        <a><i class="fa fa-user"></i> Applicants</a>
+      </li>
+      <li routerLink="/payment" routerLinkActive="active">
+        <a><i class="fa fa-dollar"></i> Payments</a>
+      </li>
+      <li routerLink="/maintenance" routerLinkActive="active">
+        <a><i class="fa fa-wrench"></i> Maintenance</a>
+      </li>
+      <li routerLink="/messages" data-toggle="collapse" data-target="#products" class="collapsed">
+        <a><i class="fa fa-comments"></i> Message Center <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" routerLinkActive="show">
+        <li routerLink="/messages/inbox" routerLinkActive="active"><a><i class="fa fa-envelope"></i> Mailbox</a></li>
+        <li routerLink="/announcements" routerLinkActive="active"><a><i class="fa fa-bullhorn"></i> Announcements</a></li>
+      </ul>
+      <li routerLink="/my-account" routerLinkActive="active">
+        <a><i class="fa fa-id-card-o"></i> My Account</a>
+      </li>
+    </ul><!-- /.menu-list -->
+   </div>
+</div>
+
