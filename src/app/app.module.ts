@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProgressSpinnerModule, ProgressBarModule } from 'primeng/primeng';
+import { ProgressSpinnerModule, ProgressBarModule, CheckboxModule } from 'primeng/primeng';
 
 // App Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -51,6 +51,7 @@ import { SortService } from './components/sortable-table/sort.service';
 // Directives
 import { SortableTableDirective } from './components/sortable-table/sortable-table.directive';
 import { MessageComponent } from './pages/messages/message/message.component';
+import { CheckboxComponent } from './components/checkbox/checkbox.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { MessageComponent } from './pages/messages/message/message.component';
     AppRoutingModule,
     ProgressSpinnerModule,
     ProgressBarModule,
+    CheckboxModule,
     NgbModule.forRoot()
   ],
   declarations: [
@@ -83,7 +85,8 @@ import { MessageComponent } from './pages/messages/message/message.component';
     InboxComponent,
     SortableColumnComponent,
     SortableTableDirective,
-    MessageComponent
+    MessageComponent,
+    CheckboxComponent
   ],
   providers: [
       {

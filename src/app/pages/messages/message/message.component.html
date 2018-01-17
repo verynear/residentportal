@@ -10,19 +10,17 @@
               Message ID: {{id}}
             </p>
             <p>  
-              <strong>Treetop Top Village Apartment<br>
-                <small>12/20/2017</small>
+              <strong>{{message.subject}}<br>
+                <small>{{message.createDate | date}}</small>
               </strong>
             </p>
           
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              {{message.message}}
             </p>
             
-            <p>Best Regards,<br>
-              
-              Treetop Village Apartments</p>
+            <!-- <p>Best Regards,<br>
+              Treetop Village Apartments</p> -->
           </td>
         </tr>
       </tbody>
