@@ -51,7 +51,8 @@ import { SortService } from './components/sortable-table/sort.service';
 // Directives
 import { SortableTableDirective } from './components/sortable-table/sortable-table.directive';
 import { MessageComponent } from './pages/messages/message/message.component';
-import { CheckboxComponent } from './components/checkbox/checkbox.component';
+import { RentalService } from './services/rental.service';
+
 
 
 @NgModule({
@@ -85,30 +86,30 @@ import { CheckboxComponent } from './components/checkbox/checkbox.component';
     InboxComponent,
     SortableColumnComponent,
     SortableTableDirective,
-    MessageComponent,
-    CheckboxComponent
+    MessageComponent
   ],
   providers: [
-      {
-        provide: HTTP_INTERCEPTORS,
-        useValue: AuthHeaderInterceptor.getInstance(),
-        multi: true,
-      },
-      AuthGuard,
-      AlertService,
-      ApplicantService,
-      AuthenticationService,
-      UserService,
-      StatusService,
-      BaseRequestOptions,
-      MessageService,
-      PaymentService,
-      MaintenanceService,
-      AnnouncementService,
-      LoginService,
-      SessionService,
-      SortService,
-      AUTH_HEADER_INTERCEPTOR_PROVIDER
+    {
+      provide: HTTP_INTERCEPTORS,
+      useValue: AuthHeaderInterceptor.getInstance(),
+      multi: true,
+    },
+    AuthGuard,
+    AlertService,
+    ApplicantService,
+    AuthenticationService,
+    UserService,
+    StatusService,
+    BaseRequestOptions,
+    MessageService,
+    PaymentService,
+    MaintenanceService,
+    AnnouncementService,
+    LoginService,
+    SessionService,
+    SortService,
+    RentalService,
+    AUTH_HEADER_INTERCEPTOR_PROVIDER
   ],
   bootstrap: [AppComponent]
 })
