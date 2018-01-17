@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProgressSpinnerModule, ProgressBarModule } from 'primeng/primeng';
+import { ProgressSpinnerModule, ProgressBarModule, CheckboxModule } from 'primeng/primeng';
 
 // App Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -54,6 +54,7 @@ import { MessageComponent } from './pages/messages/message/message.component';
 import { RentalService } from './services/rental.service';
 
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -64,6 +65,7 @@ import { RentalService } from './services/rental.service';
     AppRoutingModule,
     ProgressSpinnerModule,
     ProgressBarModule,
+    CheckboxModule,
     NgbModule.forRoot()
   ],
   declarations: [

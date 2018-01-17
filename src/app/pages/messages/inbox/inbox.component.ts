@@ -3,6 +3,7 @@ import { MessageService } from '../../../services/message.service';
 import { Message } from '../../../models/message';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
+import { CheckboxModule } from 'primeng/primeng';
 
 @Component({
   selector: 'app-inbox',
@@ -16,6 +17,7 @@ export class InboxComponent implements OnInit {
   page: number;
   checkAll: boolean;
   loading: boolean;
+  test: boolean;
 
   constructor(private router: Router, public messageService: MessageService, config: NgbDropdownConfig) {
     // Default values for dropdowns.
@@ -26,12 +28,12 @@ export class InboxComponent implements OnInit {
     this.itemsPerPage = 25;   // Number of Mail Items per page.
     this.page = 1;            // Starting Page
     this.checkAll = false;    // By Default, all mail items unchecked.
-    this.getMessages();       // Get Messages.
+    this.getAllMessages();       // Get Messages.
   }
 
-  getMessages() {
+  getAllMessages() {
     this.loading = true;
-    this.messageService.get().subscribe(
+    this.messageService.getAll().subscribe(
       data => {
         this.loading = false;
         this.messages = data;
@@ -42,10 +44,13 @@ export class InboxComponent implements OnInit {
       });
   }
 
-  selectAllMessages(checkAll) {
+  selectAllMessages() {
+    console.log('select all messages');
     for (const message of this.messages) {
-      message.selected = !checkAll;
+      message.selected = this.checkAll;
     }
+    console.log(this.checkAll);
+    console.log(this.messages);
   }
 
   // For sort event./

@@ -15,9 +15,16 @@ export class MessageService {
   constructor(private http: HttpClient, private sortService: SortService) {
   }
 
-  // HTTP
-  get() {
+  getAll() {
     return this.http.get<Message[]>(this.baseURL + '/message');
+  }
+
+  get(id) {
+    return this.http.get<Message[]>(this.baseURL + '/message/' + id);
+  }
+
+  setRead(id) {
+    return this.http.put(this.baseURL + '/message/' + id, id);
   }
 
   // Helpers
