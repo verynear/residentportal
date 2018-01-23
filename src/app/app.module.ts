@@ -52,6 +52,7 @@ import { SortService } from './components/sortable-table/sort.service';
 import { SortableTableDirective } from './components/sortable-table/sortable-table.directive';
 import { MessageComponent } from './pages/messages/message/message.component';
 import { RentalService } from './services/rental.service';
+import { ConfigService } from './services/config.service';
 
 
 
@@ -98,6 +99,7 @@ import { RentalService } from './services/rental.service';
     AlertService,
     ApplicantService,
     AuthenticationService,
+    ConfigService,
     UserService,
     StatusService,
     BaseRequestOptions,

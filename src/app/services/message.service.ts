@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 import { Message } from '../models/message';
 import { PACKAGE_ROOT_URL } from '@angular/core/src/application_tokens';
 import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { SortService } from '../components/sortable-table/sort.service';
+import { ConfigService } from './config.service';
 
 @Injectable()
 export class MessageService {
 
-  private baseURL = environment.api.baseUrl;
+  private baseURL: string;
   messages: Array<Message>;
 
-  constructor(private http: HttpClient, private sortService: SortService) {
+  constructor(private http: HttpClient,
+              private config: ConfigService,
+              private sortService: SortService) {
+
+    this.baseURL = config.get().api.baseURL;
   }
 
   getAll() {
