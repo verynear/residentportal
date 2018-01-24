@@ -15,7 +15,8 @@ export class ConfigService {
 
     this.data = {
       api: {
-        baseURL: `${location.protocol}//api.${host}/resnet`
+        // baseURL: `${location.protocol}//api.${host}/resnet`
+        baseURL: `${location.protocol}//api.devdemo.betterleasing.com/resnet`
       },
       customer: {
         subdomain: site,
