@@ -2,4 +2,9 @@
     <app-navigation></app-navigation>
 </div>
 
-<router-outlet></router-outlet>
+
+<div [ngClass]="{ 'main' : hasAuth }">
+    <div [ngClass]="{ 'main-content' : hasAuth }">
+        <router-outlet></router-outlet>    
+    </div>    
+</div> 

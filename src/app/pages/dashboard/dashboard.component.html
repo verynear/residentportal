@@ -1,6 +1,3 @@
-<div id="main">
-	<!-- Main Content Area -->
-	<div class="main-content">
 		<div class="container-fluid">
 			<h5><i class="fa fa-user"></i> Welcome, {{currentUser.firstname}}<br><small>Treetop Village Apartment Homes / 112A Madison St.</small></h5>
 			<hr>
@@ -9,82 +6,16 @@
 			<div class="row">
 				<!-- Left Content Container -->
 				<div class="col-md-9">
-					
-					<!-- <div class="alert alert-primary alert-dismissible fade show" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true"><i class="fa fa-times"></i></span>
-						</button>
-						<h4><i class="fa fa-telegram"></i> Lorem Ipsum!</h4>
-						Lorem ipsum dolor sit amet...
-						<hr>
-						<a href="#" class="btn btn-primary">Make Payment</a>
-					</div> -->
 
-					<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<div class="alert alert-warning alert-dismissible fade show" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true"><i class="fa fa-times"></i></span>
 						</button>
 						<h4><i class="fa fa-telegram"></i> Alert</h4>
 						Your payment is overdue...
 						<hr>
-						<a href="#" class="btn btn-danger">Make Payment</a>
-					</div>			
-
-					<!-- For future, these are all of our alerts -->
-					<!-- <div class="alert alert-primary alert-dismissible fade show" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true"><i class="fa fa-times"></i></span>
-						</button>
-						<h4><i class="fa fa-telegram"></i> Lorem Ipsum!</h4>
-						Lorem ipsum dolor sit amet...
-						<hr>
-						<a href="#" class="btn btn-primary">Make Payment</a>
-					</div>
-					<div class="alert alert-secondary alert-dismissible fade show" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true"><i class="fa fa-times"></i></span>
-						</button>
-						<h4><i class="fa fa-telegram"></i> Lorem Ipsum!</h4>
-						Lorem ipsum dolor sit amet...
-						<hr>
-						<a href="#" class="btn btn-secondary">Make Payment</a>
-					</div>
-					<div class="alert alert-danger alert-dismissible fade show" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true"><i class="fa fa-times"></i></span>
-						</button>
-						<h4><i class="fa fa-telegram"></i> Lorem Ipsum!</h4>
-						Lorem ipsum dolor sit amet...
-						<hr>
-						<a href="#" class="btn btn-danger">Make Payment</a>
-					</div>
-					<div class="alert alert-warning alert-dismissible fade show" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true"><i class="fa fa-times"></i></span>
-						</button>
-						<h4><i class="fa fa-telegram"></i> Lorem Ipsum!</h4>
-						Lorem ipsum dolor sit amet...
-						<hr>
 						<a href="#" class="btn btn-warning">Make Payment</a>
-					</div>
-					<div class="alert alert-success alert-dismissible fade show" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true"><i class="fa fa-times"></i></span>
-						</button>
-						<h4><i class="fa fa-telegram"></i> Lorem Ipsum!</h4>
-						Lorem ipsum dolor sit amet...
-						<hr>
-						<a href="#" class="btn btn-success">Make Payment</a>
-					</div>
-					<div class="alert alert-info alert-dismissible fade show" role="alert">
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true"><i class="fa fa-times"></i></span>
-						</button>
-						<h4><i class="fa fa-telegram"></i> Lorem Ipsum!</h4>
-						Lorem ipsum dolor sit amet...
-						<hr>
-						<a href="#" class="btn btn-info">Make Payment</a>
-					</div> -->
+					</div>			
 					
 					<section id="quick-info">
 						<div class="row">
@@ -138,27 +69,10 @@
 							</div>
 						</div>
 					</section>
-					
-					<section>
-						<h2>Announcements</h2>
-						<table class="table">
-							<tbody>
-								<tr>
-									<td>
-										<h4>Fall Winter Cleanup<br><small>10/21/2017</small></h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<h4>Free Breakfast in Lobby Area<br><small>starting 12/01/2017</small></h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</section>
-				</div><!--/Left Content Container -->
+
+					<app-announcements></app-announcements>
+
+			</div><!--/Left Content Container -->
 				<!-- Right Content Container -->
 				<div class="col-md-3">
 					<!-- Recent Activity -->
@@ -198,7 +112,3 @@
 			</div><!--/.row -->
 			
 		</div>
-	</div>
-	
-
-</div>

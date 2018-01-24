@@ -1,34 +1,37 @@
-<ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" class="float-right"></ngb-pagination>
 
-<section class="inbox" *ngIf="!loading">
-  <div class="table">
-    <table appSortableTable class="table table-hover" (sorted)="onSorted($event)">
-      <thead class="thead-light">
-        <!-- CUSTOM ANGULAR4 SORT DIRECTIVES -->
-          <th> 
-            <p-checkbox name="groupname" value="val1" [(ngModel)]="checkAll" (click)="selectAllMessages()" binary="true"></p-checkbox>
-          </th>
-          <th class="noPadding"><app-th columnName="id" displayName="Name"></app-th></th>
-          <th class="noPadding"><app-th columnName="subject" displayName="Subject"></app-th></th>
-          <th class="noPadding"><app-th columnName="createDate" displayName="Date"></app-th></th>
-      </thead>
-      <tbody>
-        <tr *ngFor='let message of messages | slice:(page-1)*itemsPerPage:itemsPerPage*page' (click)="openMessage(message.id)">
-          <td style="width: 25px">
-              <p-checkbox name="groupname" value="val1" [(ngModel)]="message.selected" binary="true"></p-checkbox>
-          </td>
-          <td class="nowrap"> <b>John Wayne</b> </td> 
-          <td class="nowrap">
-              <span class="previewTitle"> {{message.subject}} </span> 
-              <span class="previewMessage">- {{message.message}} </span> 
-          </td> 
-          <td class="nowrap"><b>{{message.createDate | date}}</b> </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+<div id="marginFix">
+  <ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" class="float-right"></ngb-pagination>
 
-<ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" class="float-right"></ngb-pagination>
-              
-<p-progressSpinner class="spinner" *ngIf="loading" [style]="{width: '75px', height: '75px'}" strokeWidth="4" animationDuration="1s" mode="indeterminate"></p-progressSpinner>
+  <section class="inbox" *ngIf="!loading">
+    <div class="table">
+      <table appSortableTable class="table" (sorted)="onSorted($event)">
+        <thead class="thead-light">
+          <!-- CUSTOM ANGULAR4 SORT DIRECTIVES -->
+            <th> 
+              <p-checkbox name="groupname" value="val1" [(ngModel)]="checkAll" (click)="selectAllMessages()" binary="true"></p-checkbox>
+            </th>
+            <th><app-th columnName="id" displayName="Name"></app-th></th>
+            <th><app-th columnName="subject" displayName="Subject"></app-th></th>
+            <th><app-th columnName="createDate" displayName="Date"></app-th></th>
+        </thead>
+        <tbody>
+          <tr *ngFor='let message of messages | slice:(page-1)*itemsPerPage:itemsPerPage*page' (click)="openMessage(message.id)">
+            <td style="width: 25px">
+                <p-checkbox name="groupname" value="val1" [(ngModel)]="message.selected" binary="true"></p-checkbox>
+            </td>
+            <td class="nowrap"> <b>John Wayne</b> </td> 
+            <td class="nowrap">
+                <span class="previewTitle"> {{message.subject}} </span> 
+                <span class="previewMessage">- {{message.message}} </span> 
+            </td> 
+            <td class="nowrap"><b>{{message.createDate | date}}</b> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" class="float-right"></ngb-pagination>
+                
+  <p-progressSpinner class="spinner" *ngIf="loading" [style]="{width: '75px', height: '75px'}" strokeWidth="4" animationDuration="1s" mode="indeterminate"></p-progressSpinner>
+</div>

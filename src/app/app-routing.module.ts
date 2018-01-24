@@ -19,13 +19,13 @@ import { MessageComponent } from './pages/messages/message/message.component';
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'payment', component: PaymentsComponent, canActivate: [AuthGuard] },
-  { path: 'maintenance', component: MaintenanceComponent },
+  { path: 'maintenance', component: MaintenanceComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'status', component: StatusComponent },
+  { path: 'status', component: StatusComponent, canActivate: [AuthGuard] },
   { path: 'applicant', component: ApplicantComponent },
   { path: 'unit-selection', component: UnitSelectionComponent },
-  { path: 'announcements', component: AnnouncementsComponent },
+  { path: 'announcements', component: AnnouncementsComponent, canActivate: [AuthGuard] },
   {
     path: 'messages',
     component: MessagesComponent,
