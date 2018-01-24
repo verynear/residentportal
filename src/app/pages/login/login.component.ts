@@ -8,6 +8,7 @@ import { environment } from '../../../environments/environment';
 @Component({
     moduleId: module.id.toString(),
     templateUrl: './login.component.html',
+    selector: 'app-login',
     styleUrls: ['./login.component.scss']
 })
 

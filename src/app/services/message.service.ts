@@ -16,7 +16,7 @@ export class MessageService {
   }
 
   getAll() {
-    return this.http.get<Message[]>(this.baseURL + '/message');
+    return this.http.get<Message[]>(this.baseURL + '/messages');
   }
 
   get(id) {

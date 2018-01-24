@@ -1,13 +1,8 @@
 
-
-
-<div id="main">
     <!-- Main Content Area -->
-    <div class="main-content" [ngClass]="{'my-class': step=='step1'}">
+    <div [ngClass]="{'my-class': step=='step1'}">
         <div class="container-fluid">
-            <h1>Mailbox
-                <small>Message Center</small>
-            </h1>
+            <h1>Messages</h1>
 
             <section class="top">
                 <form>
@@ -29,7 +24,7 @@
                                 <div class="btn-group-vertical btn-block mail-nav">
                                     <a class="btn btn-default">
                                         <span class="badge badge-info">test</span>
-                                        <i class="fa fa-inbox"></i> Inbox</a>
+                                        <i class="fa fa-inbox"></i> Incoming </a>
                                 </div>
                             </section>
                         </div>
@@ -112,7 +107,6 @@
         </div>
     </div>
 
-    <footer>
-            <small>&copy; 2018 BetterLeasing</small>
-        </footer>
-    </div>
+<footer>
+    <small>&copy; 2018 BetterLeasing</small>
+</footer>

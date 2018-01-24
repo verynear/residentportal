@@ -36,7 +36,7 @@ export class InboxComponent implements OnInit {
     this.messageService.getAll().subscribe(
       data => {
         this.loading = false;
-        this.messages = data;
+        this.messages = data['messages'];
         this.totalItems = data.length;
       },
       error => {
@@ -49,8 +49,6 @@ export class InboxComponent implements OnInit {
     for (const message of this.messages) {
       message.selected = this.checkAll;
     }
-    console.log(this.checkAll);
-    console.log(this.messages);
   }
 
   // For sort event./

@@ -100,3 +100,40 @@ tr {
 .nowrap {
 	white-space: nowrap;
 }
+
+/*
+  As browser width decreases, change padding in table.
+*/
+@media screen and (max-width: 745px) {
+	td {
+	  padding: .1rem;
+	}
+	th {
+	  padding: .1rem;
+	}
+  }
+  
+@media screen and (max-width: 1182px) {
+	td {
+		padding: .2rem;
+	}
+	th {
+		padding: .2rem;
+	}
+}
+
+#marginFix {
+	margin-top: -50px;
+}
+
+
+// .table {
+// 	max-width: none;
+// 	table-layout: fixed;
+// 	word-wrap: break-word;
+//   }
+  
+// td, th {
+// white-space: nowrap;
+// overflow-x: hidden;
+// }
