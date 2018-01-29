@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  version: '24.1.11'  // Version number of app. Format: (Year.Month.Day)
+  version: '29.1.11'  // Version number of app. Format: (Year.Month.Day)
 };

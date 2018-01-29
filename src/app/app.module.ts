@@ -57,6 +57,7 @@ import { ConfigService } from './services/config.service';
 // Pipes
 import { HtmlToPlainPipe } from './pipes/html-to-plain.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { ShortenPipe } from './pipes/shorten.pipe';
 
 
 
@@ -94,7 +95,8 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     MessageComponent,
     HtmlToPlainPipe,
     SafeHtmlPipe,
-    ActivityComponent
+    ActivityComponent,
+    ShortenPipe
   ],
   providers: [
     {

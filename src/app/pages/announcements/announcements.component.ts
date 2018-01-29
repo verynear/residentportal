@@ -18,6 +18,10 @@ export class AnnouncementsComponent implements OnInit {
   @Input('pageSize')
   pageSize = 8;
 
+  // Whether or not to include pagination.
+  @Input('paginate')
+  paginate = true;
+
   constructor(public announcementService: AnnouncementService) {
   }
 
