@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AnnouncementService } from '../../services/announcement.service';
 
 @Component({
@@ -11,15 +11,20 @@ export class AnnouncementsComponent implements OnInit {
   loading: boolean;
   announcements: Array<any>;
   totalItems: number;
-  itemsPerPage: number;      // The number of emails per page.
+  itemsPerPage: number;      // The number of announcements per page.
   page: number;
 
-  constructor(public announcementService: AnnouncementService) { }
+  // The number of announcements to display
+  @Input('pageSize')
+  pageSize = 8;
+
+  constructor(public announcementService: AnnouncementService) {
+  }
 
   ngOnInit() {
     this.getAllAnnouncements();
-    this.itemsPerPage = 3;   // Number of Mail Items per page.
-    this.page = 1;            // Starting Page
+    this.itemsPerPage = this.pageSize;    // Number of announcements per page.
+    this.page = 1;                        // Starting Page
   }
 
   getAllAnnouncements() {

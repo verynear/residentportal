@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, OnDestroy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from '../../../services/message.service';
+import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 
 @Component({
   selector: 'app-message',
@@ -43,9 +44,6 @@ export class MessageComponent implements OnInit, OnDestroy {
   setRead(id) {
     this.messageService.setRead(id).subscribe(
       data => {
-        console.log('Message Read.');
-        console.log('data:');
-        console.log(data);
       },
       error => {
         console.log('Error');

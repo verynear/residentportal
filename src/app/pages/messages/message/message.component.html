@@ -5,22 +5,14 @@
       <tbody>
         <tr>
           <td>
-
-            <p>
-              Message ID: {{id}}
-            </p>
             <p>  
               <strong>{{message.subject}}<br>
                 <small>{{message.createDate | date}}</small>
               </strong>
             </p>
-          
             <p>
-              {{message.message}}
+              <span [innerHTML]="message.message | safeHtml"></span>
             </p>
-            
-            <!-- <p>Best Regards,<br>
-              Treetop Village Apartments</p> -->
           </td>
         </tr>
       </tbody>

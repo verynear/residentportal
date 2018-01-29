@@ -43,16 +43,6 @@ tr {
 	margin-top: 4px;
 }
 
-::ng-deep .page-item.active .page-link {
-	color: black;
-	background-color: #efefef;
-	border: 1px solid #ddd;
-}
-
-::ng-deep .page-link {
-	color: black;
-}	
-
 .previewMessage {
 	opacity: .75;
 	width: 15em;
@@ -122,18 +112,34 @@ tr {
 	}
 }
 
+tr:hover {
+	background-color: #f2f2f2;
+}
+
 #marginFix {
 	margin-top: -50px;
 }
 
 
-// .table {
-// 	max-width: none;
-// 	table-layout: fixed;
-// 	word-wrap: break-word;
-//   }
-  
-// td, th {
-// white-space: nowrap;
-// overflow-x: hidden;
-// }
+::ng-deep .page-item.active .page-link {
+	color: black;
+	background-color: #efefef;
+	border: 1px solid #ddd;
+}
+
+::ng-deep .page-link {
+	color: black;
+}	
+
+.urgent {
+	position: absolute;
+	margin-top: 4px;
+	margin-left: 5px;
+	cursor: pointer;
+	color: green;
+}
+
+.ui-tooltip .ui-tooltip-text {
+	background-color: red !important;
+	color: #fff !important;
+}
