@@ -70,45 +70,13 @@
 						</div>
 					</section>
 
-					<app-announcements></app-announcements>
-
-			</div><!--/Left Content Container -->
-				<!-- Right Content Container -->
-				<div class="col-md-3">
-					<!-- Recent Activity -->
-					<div class="card">
-						<div class="card-header">
-							Recent Activity
-						</div>
-						<ul class="list-group list-group-flush">
-							<li class="list-group-item">
-								<h6><i class="fa fa-envelope float-right"></i>Messages<br><small>Community BBQ</small></h6>
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
-							</li>
-							<li class="list-group-item">
-								<h6><i class="fa fa-dollar float-right"></i>Payments</h6>
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
-							</li>
-							<li class="list-group-item">
-								<h6><i class="fa fa-wrench float-right"></i>Maintenance Requests</h6>
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
-							</li>
-							<li class="list-group-item">
-								<h6><i class="fa fa-envelope float-right"></i>Messages<br><small>Community BBQ</small></h6>
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
-							</li>
-							<li class="list-group-item">
-								<h6><i class="fa fa-wrench float-right"></i>Maintenance Requests</h6>
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
-							</li>
-							<li class="list-group-item">
-								<h6><i class="fa fa-envelope float-right"></i>Messages<br><small>Community BBQ</small></h6>
-								Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh...
-							</li>
-						</ul>
+					<app-announcements [pageSize]="4"></app-announcements>
+				</div>
+					<div class="col-md-3">
+						<!-- Recent Activity -->
+						<app-activity [pageSize]="2"></app-activity>
+						<a routerLink="/activity" routerLinkActive="active" class="btn btn-primary btn-sm btn-block">View More</a>
 					</div>
-					<a href="#" class="btn btn-primary btn-sm btn-block">View More</a>
-				</div><!--/Right Content Container -->
-			</div><!--/.row -->
+				</div>
 			
 		</div>

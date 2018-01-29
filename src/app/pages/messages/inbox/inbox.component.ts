@@ -3,7 +3,8 @@ import { MessageService } from '../../../services/message.service';
 import { Message } from '../../../models/message';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
-import { CheckboxModule } from 'primeng/primeng';
+import { CheckboxModule, TooltipModule } from 'primeng/primeng';
+import { HtmlToPlainPipe } from '../../../pipes/html-to-plain.pipe';
 
 @Component({
   selector: 'app-inbox',
@@ -37,7 +38,7 @@ export class InboxComponent implements OnInit {
       data => {
         this.loading = false;
         this.messages = data['messages'];
-        this.totalItems = data.length;
+        this.totalItems = data['messages'].length;
       },
       error => {
         console.log('Error');

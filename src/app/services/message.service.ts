@@ -20,11 +20,11 @@ export class MessageService {
   }
 
   getAll() {
-    return this.http.get<Message[]>(this.baseURL + '/messages');
+    return this.http.get<Message[]>(this.baseURL + '/messages?page=0&size=100');
   }
 
   get(id) {
-    return this.http.get<Message[]>(this.baseURL + '/message/' + id);
+    return this.http.get<Message[]>(this.baseURL + '/messages/' + id);
   }
 
   setRead(id) {

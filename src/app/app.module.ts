@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProgressSpinnerModule, CheckboxModule } from 'primeng/primeng';
+import { ProgressSpinnerModule, CheckboxModule, TooltipModule } from 'primeng/primeng';
 
 // App Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -21,13 +21,13 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 
 import { MessagesComponent } from './pages/messages/messages.component';
 import { InboxComponent } from './pages/messages/inbox/inbox.component';
-import { PaymentsComponent } from './pages/payments/payments.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import { ApplicantComponent } from './pages/applicant/applicant.component';
 import { UnitSelectionComponent } from './pages/unit-selection/unit-selection.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SortableColumnComponent } from './components/sortable-table/sortable-column.component';
+import { ActivityComponent } from './pages/activity/activity.component';
 
 // Interceptor
 import { AuthGuard } from './auth.guard';
@@ -42,17 +42,22 @@ import { StatusService } from './services/status.service';
 import { AnnouncementService } from './services/announcement.service';
 import { ApplicantService } from './services/applicant.service';
 import { MessageService } from './services/message.service';
-import { PaymentService } from './services/payment.service';
 import { MaintenanceService } from './services/maintenance.service';
 import { LoginService } from './services/login.service';
 import { SessionService } from './services/session.service';
 import { SortService } from './components/sortable-table/sort.service';
+import { ActivityService } from './services/activity.service';
 
 // Directives
 import { SortableTableDirective } from './components/sortable-table/sortable-table.directive';
 import { MessageComponent } from './pages/messages/message/message.component';
 import { RentalService } from './services/rental.service';
 import { ConfigService } from './services/config.service';
+
+// Pipes
+import { HtmlToPlainPipe } from './pipes/html-to-plain.pipe';
+import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+
 
 
 
@@ -66,6 +71,7 @@ import { ConfigService } from './services/config.service';
     AppRoutingModule,
     ProgressSpinnerModule,
     CheckboxModule,
+    TooltipModule,
     NgbModule.forRoot()
   ],
   declarations: [
@@ -77,7 +83,6 @@ import { ConfigService } from './services/config.service';
     PageNotFoundComponent,
     DashboardComponent,
     MessagesComponent,
-    PaymentsComponent,
     MaintenanceComponent,
     AnnouncementsComponent,
     ApplicantComponent,
@@ -86,7 +91,10 @@ import { ConfigService } from './services/config.service';
     InboxComponent,
     SortableColumnComponent,
     SortableTableDirective,
-    MessageComponent
+    MessageComponent,
+    HtmlToPlainPipe,
+    SafeHtmlPipe,
+    ActivityComponent
   ],
   providers: [
     {
@@ -98,12 +106,12 @@ import { ConfigService } from './services/config.service';
     AlertService,
     ApplicantService,
     AuthenticationService,
+    ActivityService,
     ConfigService,
     UserService,
     StatusService,
     BaseRequestOptions,
     MessageService,
-    PaymentService,
     MaintenanceService,
     AnnouncementService,
     LoginService,
