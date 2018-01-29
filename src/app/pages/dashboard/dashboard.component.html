@@ -19,7 +19,7 @@
 					
 					<section id="quick-info">
 						<div class="row">
-							<div class="col-md-4">
+							<!-- <div class="col-md-4">
 								<div class="icon-box mb-4">
 									<div class="icon">
 										<div class="image">
@@ -34,8 +34,8 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-md-4">
+							</div> -->
+							<!-- <div class="col-md-4">
 								<div class="icon-box mb-4">
 									<div class="icon">
 										<div class="image">
@@ -50,7 +50,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<div class="col-md-4">
 								<div class="icon-box">
 									<div class="icon">
@@ -70,11 +70,11 @@
 						</div>
 					</section>
 
-					<app-announcements [pageSize]="4"></app-announcements>
+					<app-announcements [pageSize]="3" [paginate]="false"></app-announcements>
 				</div>
 					<div class="col-md-3">
 						<!-- Recent Activity -->
-						<app-activity [pageSize]="2"></app-activity>
+						<app-activity [pageSize]="2" [maxSize]="200"></app-activity>
 						<a routerLink="/activity" routerLinkActive="active" class="btn btn-primary btn-sm btn-block">View More</a>
 					</div>
 				</div>

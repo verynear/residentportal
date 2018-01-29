@@ -5,12 +5,15 @@
         <h2> Announcements </h2>
       </div>
       <div class="row d-block indent15" *ngFor="let announcement of announcements | slice:(page-1)*itemsPerPage:itemsPerPage*page" style="word-wrap: break-word">
-        <h4>{{announcement.subject}}<br><small>{{announcement.createDate | date}}</small></h4>
-        <div [innerHTML]="announcement.message"></div>
+        <h4>{{announcement.subject}}
+          <br>
+          <small>{{announcement.createDate | date}}</small>
+        </h4>
+        <div class="p-top-15" [innerHTML]="announcement.message"></div>
         <hr>
       </div>
       
-      <div class="row">
+      <div class="row" *ngIf="paginate">
         <div class="col">
           <ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" class="float-right"></ngb-pagination>
         </div>
