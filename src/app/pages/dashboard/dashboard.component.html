@@ -11,8 +11,8 @@
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true"><i class="fa fa-times"></i></span>
 						</button>
-						<h4><i class="fa fa-telegram"></i> Alert</h4>
-						Your payment is overdue...
+						<h4><i class="fa fa-telegram"></i> Urgent</h4>
+						A resident found your wallet in the laundry room.  Can you please contact me so that I can return it?
 						<hr>
 						<a href="#" class="btn btn-warning">Make Payment</a>
 					</div>			
@@ -61,7 +61,7 @@
 										<div class="card">
 											<div class="card-body">
 												<h4 class="card-title">Communications</h4>
-												<a href="#" class="btn btn-primary btn-sm mr-1">View History</a><a href="#" class="btn btn-default btn-sm">Send Message</a>
+												<a routerLink="/messages/inbox" routerLinkActive="active" href="#" class="btn btn-primary btn-sm mr-1">View Messages</a><a href="#" class="btn btn-default btn-sm">Send Message</a>
 											</div>
 										</div>
 									</div>
@@ -69,6 +69,8 @@
 							</div>
 						</div>
 					</section>
+
+					
 
 					<app-announcements [pageSize]="3" [paginate]="false"></app-announcements>
 				</div>

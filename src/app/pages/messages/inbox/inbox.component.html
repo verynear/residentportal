@@ -18,10 +18,10 @@
           <tr *ngFor='let message of messages | slice:(page-1)*itemsPerPage:itemsPerPage*page' (click)="openMessage(message.id)">
             <td style="min-width: 50px">
                 <p-checkbox  name="groupname" value="val1" [(ngModel)]="message.selected" binary="true"></p-checkbox>
-                <i *ngIf="message.messageType==='ALERTSTANDARD'" style="font-size: 20px" class="fa fa-exclamation-circle text-warning urgent" 
+                <i *ngIf="message.messageType==='ALERTSTANDARD'" style="font-size: 20px" class="fa fa-exclamation-circle standard" 
                 pTooltip="Please Read" tooltipPosition="bottom"  aria-hidden="true" ></i>  
 
-                <i *ngIf="message.messageType==='ALERTURGENT'" style="font-size: 20px" class="fa fa-exclamation-circle text-danger urgent" 
+                <i *ngIf="message.messageType==='ALERTURGENT'" style="font-size: 20px" class="fa fa-exclamation-circle urgent" 
                 pTooltip="Urgent Message" tooltipPosition="bottom"  aria-hidden="true" ></i> 
 
             </td>
