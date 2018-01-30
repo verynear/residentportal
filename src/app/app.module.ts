@@ -31,7 +31,7 @@ import { ActivityComponent } from './pages/activity/activity.component';
 
 // Interceptor
 import { AuthGuard } from './auth.guard';
-import { AuthHeaderInterceptor, AUTH_HEADER_INTERCEPTOR_PROVIDER } from './auth-header.interceptor';
+import { AuthHeaderInterceptor } from './auth-header.interceptor';
 
 // Services
 import { AppComponent } from './app.component';
@@ -120,7 +120,10 @@ import { ShortenPipe } from './pipes/shorten.pipe';
     SessionService,
     SortService,
     RentalService,
-    AUTH_HEADER_INTERCEPTOR_PROVIDER
+    {
+      provide: AuthHeaderInterceptor,
+      useValue: AuthHeaderInterceptor.getInstance(),
+    }
   ],
   bootstrap: [AppComponent]
 })
