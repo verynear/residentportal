@@ -1,5 +1,3 @@
-<!-- <p>{{ 'Hey Foo Bar' | shorten: 3: '...' }}</p> -->
-
 <div class="card">
   <div class="card-header">
     Recent Activity
@@ -14,7 +12,8 @@
       <div class="card-text" [innerHTML]="activity.message | shorten: maxSize: '...'"></div>
 
       <div class="text-right" *ngIf="activity.message.length > maxSize">
-        <small><a routerLink="/messages" routerLinkActive="active">Read More</a></small>
+       
+        <small><a [routerLink]="['/messages/view', activity.id]" routerLinkActive="active">Read More</a></small>
       </div>
       <hr>
     </div>

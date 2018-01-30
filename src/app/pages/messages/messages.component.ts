@@ -13,7 +13,14 @@ export class MessagesComponent implements OnInit {
   constructor(public messageService: MessageService, private router: Router) { }
 
   ngOnInit() {
-
   }
+
+
+  viewingMessage() {
+    if (this.router.url.includes('messages/view')) {
+      return true;
+    }
+  }
+
 
 }
