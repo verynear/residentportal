@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(public messageService: MessageService, private router: Router) { }
+  constructor(public messageService: MessageService, public router: Router) { }
 
   ngOnInit() {
   }

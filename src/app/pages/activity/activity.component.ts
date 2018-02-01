@@ -8,7 +8,7 @@ import { ActivityService } from '../../services/activity.service';
 })
 export class ActivityComponent implements OnInit {
 
-  public activities: any[];
+  public activities: any = [];
   loading: boolean;
 
   // The number of activities from each category to display
