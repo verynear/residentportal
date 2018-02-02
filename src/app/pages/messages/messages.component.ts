@@ -13,6 +13,7 @@ export class MessagesComponent implements OnInit {
   constructor(public messageService: MessageService, private router: Router) { }
 
   ngOnInit() {
+
   }
 
   isInbox() {
@@ -24,6 +25,8 @@ export class MessagesComponent implements OnInit {
     if (this.router.url.includes('messages/view')) {
       return true;
     }
+
+    return false;
   }
 
 
