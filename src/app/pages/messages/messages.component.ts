@@ -13,7 +13,7 @@ export class MessagesComponent implements OnInit {
   constructor(public messageService: MessageService, private router: Router) { }
 
   ngOnInit() {
-  
+
   }
 
 
