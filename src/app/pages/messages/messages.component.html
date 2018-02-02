@@ -44,7 +44,7 @@
 
                                         <!--Filter dropdown - multi-select-->
                                         <div ngbDropdown class="dropdown">
-                                            <button *ngIf="router.url === '/messages/inbox'" class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownFilter" ngbDropdownToggle aria-haspopup="true"
+                                            <button *ngIf="isInbox()" class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownFilter" ngbDropdownToggle aria-haspopup="true"
                                                 aria-expanded="false">
                                                 Filter
                                             </button>
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <!-- Mailbox -->
-                            
+
                             <!-- Where the message / inbox goes -->
                             <!-- Inbox -->
                             <router-outlet></router-outlet>
