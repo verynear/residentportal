@@ -10,9 +10,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor(public messageService: MessageService, public router: Router) { }
+  constructor(public messageService: MessageService, private router: Router) { }
 
   ngOnInit() {
+  
   }
 
 
@@ -20,6 +21,8 @@ export class MessagesComponent implements OnInit {
     if (this.router.url.includes('messages/view')) {
       return true;
     }
+
+    return false;
   }
 
 
