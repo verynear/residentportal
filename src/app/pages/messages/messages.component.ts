@@ -16,6 +16,10 @@ export class MessagesComponent implements OnInit {
 
   }
 
+  isInbox() {
+    return this.router.url === '/messages/inbox';
+  }
+
 
   viewingMessage() {
     if (this.router.url.includes('messages/view')) {
