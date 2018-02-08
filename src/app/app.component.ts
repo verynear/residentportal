@@ -1,6 +1,11 @@
 import {Component} from '@angular/core';
 import {LoginService} from './services/login.service';
 import {User} from './models/user';
+import {RentalService} from './services/rental.service';
+import {Router} from '@angular/router';
+import {SessionService} from './services/session.service';
+import {DomSanitizer} from '@angular/platform-browser';
+import {SafeValue} from '@angular/platform-browser/src/security/dom_sanitization_service';
 
 @Component({
   moduleId: module.id.toString(),
@@ -10,15 +15,35 @@ import {User} from './models/user';
 })
 export class AppComponent {
   public hasAuth = false;
+  public brandingCSS: SafeValue;
 
-  constructor(private loginService: LoginService) {
-    console.log('Hello from App component');
+  constructor(
+    private loginService: LoginService,
+    private rentalService: RentalService,
+    private session: SessionService,
+    private router: Router,
+    private sanitizer: DomSanitizer,
+  ) {
+    this.addLoginListener();
+    this.validateDomain();
+
+    this.brandingCSS = sanitizer.bypassSecurityTrustResourceUrl(this.rentalService.getBrandingCssUrl());
+  }
+
+  private addLoginListener(): void {
     this.loginService.onLogin
       .subscribe((user: User | boolean) => {
-        console.log('Hello from auth');
-
         this.hasAuth = !!user;
-        console.log(this.hasAuth);
+      });
+  }
+
+  private validateDomain(): void {
+    this.rentalService.checkSubdomain()
+      .then((isValidDomain: boolean) => {
+        if (!isValidDomain) {
+          this.session.set('invalidDomain', true);
+          this.router.navigate(['invalid-domain']);
+        }
       });
   }
 }
