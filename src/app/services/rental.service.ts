@@ -30,6 +30,10 @@ export class RentalService {
   }
 
   checkSubdomain(): Promise<boolean> {
+    if (this.config.get().environments.includes(this.subdomain)) {
+      return Promise.resolve(false);
+    }
+
     return this.getBrandingData()
       .then(() => true)
       .catch(() => false);

@@ -20,7 +20,8 @@ export class ConfigService {
       customer: {
         subdomain: site,
         host
-      }
+      },
+      environments: ['devdemo', 'stage', 'api']
     };
   }
 
