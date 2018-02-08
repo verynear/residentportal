@@ -15,7 +15,7 @@ import { InboxComponent } from './pages/messages/inbox/inbox.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import { MessageComponent } from './pages/messages/message/message.component';
 import { ActivityComponent } from './pages/activity/activity.component';
-import {InvalidDomainComponent} from "./pages/invalid-domain/invalid-domain.component";
+import {InvalidDomainComponent} from './pages/invalid-domain/invalid-domain.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
