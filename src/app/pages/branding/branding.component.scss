@@ -1,0 +1,18 @@
+.branding-test {
+  background-color: white;
+  width: 200px;
+  margin: 100px auto;
+  padding: 10px;
+  border-radius: 4px;
+
+  > div {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border: 1px dashed lime;
+  }
+
+  .primary { background-color: var(--primary)}
+  .secondary { background-color: var(--secondary)}
+  .tertiary { background-color: var(--tertiary)}
+}
