@@ -9,7 +9,7 @@ export class ConfigService {
     // customer.stage.betterleasing.com
     // customer.devdemo.betterleasing.com
     // localhost
-    const parts = 'localhost'.split('.'),
+    const parts = location.hostname.split('.'),
       site = parts.shift(),
       host = parts.join('.') || 'devdemo.betterleasing.com';
 
