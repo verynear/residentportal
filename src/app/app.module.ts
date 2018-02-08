@@ -59,6 +59,7 @@ import { HtmlToPlainPipe } from './pipes/html-to-plain.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.component';
+import { BrandingComponent } from './pages/branding/branding.component';
 
 @NgModule({
   imports: [
@@ -95,7 +96,8 @@ import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.co
     SafeHtmlPipe,
     ActivityComponent,
     ShortenPipe,
-    InvalidDomainComponent
+    InvalidDomainComponent,
+    BrandingComponent
   ],
   providers: [
     {
