@@ -9,14 +9,13 @@ export class ConfigService {
     // customer.stage.betterleasing.com
     // customer.devdemo.betterleasing.com
     // localhost
-    const parts = location.hostname.split('.'),
+    const parts = 'localhost'.split('.'),
       site = parts.shift(),
       host = parts.join('.') || 'devdemo.betterleasing.com';
 
     this.data = {
       api: {
-        // baseURL: `${location.protocol}//api.${host}/resnet`
-        baseURL: `${location.protocol}//api.devdemo.betterleasing.com/resnet`
+        baseURL: `${location.protocol}//api.${host}/resnet`
       },
       customer: {
         subdomain: site,

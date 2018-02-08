@@ -1,6 +1,5 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {AuthenticationService} from './authentication.service';
-import {Router, ActivatedRoute} from '@angular/router';
 import {User} from '../models/user';
 import {SessionService} from './session.service';
 import {AuthHeaderInterceptor} from '../auth-header.interceptor';
@@ -13,8 +12,6 @@ export class LoginService {
     private authService: AuthenticationService,
     private session: SessionService,
     private authInterceptor: AuthHeaderInterceptor,
-    private route: ActivatedRoute,
-    private router: Router
   ) { }
 
   login(emailAddress: string, password: string): Promise<User> {
@@ -36,7 +33,6 @@ export class LoginService {
     return this.authService.logout()
       .then(() => {
         localStorage.removeItem('authorizationToken');
-        this.router.navigate(['login']);
       });
   }
 
