@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
-import { User } from '../../models/user';
 import { RentalService } from '../../services/rental.service';
 import { RentalSite } from '../../models/rental-site';
 import { SessionService } from '../../services/session.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
