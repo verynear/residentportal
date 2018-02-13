@@ -43,6 +43,8 @@ export class AppComponent {
         if (!isValidDomain) {
           this.session.set('invalidDomain', true);
           this.router.navigate(['invalid-domain']);
+        } else {
+          this.session.set('invalidDomain', false);
         }
       });
   }

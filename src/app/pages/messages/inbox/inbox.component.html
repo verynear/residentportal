@@ -10,7 +10,6 @@
             <th> 
               <p-checkbox name="groupname" value="val1" [(ngModel)]="checkAll" (click)="selectAllMessages()" binary="true"></p-checkbox>
             </th>
-            <th><app-th columnName="id" displayName="Name"></app-th></th>
             <th><app-th columnName="subject" displayName="Subject"></app-th></th>
             <th><app-th columnName="createDate" displayName="Date"></app-th></th>
         </thead>
@@ -20,7 +19,6 @@
                 <p-checkbox  name="groupname" value="val1" [(ngModel)]="message.selected" binary="true"></p-checkbox>
                 <i *ngIf="message.messageType==='ALERTURGENT'" style="font-size: 20px" class="fa fa-exclamation-circle urgent" pTooltip="Urgent Message" tooltipPosition="bottom"  aria-hidden="true"></i> 
             </td>
-            <td class="nowrap"> <b>John Wayne</b> </td> 
             <td class="nowrap">
                 <span class="previewTitle" [innerHTML]="message.subject"></span>
                 <span class="previewMessage" [innerHTML]="message.message | htmlToPlain">- </span>
