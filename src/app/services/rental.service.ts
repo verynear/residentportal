@@ -6,16 +6,39 @@ import { ConfigService } from './config.service';
 @Injectable()
 export class RentalService {
   private url: string;
+  private leasenet: string;
+  private subdomain: string;
 
   constructor(private http: HttpClient,
               private config: ConfigService) {
 
     this.url = config.get().api.baseURL;
+    this.leasenet = config.get().api.leasenet;
+    this.subdomain = config.get().customer.subdomain;
   }
 
   getRentalSite(id: number): Promise<RentalSite> {
     return this.http.get<RentalSite>(`${this.url}/rental/site/${id}`)
       .toPromise();
+  }
+
+  getBrandingCssUrl(): string {
+    return `${this.url}/rental/branding/css?domain=${this.subdomain}`;
+  }
+
+  getBrandingData(): Promise<RentalSite> {
+    return this.http.get<RentalSite>(`${this.leasenet}/rental/company/validate?domain=${this.subdomain}`)
+      .toPromise();
+  }
+
+  checkSubdomain(): Promise<boolean> {
+    if (this.config.get().environments.includes(this.subdomain)) {
+      return Promise.resolve(false);
+    }
+
+    return this.getBrandingData()
+      .then(() => true)
+      .catch(() => false);
   }
 
 }

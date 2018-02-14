@@ -58,9 +58,8 @@ import { ConfigService } from './services/config.service';
 import { HtmlToPlainPipe } from './pipes/html-to-plain.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
-
-
-
+import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.component';
+import { BrandingComponent } from './pages/branding/branding.component';
 
 @NgModule({
   imports: [
@@ -96,7 +95,9 @@ import { ShortenPipe } from './pipes/shorten.pipe';
     HtmlToPlainPipe,
     SafeHtmlPipe,
     ActivityComponent,
-    ShortenPipe
+    ShortenPipe,
+    InvalidDomainComponent,
+    BrandingComponent
   ],
   providers: [
     {

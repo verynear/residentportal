@@ -15,13 +15,14 @@ export class ConfigService {
 
     this.data = {
       api: {
-        // baseURL: `${location.protocol}//api.${host}/resnet`
-        baseURL: `${location.protocol}//api.devdemo.betterleasing.com/resnet`
+        baseURL: `${location.protocol}//api.${host}/resnet`,
+        leasenet: `${location.protocol}//api.${host}/leasenet`,
       },
       customer: {
         subdomain: site,
         host
-      }
+      },
+      environments: ['devdemo', 'stage', 'api']
     };
   }
 
