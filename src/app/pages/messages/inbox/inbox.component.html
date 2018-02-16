@@ -1,7 +1,7 @@
 
 <div id="marginFix">
-  <ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" class="float-right"></ngb-pagination>
-
+  <ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" (pageChange)="pageChange()" class="float-right"></ngb-pagination>
+  
   <section class="inbox" *ngIf="!loading">
     <div class="table">
       <table appSortableTable class="table" (sorted)="onSorted($event)">
@@ -14,7 +14,7 @@
             <th><app-th columnName="createDate" displayName="Date"></app-th></th>
         </thead>
         <tbody>
-          <tr *ngFor='let message of messages | slice:(page-1)*itemsPerPage:itemsPerPage*page' (click)="openMessage(message.id)">
+          <tr *ngFor='let message of messages' (click)="openMessage(message.id)">
             <td style="min-width: 50px">
                 <p-checkbox  name="groupname" value="val1" [(ngModel)]="message.selected" binary="true"></p-checkbox>
                 <i *ngIf="message.messageType==='ALERTURGENT'" style="font-size: 20px" class="fa fa-exclamation-circle urgent" pTooltip="Urgent Message" tooltipPosition="bottom"  aria-hidden="true"></i> 
@@ -30,7 +30,7 @@
     </div>
   </section>
 
-  <ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" class="float-right"></ngb-pagination>
+  <ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" (pageChange)="pageChange()" class="float-right"></ngb-pagination>
                 
   <p-progressSpinner class="spinner" *ngIf="loading" [style]="{width: '75px', height: '75px'}" strokeWidth="4" animationDuration="1s" mode="indeterminate"></p-progressSpinner>
 

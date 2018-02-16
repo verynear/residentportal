@@ -7,7 +7,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './auth.guard';
 import { StatusComponent } from './pages/status/status.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { ApplicantComponent } from './pages/applicant/applicant.component';
 import { UnitSelectionComponent } from './pages/unit-selection/unit-selection.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { MessagesComponent } from './pages/messages/messages.component';
@@ -15,8 +14,8 @@ import { InboxComponent } from './pages/messages/inbox/inbox.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import { MessageComponent } from './pages/messages/message/message.component';
 import { ActivityComponent } from './pages/activity/activity.component';
-import {InvalidDomainComponent} from './pages/invalid-domain/invalid-domain.component';
-import {BrandingComponent} from './pages/branding/branding.component';
+import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.component';
+import { BrandingComponent } from './pages/branding/branding.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -24,7 +23,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'status', component: StatusComponent, canActivate: [AuthGuard] },
-  { path: 'applicant', component: ApplicantComponent },
   { path: 'unit-selection', component: UnitSelectionComponent },
   { path: 'announcements', component: AnnouncementsComponent, canActivate: [AuthGuard] },
   { path: 'activity', component: ActivityComponent, canActivate: [AuthGuard] },

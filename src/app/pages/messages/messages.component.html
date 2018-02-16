@@ -7,7 +7,7 @@
             <section class="top">
                 <form>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <section>
                                 <div class="form-group">
                                     <label class="sr-only" for="inlineFormInputGroup">Search</label>
@@ -22,16 +22,20 @@
 
                             <section>
                                 <div class="btn-group-vertical btn-block mail-nav">
-                                    <a class="btn btn-default">
+                                    <button type="button" class="btn btn-primary btn-block text-left pointer" (click)="compose()">
+                                    <i class="fa fa-edit fa-lg"></i> Create New</button>
+            
+                                    <a class="btn btn-default pointer">
                                         <span class="badge badge-info">3</span>
-                                        <i class="fa fa-inbox"></i> Received </a>
+                                        <i class="fa fa-inbox"></i> Received 
+                                    </a>
+
                                 </div>
                             </section>
                         </div>
 
-                        <div class="col-md-9">
+                        <div class="col-md-10">
                             <div class="d-flex">
-
                                 <div class="mr-1">
                                     <!--Sort mail -->
                                     <div class="btn-group">
@@ -95,8 +99,7 @@
                             </div>
                             <!-- Mailbox -->
 
-                            <!-- Where the message / inbox goes -->
-                            <!-- Inbox -->
+                            <!-- The Inbox / Sentbox -->
                             <router-outlet></router-outlet>
                         </div>
                     </div>

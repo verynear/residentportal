@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RentalSite } from '../models/rental-site';
 import { ConfigService } from './config.service';
+import { ThemeService } from './theme.service';
 
 @Injectable()
 export class RentalService {
@@ -10,11 +11,16 @@ export class RentalService {
   private subdomain: string;
 
   constructor(private http: HttpClient,
-              private config: ConfigService) {
+              private config: ConfigService,
+              private themeService: ThemeService) {
 
     this.url = config.get().api.baseURL;
     this.leasenet = config.get().api.leasenet;
     this.subdomain = config.get().customer.subdomain;
+  }
+
+  init() {
+    this.applyTheme();
   }
 
   getRentalSite(id: number): Promise<RentalSite> {
@@ -41,4 +47,10 @@ export class RentalService {
       .catch(() => false);
   }
 
+  applyTheme() {
+    this.getBrandingData().then(rentalSite => {
+      this.themeService.applyTheme(rentalSite.bgColor);
+    });
+  }
 }
+

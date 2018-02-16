@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {SessionService} from './services/session.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SafeValue} from '@angular/platform-browser/src/security/dom_sanitization_service';
+import {ThemeService} from './services/theme.service';
 
 @Component({
   moduleId: module.id.toString(),
@@ -23,11 +24,13 @@ export class AppComponent {
     private session: SessionService,
     private router: Router,
     private sanitizer: DomSanitizer,
+    private themeService: ThemeService
   ) {
     this.addLoginListener();
     this.validateDomain();
 
     this.brandingCSS = sanitizer.bypassSecurityTrustResourceUrl(this.rentalService.getBrandingCssUrl());
+    this.rentalService.init();
   }
 
   private addLoginListener(): void {
