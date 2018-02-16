@@ -15,6 +15,7 @@ export class AnnouncementsComponent implements OnInit {
   page: number;
   error: boolean;
 
+
   // The number of announcements to display
   @Input('pageSize')
   pageSize = 8;
@@ -22,6 +23,11 @@ export class AnnouncementsComponent implements OnInit {
   // Whether or not to include pagination.
   @Input('paginate')
   paginate = true;
+
+  // Include a button at a bottom to "View All" announcements.
+  @Input('viewAll')
+  viewAll = false;
+
 
   constructor(public announcementService: AnnouncementService) {
   }
