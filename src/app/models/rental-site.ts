@@ -5,4 +5,5 @@ export class RentalSite {
   textColor: string;
   accentColor: string;
   bgColor: string;
+  description: string;
 }

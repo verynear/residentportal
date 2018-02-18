@@ -13,7 +13,7 @@ import { HtmlToPlainPipe } from '../../../pipes/html-to-plain.pipe';
 })
 export class InboxComponent implements OnInit {
   messages: Array<any>;
-  itemsPerPage: number;      // The number of emails per page.
+  itemsPerPage: number;      // The number of messages per page.
   totalItems: number;
   page: number;
   checkAll: boolean;
@@ -26,22 +26,32 @@ export class InboxComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.itemsPerPage = 25;   // Number of Mail Items per page.
-    this.page = 1;            // Starting Page
-    this.checkAll = false;    // By Default, all mail items unchecked.
-    this.getAllMessages();       // Get Messages.
+    this.itemsPerPage = 25;     // Number of Mail Items per page.
+    this.page = 1;              // Starting Page
+    this.checkAll = false;      // By Default, all mail items unchecked.
+    this.getMessages(this.page - 1, this.itemsPerPage); // Get Messages.
   }
 
-  getAllMessages() {
+  pageChange() {
+    this.nextPage(this.page - 1, this.itemsPerPage); // page-1 because NgBootstrap starts at page=1
+  }
+
+  nextPage(page, itemsPerPage) {
     this.loading = true;
-    this.messageService.getAll().subscribe(
+    this.messageService.getAll(page, itemsPerPage).subscribe(
       data => {
         this.loading = false;
         this.messages = data['messages'];
-        this.totalItems = data['messages'].length;
-      },
-      error => {
-        console.log('Error');
+      });
+  }
+
+  getMessages(page, itemsPerPage) {
+    this.loading = true;
+    this.messageService.getAll(page, itemsPerPage).subscribe(
+      data => {
+        this.loading = false;
+        this.messages = data['messages'];
+        this.totalItems = data['totalPages'] * data['numberOfElements'];
       });
   }
 
@@ -60,5 +70,4 @@ export class InboxComponent implements OnInit {
   openMessage(id) {
     this.router.navigate(['/messages/view', id]);
   }
-
 }
