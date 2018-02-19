@@ -5,7 +5,7 @@ import { PACKAGE_ROOT_URL } from '@angular/core/src/application_tokens';
 import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { SortService } from '../components/sortable-table/sort.service';
 import { ConfigService } from './config.service';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/catch';
 
