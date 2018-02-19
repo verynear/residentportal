@@ -17,13 +17,11 @@
         <div class="col">
           <ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" class="float-right"></ngb-pagination>
         </div>
-
-       
       </div>
 
       <div class="row" *ngIf="viewAll">
         <a class="btn btn-primary" routerLink="/announcements" routerLinkActive="active">View All</a>
       </div>
-           
+
     </div>
  
