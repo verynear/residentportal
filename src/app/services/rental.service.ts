@@ -9,6 +9,7 @@ export class RentalService {
   private url: string;
   private leasenet: string;
   private subdomain: string;
+  private host: string;
 
   constructor(private http: HttpClient,
               private config: ConfigService,
@@ -17,6 +18,7 @@ export class RentalService {
     this.url = config.get().api.baseURL;
     this.leasenet = config.get().api.leasenet;
     this.subdomain = config.get().customer.subdomain;
+    this.host = config.get().customer.host;
   }
 
   init() {
@@ -38,7 +40,7 @@ export class RentalService {
   }
 
   checkSubdomain(): Promise<boolean> {
-    if (this.config.get().environments.includes(this.subdomain)) {
+    if (!this.config.get().environments.includes(this.host)) {
       return Promise.resolve(false);
     }
 

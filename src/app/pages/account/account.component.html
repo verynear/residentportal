@@ -1,0 +1,44 @@
+<div id="main">
+	<!-- Main Content Area -->
+	<div class="main-content">
+		<div class="container-fluid containerHeight">
+			<h1>Account</h1>
+      <h5>{{currentUser?.firstname}} {{currentUser?.lastname}}
+        <small class="block"> {{currentUser?.emailAddress}} </small>
+      </h5>
+    
+      
+			<form novalidate (ngSubmit)="update(accountForm)" [formGroup]="accountForm">
+
+        <div class="row">
+
+          <div class="col">
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" formControlName="password">
+              <div
+                class="form-text error"
+                *ngIf="accountForm.get('password').hasError('minlength') && accountForm.get('password').touched">
+                Minimum of 6 characters
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <label for="verify">Confirm Password:</label>
+              <input type="password" class="form-control" formControlName="verify">
+                <div *ngIf="accountForm.get('verify').touched" class="text-danger">
+                <div *ngIf="accountForm.get('password').value !== accountForm.get('verify').value">Password Mismatch.</div>
+                </div>
+            </div>
+          </div>
+        </div>
+
+				<hr>
+				<button type="submit" class="btn btn-primary" [disabled]="accountForm.invalid">Update</button>
+      </form>
+    
+		</div>
+	</div>
+</div>
