@@ -63,6 +63,7 @@ import { HtmlToPlainPipe } from './pipes/html-to-plain.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ReplacePipe } from './pipes/replace.pipe';
+import { AccountComponent } from './pages/account/account.component';
 
 @NgModule({
   imports: [
@@ -102,7 +103,8 @@ import { ReplacePipe } from './pipes/replace.pipe';
     InvalidDomainComponent,
     BrandingComponent,
     ComposeComponent,
-    ReplacePipe
+    ReplacePipe,
+    AccountComponent
   ],
   providers: [
     {

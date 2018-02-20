@@ -16,6 +16,7 @@ import { MessageComponent } from './pages/messages/message/message.component';
 import { ActivityComponent } from './pages/activity/activity.component';
 import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.component';
 import { BrandingComponent } from './pages/branding/branding.component';
+import { AccountComponent } from './pages/account/account.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'unit-selection', component: UnitSelectionComponent },
   { path: 'announcements', component: AnnouncementsComponent, canActivate: [AuthGuard] },
   { path: 'activity', component: ActivityComponent, canActivate: [AuthGuard] },
+  { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
   {
     path: 'messages',
     component: MessagesComponent,

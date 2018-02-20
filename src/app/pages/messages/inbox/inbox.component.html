@@ -7,7 +7,7 @@
       <table appSortableTable class="table" (sorted)="onSorted($event)">
         <thead class="thead-light">
           <!-- CUSTOM ANGULAR4 SORT DIRECTIVES -->
-            <th> 
+            <th style="width: 15px"> 
               <p-checkbox name="groupname" value="val1" [(ngModel)]="checkAll" (click)="selectAllMessages()" binary="true"></p-checkbox>
             </th>
             <th><app-th columnName="subject" displayName="Subject"></app-th></th>
@@ -15,13 +15,13 @@
         </thead>
         <tbody>
           <tr *ngFor='let message of messages' (click)="openMessage(message.id)">
-            <td style="min-width: 50px">
+            <td>
                 <p-checkbox  name="groupname" value="val1" [(ngModel)]="message.selected" binary="true"></p-checkbox>
-                <i *ngIf="message.messageType==='ALERTURGENT'" style="font-size: 20px" class="fa fa-exclamation-circle urgent" pTooltip="Urgent Message" tooltipPosition="bottom"  aria-hidden="true"></i> 
+                <!-- <i *ngIf="message.messageType==='ALERTURGENT'" style="font-size: 20px" class="fa fa-exclamation-circle urgent" pTooltip="Urgent Message" tooltipPosition="bottom"  aria-hidden="true"></i>  -->
             </td>
             <td class="nowrap">
-                <span class="previewTitle" [innerHTML]="message.subject"></span>
-                <span class="previewMessage" [innerHTML]="message.message | htmlToPlain">- </span>
+                <span class="previewTitle" [innerHTML]="message?.subject"></span>
+                <span class="previewMessage" [innerHTML]="message?.message | htmlToPlain">- </span>
             </td> 
             <td class="nowrap"><b>{{message.createDate | date}}</b> </td>
           </tr>
