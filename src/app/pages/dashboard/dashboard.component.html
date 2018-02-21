@@ -56,12 +56,12 @@
 									<div class="icon">
 										<div class="image">
 											<span class="badge badge-info">2</span>
-											<i class="fa fa-envelope"></i>
+											<i class="fa fa-comments"></i>
 										</div>
 										<div class="card">
 											<div class="card-body">
 												<h4 class="card-title">Communications</h4>
-												<a routerLink="/messages/inbox" routerLinkActive="active" href="#" class="btn btn-primary btn-sm mr-1">View Messages</a><a href="#" class="btn btn-default btn-sm">Send Message</a>
+												<a routerLink="/messages/inbox" routerLinkActive="active" href="#" class="btn btn-primary btn-sm mr-1">View</a><a href="#" class="btn btn-default btn-sm">Send Message</a>
 											</div>
 										</div>
 									</div>
@@ -83,16 +83,10 @@
 										</div>
 									</div>
 								</div>
-
-
 						</div>
 					</section>
 
-
-					<app-announcements [pageSize]="3" [paginate]="false"></app-announcements>
-
-					<a class="btn btn-primary" href="announcements.html">View All</a>
-
+					<app-announcements [pageSize]="3" [paginate]="false" [viewAll]="true"></app-announcements>
 
 				</div>
 					<div class="col-md-3">

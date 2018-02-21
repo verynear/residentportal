@@ -12,6 +12,7 @@ export class ConfigService {
     const parts = location.hostname.split('.'),
       site = parts.shift(),
       host = parts.join('.') || 'devdemo.betterleasing.com';
+      const branch = host.split('.')[0];
 
     this.data = {
       api: {
@@ -20,13 +21,15 @@ export class ConfigService {
       },
       customer: {
         subdomain: site,
-        host
+        host: branch
       },
-      environments: ['devdemo', 'stage', 'api']
+      environments: ['localhost', 'devdemo', 'stage', 'api']
     };
   }
 
   get(): any {
+    console.log('Data is: ');
+    console.log(this.data);
     return this.data;
   }
 

@@ -64,6 +64,11 @@ a.btn.btn-primary,
 a:hover.btn.btn-primary {
 	color: #fff;
 }
+
+.image {
+	background-color: #909090 !important;
+}
+
 a:focus,
 li:focus,
 .btn {
@@ -79,6 +84,9 @@ a:hover.btn.btn-primary {
 	text-transform: uppercase;
 	padding: 0.57rem 1.25rem;
 	font-size: 0.875rem;
+}
+.btn.btn-primary[disabled] {
+	cursor: not-allowed;
 }
 .btn-primary:not([disabled]):not(.disabled).active,
 .btn-primary:not([disabled]):not(.disabled):active,
@@ -496,15 +504,15 @@ footer {
     background-size: 100%;
 }
 
+// John Styles
 
+.pointer {
+	cursor: pointer;
+}
 
-
-
-
-
-
-
-
+.noPaddingLeft {
+	margin-left: 0px;
+}
 
 
 

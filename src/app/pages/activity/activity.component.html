@@ -6,7 +6,7 @@
   <div class="card-body">
       
     <div *ngFor="let activity of activities.messages | slice:0:pageSize; let i = index">
-      <h6><i class="fa fa-envelope float-right"></i>Messages<br>
+      <h6><i class="fa fa-comments float-right"></i>Messages<br>
         <small>{{activity.createDate | date}}</small>
       </h6>
       <div class="card-text" [innerHTML]="activity.message | shorten: maxSize: '...'"></div>
@@ -19,7 +19,7 @@
     </div>
 
     <div *ngFor="let activity of activities.announcements | slice:0:pageSize; let i = index">
-      <h6><i class="fa fa-envelope float-right"></i>Announcement<br>
+      <h6><i class="fa fa fa-bullhorn float-right"></i>Announcement<br>
         <small>{{activity.createDate | date}}</small>
       </h6>
       <div class="card-text" [innerHTML]="activity.message | shorten: maxSize: '...'"></div>

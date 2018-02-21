@@ -5,8 +5,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+// Dependencies
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProgressSpinnerModule, CheckboxModule, TooltipModule } from 'primeng/primeng';
+import { ProgressSpinnerModule, CheckboxModule, TooltipModule, EditorModule } from 'primeng/primeng';
 
 // App Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -23,11 +25,13 @@ import { MessagesComponent } from './pages/messages/messages.component';
 import { InboxComponent } from './pages/messages/inbox/inbox.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
-import { ApplicantComponent } from './pages/applicant/applicant.component';
 import { UnitSelectionComponent } from './pages/unit-selection/unit-selection.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SortableColumnComponent } from './components/sortable-table/sortable-column.component';
 import { ActivityComponent } from './pages/activity/activity.component';
+import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.component';
+import { BrandingComponent } from './pages/branding/branding.component';
+import { ComposeComponent } from './components/compose/compose.component';
 
 // Interceptor
 import { AuthGuard } from './auth.guard';
@@ -40,13 +44,13 @@ import { AlertService } from './services/alert.service';
 import { UserService } from './services/user.service';
 import { StatusService } from './services/status.service';
 import { AnnouncementService } from './services/announcement.service';
-import { ApplicantService } from './services/applicant.service';
 import { MessageService } from './services/message.service';
 import { MaintenanceService } from './services/maintenance.service';
 import { LoginService } from './services/login.service';
 import { SessionService } from './services/session.service';
 import { SortService } from './components/sortable-table/sort.service';
 import { ActivityService } from './services/activity.service';
+import { ThemeService } from './services/theme.service';
 
 // Directives
 import { SortableTableDirective } from './components/sortable-table/sortable-table.directive';
@@ -58,8 +62,8 @@ import { ConfigService } from './services/config.service';
 import { HtmlToPlainPipe } from './pipes/html-to-plain.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
-import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.component';
-import { BrandingComponent } from './pages/branding/branding.component';
+import { ReplacePipe } from './pipes/replace.pipe';
+import { AccountComponent } from './pages/account/account.component';
 
 @NgModule({
   imports: [
@@ -72,6 +76,7 @@ import { BrandingComponent } from './pages/branding/branding.component';
     ProgressSpinnerModule,
     CheckboxModule,
     TooltipModule,
+    EditorModule,
     NgbModule.forRoot()
   ],
   declarations: [
@@ -85,7 +90,6 @@ import { BrandingComponent } from './pages/branding/branding.component';
     MessagesComponent,
     MaintenanceComponent,
     AnnouncementsComponent,
-    ApplicantComponent,
     UnitSelectionComponent,
     NavigationComponent,
     InboxComponent,
@@ -94,10 +98,13 @@ import { BrandingComponent } from './pages/branding/branding.component';
     MessageComponent,
     HtmlToPlainPipe,
     SafeHtmlPipe,
-    ActivityComponent,
     ShortenPipe,
+    ActivityComponent,
     InvalidDomainComponent,
-    BrandingComponent
+    BrandingComponent,
+    ComposeComponent,
+    ReplacePipe,
+    AccountComponent
   ],
   providers: [
     {
@@ -107,7 +114,6 @@ import { BrandingComponent } from './pages/branding/branding.component';
     },
     AuthGuard,
     AlertService,
-    ApplicantService,
     AuthenticationService,
     ActivityService,
     ConfigService,
@@ -121,11 +127,13 @@ import { BrandingComponent } from './pages/branding/branding.component';
     SessionService,
     SortService,
     RentalService,
+    ThemeService,
     {
       provide: AuthHeaderInterceptor,
       useValue: AuthHeaderInterceptor.getInstance(),
     }
   ],
+  entryComponents: [ComposeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

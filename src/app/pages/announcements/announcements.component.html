@@ -1,6 +1,6 @@
 
 
-    <div class="container">
+    <div class="container" *ngIf="!error">
       <div class="row">
         <h2> Announcements </h2>
       </div>
@@ -17,6 +17,10 @@
         <div class="col">
           <ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" class="float-right"></ngb-pagination>
         </div>
+      </div>
+
+      <div class="row" *ngIf="viewAll">
+        <a class="btn btn-primary" routerLink="/announcements" routerLinkActive="active">View All</a>
       </div>
 
     </div>

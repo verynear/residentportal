@@ -1,0 +1,47 @@
+
+		<div class="container">
+      <form [formGroup]="messageForm" (ngSubmit)="send()" novalidate>
+          <div class="modal-header">
+            <h5 class="modal-title" id="composeMailModalLabel"><i class="fa fa-edit"></i> Create Message</h5>
+            <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+  
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="fromEmail">From:</label>
+              <input type="text" readonly class="form-control-plaintext" id="fromEmail" value="info@treetopvillage.com">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject:</label>
+              <input type="email" class="form-control" formControlName="subject" placeholder="Subject">
+            </div>
+            <p-editor formControlName="message" [style]="{'height':'320px'}">
+              <p-header>
+                  <span class="ql-formats">
+                    <select class="ql-size">
+                        <option value="small"></option>
+                        <option selected></option>
+                        <option value="large"></option>
+                        <option value="huge"></option>
+                      </select>
+                      <button class="ql-bold" aria-label="Bold"></button>
+                      <button class="ql-italic" aria-label="Italic"></button>
+                      <button class="ql-underline" aria-label="Underline"></button>
+                  </span>
+              </p-header>
+            </p-editor>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary pointer" (click)="send()" [disabled]="messageForm.invalid">Send</button>
+            <button type="button" class="btn btn-secondary pointer" (click)="activeModal.close('Close click')">Close</button>
+          </div>
+        </form>
+      </div>
+  
+      <p-progressSpinner *ngIf="loading" class="loader" [style]="{width: '75px', height: '75px'}" strokeWidth="8" animationDuration="1s" mode="indeterminate"></p-progressSpinner>
+      
+  
+  
