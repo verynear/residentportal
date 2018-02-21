@@ -11,8 +11,8 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 export class AccountComponent implements OnInit {
 
-  private currentUser: User;
-  private accountForm: FormGroup;
+  public currentUser: User;
+  public accountForm: FormGroup;
 
   constructor(private sessionService: SessionService, public formBuilder: FormBuilder) {
 
