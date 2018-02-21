@@ -8,7 +8,7 @@
       </h5>
     
       
-			<form novalidate (ngSubmit)="update(accountForm)" [formGroup]="accountForm">
+			<form novalidate [formGroup]="accountForm">
 
         <div class="row">
 
@@ -36,7 +36,7 @@
         </div>
 
 				<hr>
-				<button type="submit" class="btn btn-primary" [disabled]="accountForm.invalid">Update</button>
+				<button type="submit" class="btn btn-primary">Update</button>
       </form>
     
 		</div>
