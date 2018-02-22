@@ -43,6 +43,9 @@ export class MessageComponent implements OnInit, OnDestroy {
   setRead(id) {
     this.messageService.setRead(id).subscribe(
       data => {
+        console.log('This message is now read:');
+        console.log('ID: ');
+        console.log(id);
       },
       error => {
         console.log('Error');

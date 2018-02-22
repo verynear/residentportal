@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = this.sessionService.get('currentUser');
+    console.log(this.currentUser);
   }
 
 }
