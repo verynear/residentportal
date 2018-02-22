@@ -1,5 +1,11 @@
 /*
   This library is part of danrevah / ngx-pipes
+  See on Github for documentation.
+
+  Shortening a string by length and providing a custom string to denote an omission
+  Usage: string | shorten: length: [suffix|optional]: [wordBreak boolean|optional]
+
+  <p>{{'Hey foo bar' | shorten: 3: '...'}}</p> <!-- Output: "Hey..." -->
 */
 
 import { Pipe, PipeTransform } from '@angular/core';

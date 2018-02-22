@@ -33,8 +33,11 @@ export class MessageService {
     return this.http.get<Message[]>(this.baseURL + '/messages/' + id);
   }
 
-  setRead(id) {
-    return this.http.put(this.baseURL + '/message/' + id, id);
+  setRead(id): Observable<any> {
+    return this.http.put(this.baseURL + '/messages/' + id, id)
+    .catch((error: any) => {
+      return Observable.throw(this.errorHandler(error));
+    });
   }
 
   postMessage(message: Message): Observable<Message> {
