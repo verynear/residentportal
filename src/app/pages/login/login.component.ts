@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
             .then(() => this.router.navigate([this.returnUrl]
             ))
             .catch((error: any) => {
-                this.alertService.error(error);
+                this.alertService.error(error.error.message);
                 this.loading = false;
             });
     }

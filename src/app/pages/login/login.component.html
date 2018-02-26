@@ -17,9 +17,10 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-primary" [disabled]="loading">Login</button>
-                <p-progressSpinner *ngIf="loading" [style]="{width: '25px', height: '25px'}" strokeWidth="4" animationDuration="1s"></p-progressSpinner>
+                <img *ngIf="loading" src="./assets/Spinner-small.gif" />
             </div>
           </form>
+          <app-alert class='login'></app-alert>
         </div>
       </div> 
       <button class="btn btn-link pull-right" [routerLink]="['/register']">Create an Account</button>
