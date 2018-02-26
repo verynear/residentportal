@@ -20,7 +20,7 @@ export class MessagesComponent implements OnInit {
 
   }
 
-  isInbox() {
+  onInbox() {
     return this.router.url === '/messages/inbox';
   }
 
