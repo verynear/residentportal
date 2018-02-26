@@ -21,16 +21,18 @@
                             </section>
 
                             <section>
-                                <div class="btn-group-vertical btn-block mail-nav">
-                                    <button type="button" class="btn btn-primary btn-block text-left pointer" (click)="compose()">
-                                    <i class="fa fa-edit fa-lg"></i> Create New</button>
-            
-                                    <a class="btn btn-default pointer">
-                                        <span class="badge badge-info">3</span>
-                                        <i class="fa fa-inbox"></i> Received 
-                                    </a>
 
-                                </div>
+
+                                <button type="button" class="mb-3 btn btn-default btn-block text-left pointer" (click)="compose()">
+                                    <i class="fa fa-edit fa-lg"></i> Create New</button>
+                                    
+                                    <div class="btn-group-vertical btn-block mail-nav">
+                                        <a [routerLink]="['','messages', 'inbox']" class="btn btn-primary" [ngClass]="{'active': onInbox()}">
+                                            <span class="badge badge-warning">3</span>
+                                            <i class="fa fa-inbox"></i> Received
+                                        </a>
+                                    </div>
+
                             </section>
                         </div>
 
@@ -48,7 +50,7 @@
 
                                         <!--Filter dropdown - multi-select-->
                                         <div ngbDropdown class="dropdown">
-                                            <button *ngIf="isInbox()" class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownFilter" ngbDropdownToggle aria-haspopup="true"
+                                            <button *ngIf="onInbox()" class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownFilter" ngbDropdownToggle aria-haspopup="true"
                                                 aria-expanded="false">
                                                 Filter
                                             </button>

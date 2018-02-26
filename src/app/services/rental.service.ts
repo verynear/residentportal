@@ -35,7 +35,7 @@ export class RentalService {
   }
 
   getBrandingData(): Promise<RentalSite> {
-    return this.http.get<RentalSite>(`${this.leasenet}/rental/company/validate?domain=${this.subdomain}`)
+    return this.http.get<RentalSite>(`${this.url}/rental/branding/data?domain=${this.subdomain}`)
       .toPromise();
   }
 
