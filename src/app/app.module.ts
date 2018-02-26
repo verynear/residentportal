@@ -8,7 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Dependencies
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProgressSpinnerModule, CheckboxModule, TooltipModule, EditorModule } from 'primeng/primeng';
+import { CheckboxModule, TooltipModule, EditorModule } from 'primeng/primeng';
 
 // App Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -64,6 +64,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ReplacePipe } from './pipes/replace.pipe';
 import { AccountComponent } from './pages/account/account.component';
+import { InquiryComponent } from './pages/messages/inquiry/inquiry.component';
 
 @NgModule({
   imports: [
@@ -73,7 +74,6 @@ import { AccountComponent } from './pages/account/account.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ProgressSpinnerModule,
     CheckboxModule,
     TooltipModule,
     EditorModule,
@@ -104,7 +104,8 @@ import { AccountComponent } from './pages/account/account.component';
     BrandingComponent,
     ComposeComponent,
     ReplacePipe,
-    AccountComponent
+    AccountComponent,
+    InquiryComponent
   ],
   providers: [
     {

@@ -32,6 +32,18 @@ export class MessagesComponent implements OnInit {
     return false;
   }
 
+  viewingInquiry() {
+    if (this.router.url.includes('messages/inquiry')) {
+      return true;
+    }
+
+    return false;
+  }
+
+  refreshInbox() {
+      this.messageService.onRefresh();
+  }
+
   compose() {
     const modalRef = this.modalService.open(ComposeComponent, { size: 'lg' });
   }

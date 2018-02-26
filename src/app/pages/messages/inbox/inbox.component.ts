@@ -21,6 +21,9 @@ export class InboxComponent implements OnInit {
   test: boolean;
 
   constructor(private router: Router, public messageService: MessageService, config: NgbDropdownConfig) {
+    messageService.onRefresh$.subscribe(sent => {
+      this.onRefresh();
+    });
     // Default values for dropdowns.
     config.autoClose = 'outside';
   }
@@ -60,6 +63,11 @@ export class InboxComponent implements OnInit {
     for (const message of this.messages) {
       message.selected = this.checkAll;
     }
+  }
+
+  onRefresh() {
+    this.page = 0;
+    this.getMessages(this.page, this.itemsPerPage);
   }
 
   // For sort event./
