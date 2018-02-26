@@ -32,6 +32,9 @@ import { ActivityComponent } from './pages/activity/activity.component';
 import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.component';
 import { BrandingComponent } from './pages/branding/branding.component';
 import { ComposeComponent } from './components/compose/compose.component';
+import { AccountComponent } from './pages/account/account.component';
+import { InquiryComponent } from './pages/messages/inquiry/inquiry.component';
+import { MessageListComponent } from './components/message-list/message-list.component';
 
 // Interceptor
 import { AuthGuard } from './auth.guard';
@@ -63,8 +66,6 @@ import { HtmlToPlainPipe } from './pipes/html-to-plain.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ReplacePipe } from './pipes/replace.pipe';
-import { AccountComponent } from './pages/account/account.component';
-import { InquiryComponent } from './pages/messages/inquiry/inquiry.component';
 
 @NgModule({
   imports: [
@@ -105,7 +106,8 @@ import { InquiryComponent } from './pages/messages/inquiry/inquiry.component';
     ComposeComponent,
     ReplacePipe,
     AccountComponent,
-    InquiryComponent
+    InquiryComponent,
+    MessageListComponent
   ],
   providers: [
     {
