@@ -4,13 +4,13 @@
     <app-message-list></app-message-list>
 
 
-    <li ngbDropdown class="nav-item dropdown">
+    <!-- <li ngbDropdown class="nav-item dropdown">
       <a class="nav-item nav-link" id="notifications-alert" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle><i class="fa fa-bell"></i> <sup><span class="badge badge-danger">2</span></sup></a>
       <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right" aria-labelledby="notifications-alert">
         <a class="dropdown-item" href="#"><strong class="text-danger"><i class="fa fa-exclamation-circle"></i> Payment Due</strong><br>Lorem ipsum dolor noretek imit set...</a>
         <a class="dropdown-item" href="#"><strong class="text-warning"><i class="fa fa-wrench"></i> Maintenance Request</strong><br>Lorem ipsum dolor noretek imit set...</a>
       </div>
-    </li>
+    </li> -->
     <li class="nav-item"><a routerLink="/login" [queryParams]="{out: '1'}" class="nav-link"><i class="fa fa-power-off"></i> Logout</a></li>
   </ul>
 </div>
@@ -31,7 +31,12 @@
         <a><i class="fa fa-dashboard"></i> Dashboard</a>
       </li>
       <li routerLink="/messages" data-toggle="collapse" data-target="#products" class="collapsed">
-        <a><i class="fa fa-comments"></i> Communications <span class="arrow"></span></a>
+        <a>
+          <i class="fa fa-comments"></i> Communications 
+
+         
+          <span class="arrow arrow-down"></span>
+        </a>
       </li>
       <ul class="sub-menu collapse" routerLinkActive="show">
         <li routerLink="/messages/inbox" routerLinkActive="active"><a><i class="fa fa-comment"></i> Messages</a></li>
