@@ -7,6 +7,7 @@ import { Message } from '../../models/message';
 
   Description: Component to display recent messages in dropdown on top of menu.
   Input: @Param maxSize: The number of messages to display in the list.
+  @Param previewLength: The length of the message preview, in characters.
 
   Dependencies: Shorten.Pipe, HtmlToPlain.Pipe, NgBootstrap, Bootstrap
 */
