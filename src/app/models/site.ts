@@ -1,9 +1,9 @@
-export class RentalSite {
+export class Site {
   rentalSiteId: number;
   name: string;
   logoUrl: string;
   textColor: string;
   accentColor: string;
   bgColor: string;
-  description: string;
+  phone: number;
 }

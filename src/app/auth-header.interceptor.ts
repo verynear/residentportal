@@ -8,7 +8,7 @@ import {Observable} from 'rxjs/Observable';
 import {Injectable} from '@angular/core';
 
 const NO_TOKEN_REQUIRED = [
-  '/rental/company/validate'
+  '/rental/company/validate', 'company/branding/data'
 ];
 
 @Injectable()
