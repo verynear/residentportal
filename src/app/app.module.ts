@@ -35,6 +35,7 @@ import { ComposeComponent } from './components/compose/compose.component';
 import { AccountComponent } from './pages/account/account.component';
 import { InquiryComponent } from './pages/messages/inquiry/inquiry.component';
 import { MessageListComponent } from './components/message-list/message-list.component';
+import { MessageComponent } from './pages/messages/message/message.component';
 
 // Interceptor
 import { AuthGuard } from './auth.guard';
@@ -54,12 +55,12 @@ import { SessionService } from './services/session.service';
 import { SortService } from './components/sortable-table/sort.service';
 import { ActivityService } from './services/activity.service';
 import { ThemeService } from './services/theme.service';
+import { SiteService } from './services/site.service';
+import { ConfigService } from './services/config.service';
+import { CompanyService } from './services/company.service';
 
 // Directives
 import { SortableTableDirective } from './components/sortable-table/sortable-table.directive';
-import { MessageComponent } from './pages/messages/message/message.component';
-import { RentalService } from './services/rental.service';
-import { ConfigService } from './services/config.service';
 
 // Pipes
 import { HtmlToPlainPipe } from './pipes/html-to-plain.pipe';
@@ -129,7 +130,8 @@ import { ReplacePipe } from './pipes/replace.pipe';
     LoginService,
     SessionService,
     SortService,
-    RentalService,
+    SiteService,
+    CompanyService,
     ThemeService,
     {
       provide: AuthHeaderInterceptor,
