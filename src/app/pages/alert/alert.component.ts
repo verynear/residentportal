@@ -33,8 +33,12 @@ export class AlertComponent implements OnInit {
               return;
           }
 
-          // add alert to array
-          this.alerts.push(alert);
+          // add alert to array only if no duplicate
+          if (!this.alerts.some(function (el) {return el.message === alert.message; })) {
+             this.alerts.push(alert);
+          } else {
+            return;
+          }
           // show link in alert
           if (alert.alertLink === true ) {
             this.alertLink = true;

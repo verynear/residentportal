@@ -23,6 +23,10 @@ export class SessionService {
     return this.session[key];
   }
 
+  delete(key: string): void {
+    this.session[key] = null;
+  }
+
   getObservable(key: string): any {
     if (!this.observables[key]) {
       this.createObserver(key);
