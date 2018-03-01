@@ -28,6 +28,7 @@ export class AuthGuard implements CanActivate {
         // if server rejects the request
         .catch(() => {
           if (this.session.get('invalidDomain')) {
+            this.session.delete('invalidDomain');
             return false;
           }
 

@@ -8,7 +8,7 @@
       </h5>
     
       
-			<form novalidate (ngSubmit)="update(accountForm)" [formGroup]="accountForm">
+			<form novalidate (ngSubmit)="update()" [formGroup]="accountForm">
         <div class="form-group row">
           <div class="col-sm-4">
             <label for="email">Email:</label>
@@ -31,12 +31,12 @@
             <label for="verify">Confirm Password:</label>
             <input type="password" class="form-control" formControlName="verify">
               <div *ngIf="accountForm.get('verify').touched" class="text-danger">
-              <div *ngIf="accountForm.get('password').value !== accountForm.get('verify').value">Password Mismatch.</div>
+              <div *ngIf="passwordMatch()">Password Mismatch.</div>
             </div>
             </div>
         </div>
         <hr>
-        <button type="submit" class="btn btn-primary" [disabled]="accountForm.invalid">Update</button>
+        <button type="submit" class="btn btn-primary" [disabled]="accountForm.invalid || passwordMatch()">Update</button>
       </form>
     
 		</div>

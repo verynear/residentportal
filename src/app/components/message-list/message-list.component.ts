@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MessageService } from '../../services/message.service';
 import { Message } from '../../models/message';
+import { Router } from '@angular/router';
 
 /*
   Component: Message-List
@@ -28,7 +29,7 @@ export class MessageListComponent implements OnInit {
   @Input('previewLength') // The length of the message preview, in characters.  25 by Default.
   previewLength = 25;
 
-  constructor(public messageService: MessageService) { }
+  constructor(private router: Router, public messageService: MessageService) { }
 
   ngOnInit() {
     this.getMessages(0, this.maxSize);
@@ -44,6 +45,13 @@ export class MessageListComponent implements OnInit {
       error => {
         this.loading = false;
       });
+  }
+
+  openMessage(id) {
+    this.loading = true;
+    this.router.navigate(['/messages/view', id]);
+    console.log('OPEN MESSAGE');
+    console.log(id);
   }
 
 }

@@ -35,7 +35,8 @@ export class CompanyService {
       return Promise.resolve(false);
     }
 
-    return this.getBrandingData()
+    return this.http.get(`${this.leasenet}/rental/company/validate?domain=${this.subdomain}`)
+      .toPromise()
       .then(() => true)
       .catch(() => false);
   }
