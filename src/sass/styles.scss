@@ -191,7 +191,7 @@ a:hover.btn.btn-primary {
     color: #d13431;
 }
 .alert-danger {
-    border-color: #d13431;
+    border-style: none;
 }
 .alert-danger .btn-danger,
 .badge-danger {
@@ -208,6 +208,8 @@ a:hover.btn.btn-primary {
 }
 .alert-warning {
     border-color: #ce7300;
+    background-color: transparent;
+    color: #555;
 }
 .alert-warning .btn-warning,
 .badge-warning {
@@ -224,7 +226,7 @@ a:hover.btn.btn-primary {
     color: #3d9241;
 }
 .alert-success {
-    border-color: #3d9241;
+    border-style: none;
 }
 .alert-success .btn-success,
 .badge-success {
@@ -250,10 +252,6 @@ a:hover.btn.btn-primary {
 .alert-info a:focus.btn-info,
 .alert-info a:active.btn-info {
 	background-color: #1766ab;
-}
-.alert {
-	background-color: transparent;
-	color: #555;
 }
 .alert hr {
 	border-top-color: #ddd;
@@ -311,7 +309,7 @@ a:hover.btn.btn-primary {
 	margin: 0;
 }
 .navbar-brand img {
-	max-height: 4.063rem;
+	max-height: 5.0rem;
 	display: inline-block;
 }
 
@@ -492,16 +490,12 @@ footer {
 
 // Center Spinner John
 
-.spinner {
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    top: 50%;
-    left: 50%;
-    margin-left: -50px;
-    margin-top: -50px;
-    background: url(/link/to/your/image);
-    background-size: 100%;
+.spinner{
+  position: absolute;
+  top: 80%;
+  left: 45%;
+  margin-left: -45px;
+  margin-top: -50px;
 }
 
 // John Styles

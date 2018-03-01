@@ -8,7 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Dependencies
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProgressSpinnerModule, CheckboxModule, TooltipModule, EditorModule } from 'primeng/primeng';
+import { CheckboxModule, TooltipModule, EditorModule } from 'primeng/primeng';
 
 // App Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +32,10 @@ import { ActivityComponent } from './pages/activity/activity.component';
 import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.component';
 import { BrandingComponent } from './pages/branding/branding.component';
 import { ComposeComponent } from './components/compose/compose.component';
+import { AccountComponent } from './pages/account/account.component';
+import { InquiryComponent } from './pages/messages/inquiry/inquiry.component';
+import { MessageListComponent } from './components/message-list/message-list.component';
+import { MessageComponent } from './pages/messages/message/message.component';
 
 // Interceptor
 import { AuthGuard } from './auth.guard';
@@ -51,19 +55,18 @@ import { SessionService } from './services/session.service';
 import { SortService } from './components/sortable-table/sort.service';
 import { ActivityService } from './services/activity.service';
 import { ThemeService } from './services/theme.service';
+import { SiteService } from './services/site.service';
+import { ConfigService } from './services/config.service';
+import { CompanyService } from './services/company.service';
 
 // Directives
 import { SortableTableDirective } from './components/sortable-table/sortable-table.directive';
-import { MessageComponent } from './pages/messages/message/message.component';
-import { RentalService } from './services/rental.service';
-import { ConfigService } from './services/config.service';
 
 // Pipes
 import { HtmlToPlainPipe } from './pipes/html-to-plain.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ReplacePipe } from './pipes/replace.pipe';
-import { AccountComponent } from './pages/account/account.component';
 
 @NgModule({
   imports: [
@@ -73,7 +76,6 @@ import { AccountComponent } from './pages/account/account.component';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    ProgressSpinnerModule,
     CheckboxModule,
     TooltipModule,
     EditorModule,
@@ -104,7 +106,9 @@ import { AccountComponent } from './pages/account/account.component';
     BrandingComponent,
     ComposeComponent,
     ReplacePipe,
-    AccountComponent
+    AccountComponent,
+    InquiryComponent,
+    MessageListComponent
   ],
   providers: [
     {
@@ -126,7 +130,8 @@ import { AccountComponent } from './pages/account/account.component';
     LoginService,
     SessionService,
     SortService,
-    RentalService,
+    SiteService,
+    CompanyService,
     ThemeService,
     {
       provide: AuthHeaderInterceptor,

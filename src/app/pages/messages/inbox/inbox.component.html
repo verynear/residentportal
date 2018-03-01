@@ -32,6 +32,6 @@
 
   <ngb-pagination *ngIf="!loading" [collectionSize]="totalItems" [pageSize]="itemsPerPage" [(page)]="page" [maxSize]="3" (pageChange)="pageChange()" class="float-right"></ngb-pagination>
                 
-  <p-progressSpinner class="spinner" *ngIf="loading" [style]="{width: '75px', height: '75px'}" strokeWidth="4" animationDuration="1s" mode="indeterminate"></p-progressSpinner>
+  <img *ngIf="loading" class="spinner" src="./assets/Spinner-100px.gif" />
 
 </div>

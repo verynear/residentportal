@@ -11,8 +11,8 @@
               </strong>
             </p>
             <p>
-              <span [innerHTML]="message.message | safeHtml"></span>
-
+              <!-- <span [innerHTML]="message.message | safeHtml"></span> -->
+              {{message?.message}}
             </p>
           </td>
         </tr>

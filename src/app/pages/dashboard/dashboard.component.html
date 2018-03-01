@@ -1,5 +1,6 @@
 		<div class="container-fluid">
-			<h5><i class="fa fa-user"></i> Welcome, {{currentUser.firstname}}<br><small>Treetop Village Apartment Homes / 112A Madison St.</small></h5>
+			<h5><i class="fa fa-user"></i> Welcome, {{currentUser.firstname}}<br><small>{{site?.name}}</small></h5>
+			<app-alert class='dashboard'></app-alert>
 			<hr>
 			<h1>Dashboard</h1>
 
@@ -7,7 +8,7 @@
 				<!-- Left Content Container -->
 				<div class="col-md-9">
 
-					<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					<!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
 						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 							<span aria-hidden="true"><i class="fa fa-times"></i></span>
 						</button>
@@ -15,53 +16,24 @@
 						A resident found your wallet in the laundry room.  Can you please contact me so that I can return it?
 						<hr>
 						<a href="#" class="btn btn-warning">Make Payment</a>
-					</div>
+					</div> -->
 
 					<section id="quick-info">
 						<div class="row">
-							<!-- <div class="col-md-4">
-								<div class="icon-box mb-4">
-									<div class="icon">
-										<div class="image">
-											<span class="badge badge-primary">2</span>
-											<i class="fa fa-wrench"></i>
-										</div>
-										<div class="card">
-											<div class="card-body">
-												<h4 class="card-title">Maintenance Request</h4>
-												<a href="#" class="btn btn-primary btn-sm mr-1">View Requests</a><a href="#" class="btn btn-default btn-sm">Submit Request</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div> -->
-							<!-- <div class="col-md-4">
-								<div class="icon-box mb-4">
-									<div class="icon">
-										<div class="image">
-											<span class="badge badge-success">2</span>
-											<i class="fa fa-dollar"></i>
-										</div>
-										<div class="card">
-											<div class="card-body">
-												<h4 class="card-title">Payments</h4>
-												<a href="#" class="btn btn-primary btn-sm mr-1">View History</a><a href="#" class="btn btn-default btn-sm">Make Payment</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div> -->
 							<div class="col-md-6">
 								<div class="icon-box">
 									<div class="icon">
 										<div class="image">
-											<span class="badge badge-info">2</span>
-											<i class="fa fa-comments"></i>
+											<!-- <span class="badge badge-info">2</span> -->
+											<i class="fa fa-comments"></i> 
 										</div>
 										<div class="card">
 											<div class="card-body">
 												<h4 class="card-title">Communications</h4>
-												<a routerLink="/messages/inbox" routerLinkActive="active" href="#" class="btn btn-primary btn-sm mr-1">View</a><a href="#" class="btn btn-default btn-sm">Send Message</a>
+
+												<a routerLink="/messages/inbox" routerLinkActive="active" class="btn btn-primary btn-sm mr-1">View</a>
+												<a class="btn btn-default btn-sm pointer" (click)="compose()">Send Message</a>
+
 											</div>
 										</div>
 									</div>
@@ -76,8 +48,7 @@
 											<div class="card">
 												<div class="card-body">
 													<h4 class="card-title">My Account</h4>
-													<a routerLink="/messages/inbox" routerLinkActive="active" href="#" class="btn btn-primary btn-sm mr-1">View Account</a>
-
+													<a routerLink="/account" routerLinkActive="active" class="btn btn-primary btn-sm mr-1">View Account</a>
 												</div>
 											</div>
 										</div>

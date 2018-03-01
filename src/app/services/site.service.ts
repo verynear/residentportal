@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RentalSite } from '../models/rental-site';
+import { Site } from '../models/site';
 import { ConfigService } from './config.service';
 import { ThemeService } from './theme.service';
+import { Observable } from 'rxjs/Observable';
+
+/*
+  This service is responsible for endpointsthat are at a Site (Community) Level.
+*/
 
 @Injectable()
-export class RentalService {
+export class SiteService {
   private url: string;
   private leasenet: string;
   private subdomain: string;
@@ -25,34 +30,31 @@ export class RentalService {
     this.applyTheme();
   }
 
-  getRentalSite(id: number): Promise<RentalSite> {
-    return this.http.get<RentalSite>(`${this.url}/rental/site/${id}`)
-      .toPromise();
+  getSite(id: number): Observable<Site> {
+    return this.http.get<Site>(`${this.url}/rental/site/${id}`)
+    .catch((error: any) => {
+      return Observable.throw(this.errorHandler(error));
+    });
   }
 
   getBrandingCssUrl(): string {
     return `${this.url}/rental/branding/css?domain=${this.subdomain}`;
   }
 
-  getBrandingData(): Promise<RentalSite> {
-    return this.http.get<RentalSite>(`${this.leasenet}/rental/company/validate?domain=${this.subdomain}`)
+  getBrandingData(): Promise<Site> {
+    return this.http.get<Site>(`${this.url}/rental/branding/data?domain=${this.subdomain}`)
       .toPromise();
-  }
-
-  checkSubdomain(): Promise<boolean> {
-    if (!this.config.get().environments.includes(this.host)) {
-      return Promise.resolve(false);
-    }
-
-    return this.getBrandingData()
-      .then(() => true)
-      .catch(() => false);
   }
 
   applyTheme() {
     this.getBrandingData().then(rentalSite => {
       this.themeService.applyTheme(rentalSite.bgColor);
     });
+  }
+
+  errorHandler(error: any): void {
+    console.log('Error: SiteService');
+    console.log(error);
   }
 }
 

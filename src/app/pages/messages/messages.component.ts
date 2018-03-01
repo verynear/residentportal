@@ -20,7 +20,7 @@ export class MessagesComponent implements OnInit {
 
   }
 
-  isInbox() {
+  onInbox() {
     return this.router.url === '/messages/inbox';
   }
 
@@ -30,6 +30,18 @@ export class MessagesComponent implements OnInit {
     }
 
     return false;
+  }
+
+  viewingInquiry() {
+    if (this.router.url.includes('messages/inquiry')) {
+      return true;
+    }
+
+    return false;
+  }
+
+  refreshInbox() {
+      this.messageService.onRefresh();
   }
 
   compose() {

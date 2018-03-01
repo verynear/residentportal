@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AlertService } from '../../services/alert.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -19,12 +20,14 @@ import { Message } from '../../models/message';
 export class ComposeComponent implements OnInit {
 
   loading = false;
+  newMessageId: number;
+  lastLink: any;
   messageForm: FormGroup;
   subject: FormControl;
   message: FormControl;
 
   constructor(private router: Router, public activeModal: NgbActiveModal,
-    public messageService: MessageService) {}
+    public messageService: MessageService, private alertService: AlertService) {}
 
     ngOnInit() {
         this.createFormControls();
@@ -57,9 +60,13 @@ export class ComposeComponent implements OnInit {
             data => {
                 this.activeModal.close('success');
                 this.loading = false;
+                this.newMessageId = data['id'];
+                this.lastLink = '/messages/inquiry/' + this.newMessageId;
+                this.alertService.success('Your message has been sent', this.lastLink, true, false);
             },
             error => {
                 this.activeModal.close('failure');
+                this.alertService.error('Message Failed to Send');
                 this.loading = false;
         });
     }

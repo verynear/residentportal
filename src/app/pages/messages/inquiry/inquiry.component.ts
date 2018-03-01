@@ -4,11 +4,11 @@ import { MessageService } from '../../../services/message.service';
 import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 
 @Component({
-  selector: 'app-message',
-  templateUrl: './message.component.html',
-  styleUrls: ['./message.component.scss']
+  selector: 'app-inquiry',
+  templateUrl: './inquiry.component.html',
+  styleUrls: ['./inquiry.component.scss']
 })
-export class MessageComponent implements OnInit, OnDestroy {
+export class InquiryComponent implements OnInit, OnDestroy {
 
   id: number;
   private sub: any;
@@ -20,7 +20,7 @@ export class MessageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.activatedRouter.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this.getMessage(this.id);
+      this.getInquiry(this.id);
     });
   }
 
@@ -28,28 +28,15 @@ export class MessageComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  getMessage(id) {
-    this.messageService.get(id).subscribe(
+  getInquiry(id) {
+    this.messageService.getInquiry(id).subscribe(
       data => {
         this.loading = false;
         this.message = data;
-        this.setRead(id); // Message is now read.
       },
       error => {
         console.log('Error');
       });
   }
 
-  setRead(id) {
-    this.messageService.setRead(id).subscribe(
-      data => {
-        console.log('This message is now read:');
-        console.log('ID: ');
-        console.log(id);
-      },
-      error => {
-        console.log('Error');
-    });
-
-  }
 }
