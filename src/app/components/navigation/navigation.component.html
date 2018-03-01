@@ -11,7 +11,9 @@
         <a class="dropdown-item" href="#"><strong class="text-warning"><i class="fa fa-wrench"></i> Maintenance Request</strong><br>Lorem ipsum dolor noretek imit set...</a>
       </div>
     </li> -->
-    <li class="nav-item"><a routerLink="/login" [queryParams]="{out: '1'}" class="nav-link"><i class="fa fa-power-off"></i> Logout</a></li>
+    <li [queryParams]="{out: '1'}" routerLink="/login" class="nav-item dropdown btn btn-primary pt-2 pointer white">
+      <i class="fa fa-power-off"></i> Logout
+    </li>
   </ul>
 </div>
 
@@ -19,7 +21,7 @@
 <div class="nav-side-menu">
   <div class="user-logo">
     <a href="#" class="navbar-brand">
-      <img *ngIf="rentalSite" [src]="rentalSite.logoUrl" alt="BetterLeasing" [title]="rentalSite.name">
+      <img *ngIf="site" [src]="site.logoUrl" alt="BetterLeasing" [title]="site.name">
     </a>
     <i class="fa fa-bars fa-2x toggle-btn" (click)="isCollapsed = !isCollapsed"></i>
   </div>
@@ -27,22 +29,20 @@
   <div class="menu-list">
 
     <ul id="menu-content" class="menu-content collapse out" [ngbCollapse]="isCollapsed">
-      <li routerLink="/dashboard" routerLinkActive="active">
+      <li class="primary" routerLink="/dashboard" routerLinkActive="active">
         <a><i class="fa fa-dashboard"></i> Dashboard</a>
       </li>
-      <li routerLink="/messages" data-toggle="collapse" data-target="#products" class="collapsed">
+      <li class="primary collapsed" routerLink="/messages" data-toggle="collapse" data-target="#products">
         <a>
           <i class="fa fa-comments"></i> Communications 
-
-         
           <span class="arrow arrow-down"></span>
         </a>
       </li>
       <ul class="sub-menu collapse" routerLinkActive="show">
-        <li routerLink="/messages/inbox" routerLinkActive="active"><a><i class="fa fa-comment"></i> Messages</a></li>
-        <li routerLink="/announcements" routerLinkActive="active"><a><i class="fa fa-bullhorn"></i> Announcements</a></li>
+        <li class="primary" routerLink="/messages/inbox" routerLinkActive="active"><a><i class="fa fa-comment"></i> Messages</a></li>
+        <li class="primary" routerLink="/announcements" routerLinkActive="active"><a><i class="fa fa-bullhorn"></i> Announcements</a></li>
       </ul>
-      <li routerLink="/account" routerLinkActive="active">
+      <li class="primary" routerLink="/account" routerLinkActive="active">
         <a><i class="fa fa-id-card-o"></i> My Account</a>
       </li>
     </ul><!-- /.menu-list -->

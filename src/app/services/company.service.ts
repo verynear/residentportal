@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RentalSite } from '../models/rental-site';
+import { Site } from '../models/site';
 import { ConfigService } from './config.service';
 import { ThemeService } from './theme.service';
 
 @Injectable()
-export class RentalService {
+export class CompanyService {
   private url: string;
   private leasenet: string;
   private subdomain: string;
@@ -25,17 +25,8 @@ export class RentalService {
     this.applyTheme();
   }
 
-  getRentalSite(id: number): Promise<RentalSite> {
-    return this.http.get<RentalSite>(`${this.url}/rental/site/${id}`)
-      .toPromise();
-  }
-
-  getBrandingCssUrl(): string {
-    return `${this.url}/rental/branding/css?domain=${this.subdomain}`;
-  }
-
-  getBrandingData(): Promise<RentalSite> {
-    return this.http.get<RentalSite>(`${this.url}/rental/branding/data?domain=${this.subdomain}`)
+  getBrandingData(): Promise<Site> {
+    return this.http.get<Site>(`${this.leasenet}/company/branding/data?domain=${this.subdomain}`)
       .toPromise();
   }
 
@@ -54,5 +45,9 @@ export class RentalService {
       this.themeService.applyTheme(rentalSite.bgColor);
     });
   }
+
+
+
+
 }
 

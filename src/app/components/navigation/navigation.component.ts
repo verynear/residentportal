@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
-import { RentalService } from '../../services/rental.service';
-import { RentalSite } from '../../models/rental-site';
+import { SiteService } from '../../services/site.service';
+import { Site } from '../../models/site';
 import { SessionService } from '../../services/session.service';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -11,25 +11,24 @@ import {Router} from '@angular/router';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-  public rentalSite: RentalSite;
+  public site: Site;
   public isCollapsed = true;
+
   constructor(private loginService: LoginService,
               private session: SessionService,
               private router: Router,
-              private rentalService: RentalService) { }
+              private siteService: SiteService) { }
 
   ngOnInit() {
     const siteId = this.session.get('currentUser').rentalSiteId;
 
-    this.rentalService.getRentalSite(siteId)
-      .then((rentalSite: RentalSite) => this.rentalSite = rentalSite);
+    this.siteService.getSite(siteId).subscribe(data => {
+      this.site = data;
+    });
   }
 
   logout() {
     this.loginService.logout()
       .then(() => this.router.navigate(['login']));
   }
-
-
-
 }

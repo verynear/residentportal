@@ -1,12 +1,13 @@
 import {Component} from '@angular/core';
 import {LoginService} from './services/login.service';
 import {User} from './models/user';
-import {RentalService} from './services/rental.service';
+import {SiteService} from './services/site.service';
 import {Router} from '@angular/router';
 import {SessionService} from './services/session.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import {SafeValue} from '@angular/platform-browser/src/security/dom_sanitization_service';
 import {ThemeService} from './services/theme.service';
+import {CompanyService} from './services/company.service';
 
 @Component({
   moduleId: module.id.toString(),
@@ -20,7 +21,8 @@ export class AppComponent {
 
   constructor(
     private loginService: LoginService,
-    private rentalService: RentalService,
+    private siteService: SiteService,
+    private companyService: CompanyService,
     private session: SessionService,
     private router: Router,
     private sanitizer: DomSanitizer,
@@ -29,8 +31,8 @@ export class AppComponent {
     this.addLoginListener();
     this.validateDomain();
 
-    this.brandingCSS = sanitizer.bypassSecurityTrustResourceUrl(this.rentalService.getBrandingCssUrl());
-    this.rentalService.init();
+    this.brandingCSS = sanitizer.bypassSecurityTrustResourceUrl(this.siteService.getBrandingCssUrl());
+    this.siteService.init();  // Init the community theme.
   }
 
   private addLoginListener(): void {
@@ -41,7 +43,7 @@ export class AppComponent {
   }
 
   private validateDomain(): void {
-    this.rentalService.checkSubdomain()
+    this.companyService.checkSubdomain()
       .then((isValidDomain: boolean) => {
         if (!isValidDomain) {
           this.session.set('invalidDomain', true);
