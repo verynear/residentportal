@@ -9,7 +9,6 @@ import { Site } from '../../models/site';
 @Component({
     moduleId: module.id.toString(),
     templateUrl: './login.component.html',
-    selector: 'app-login',
     styleUrls: ['./login.component.scss']
 })
 
@@ -52,7 +51,7 @@ export class LoginComponent implements OnInit {
         Set the Logo for the Login Page.
     */
     getLoginLogo() {
-        this.companyService.getBrandingData().then((data) =>  {
+        this.companyService.getBrandingData().subscribe((data) =>  {
             console.log('Company is: ');
             console.log(this.company);
             this.company = data;

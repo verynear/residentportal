@@ -1,14 +1,12 @@
 @import "variables";
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+
 /* Default Reset
 -------------------------------------------------- */
-body {
-	margin: 0;
-	padding: 0;
-	color: #444;
-}
 body,
 footer {
+  font-family: 'Roboto', sans-serif;
 	background-color: #ddd
 }
 .btn,
@@ -424,7 +422,7 @@ a:hover.btn.btn-primary {
 
 section,
 .alert{
-	margin-bottom: 20px;
+	margin-bottom: 2.188rem;
 }
 footer {
 	padding: 0.625rem 0.9375rem;

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Site } from '../models/site';
 import { ConfigService } from './config.service';
 import { ThemeService } from './theme.service';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class CompanyService {
@@ -25,9 +26,11 @@ export class CompanyService {
     this.applyTheme();
   }
 
-  getBrandingData(): Promise<Site> {
+  getBrandingData(): Observable<Site> {
     return this.http.get<Site>(`${this.leasenet}/company/branding/data?domain=${this.subdomain}`)
-      .toPromise();
+      .catch((error: any) => {
+        return Observable.throw(this.errorHandler(error));
+      });
   }
 
   checkSubdomain(): Promise<boolean> {
@@ -42,12 +45,15 @@ export class CompanyService {
   }
 
   applyTheme() {
-    this.getBrandingData().then(rentalSite => {
+    this.getBrandingData().subscribe(rentalSite => {
       this.themeService.applyTheme(rentalSite.bgColor);
     });
   }
 
-
+  errorHandler(error: any): void {
+    console.log('Error: CompanyService');
+    console.log(error);
+  }
 
 
 }
