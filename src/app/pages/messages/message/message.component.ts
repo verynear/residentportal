@@ -22,6 +22,7 @@ export class MessageComponent implements OnInit, OnDestroy {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.getMessage(this.id);
     });
+    this.loading = true;
   }
 
   ngOnDestroy() {

@@ -508,3 +508,21 @@ footer {
 	margin-left: 0px;
 }
 
+.attach {
+  max-width: 180px; 
+  max-height: 120px;
+}
+
+.attachSpan {
+  display: inline;
+  float: auto;
+  margin-left: 20px;
+}
+
+.attachSection {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
