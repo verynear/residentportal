@@ -34,7 +34,7 @@ import 'core-js/es6/map';
 import 'core-js/es6/weak-map';
 import 'core-js/es6/set';
 import 'core-js/es6/array';
-import "core-js/es7";   // For includes, currently only on Resnet.
+import 'core-js/es7';   // For includes, currently only on Resnet.
 
 // import './css-var.polyfill';
 
