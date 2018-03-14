@@ -37,7 +37,7 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
   }
 
   private createNewRequest(req: HttpRequest<any>): HttpRequest<any> {
-    const skipToken = !!NO_TOKEN_REQUIRED.find(url => req.url.includes(url));
+    const skipToken = !!NO_TOKEN_REQUIRED.find(url => (req.url.indexOf(url) > - 1));
 
     if (!this.token || skipToken) {
       return req;
