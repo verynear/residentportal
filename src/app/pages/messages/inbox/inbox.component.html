@@ -23,7 +23,11 @@
                 <span class="previewTitle" [innerHTML]="message?.subject"></span>
                 <span class="previewMessage" [innerHTML]="message?.message | htmlToPlain">- </span>
             </td> 
-            <td class="nowrap"><b>{{message.createDate | date}}</b> </td>
+            <td class="nowrap">
+              <b>{{message.createDate | date}}</b>
+              <i style="color: #fff" class="fa fa-minus"></i>
+              <i *ngIf="message.messageAttachments.length" class="fa fa-paperclip fa-lg"></i>
+            </td>
           </tr>
         </tbody>
       </table>
