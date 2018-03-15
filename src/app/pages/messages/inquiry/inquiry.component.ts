@@ -12,7 +12,7 @@ export class InquiryComponent implements OnInit, OnDestroy {
 
   id: number;
   private sub: any;
-  message: any;
+  inquiry: any;
   loading: boolean;
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute, public messageService: MessageService) { }
@@ -22,6 +22,7 @@ export class InquiryComponent implements OnInit, OnDestroy {
       this.id = +params['id']; // (+) converts string 'id' to a number
       this.getInquiry(this.id);
     });
+    this.loading = true;
   }
 
   ngOnDestroy() {
@@ -32,7 +33,7 @@ export class InquiryComponent implements OnInit, OnDestroy {
     this.messageService.getInquiry(id).subscribe(
       data => {
         this.loading = false;
-        this.message = data;
+        this.inquiry = data;
       },
       error => {
         console.log('Error');

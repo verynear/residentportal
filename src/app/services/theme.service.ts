@@ -23,7 +23,9 @@ export class ThemeService {
     const str = '.btn-primary {background-color: ' + primary + ' !important} ' +
     '.primary.active {background-color: ' + primary + ' !important}' +
     '.primary:hover {background-color: ' + primary + ' !important}' +
-    'h1 {color: ' + primary + ' !important}';
+    'h1 {color: ' + primary + ' !important}' +
+    '.ui-fileupload-choose {background-color: ' + primary + ' !important}' +
+    '.rematt {background-color: ' + primary + ' !important}';
 
     const node = document.createElement('style');
     node.innerHTML = str;

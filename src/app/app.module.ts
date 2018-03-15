@@ -8,7 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Dependencies
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CheckboxModule, TooltipModule, EditorModule } from 'primeng/primeng';
+import { CheckboxModule, TooltipModule, EditorModule, FileUploadModule } from 'primeng/primeng';
 
 // App Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +36,7 @@ import { AccountComponent } from './pages/account/account.component';
 import { InquiryComponent } from './pages/messages/inquiry/inquiry.component';
 import { MessageListComponent } from './components/message-list/message-list.component';
 import { MessageComponent } from './pages/messages/message/message.component';
+import { FormUploadComponent } from './components/form-upload/form-upload.component';
 
 // Interceptor
 import { AuthGuard } from './auth.guard';
@@ -58,6 +59,7 @@ import { ThemeService } from './services/theme.service';
 import { SiteService } from './services/site.service';
 import { ConfigService } from './services/config.service';
 import { CompanyService } from './services/company.service';
+import { UploadFileService } from './services/upload-file.service';
 
 // Directives
 import { SortableTableDirective } from './components/sortable-table/sortable-table.directive';
@@ -74,6 +76,7 @@ import { ReplacePipe } from './pipes/replace.pipe';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    FileUploadModule,
     HttpClientModule,
     AppRoutingModule,
     CheckboxModule,
@@ -108,7 +111,8 @@ import { ReplacePipe } from './pipes/replace.pipe';
     ReplacePipe,
     AccountComponent,
     InquiryComponent,
-    MessageListComponent
+    MessageListComponent,
+    FormUploadComponent
   ],
   providers: [
     {
@@ -124,6 +128,7 @@ import { ReplacePipe } from './pipes/replace.pipe';
     UserService,
     StatusService,
     BaseRequestOptions,
+    UploadFileService,
     MessageService,
     MaintenanceService,
     AnnouncementService,

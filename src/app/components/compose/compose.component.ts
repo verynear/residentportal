@@ -5,12 +5,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { MessageService } from '../../services/message.service';
+import { UploadFileService } from '../../services/upload-file.service';
+import { FormUploadComponent } from '../form-upload/form-upload.component';
 import { ReplacePipe } from '../../pipes/replace.pipe';
 
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditorModule, ProgressSpinnerModule } from 'primeng/primeng';
 
 import { Message } from '../../models/message';
+import { Attachment } from '../../models/attachment';
 
 @Component({
   selector: 'app-compose',
@@ -22,14 +25,31 @@ export class ComposeComponent implements OnInit {
   loading = false;
   newMessageId: number;
   lastLink: any;
+  attachments: Attachment[];
   messageForm: FormGroup;
   subject: FormControl;
   message: FormControl;
+  public getDataFromChild(event: Attachment) {
+    if (event) {
+      this.attachments.push(event);
+      console.log('ATTACHMENT ADDED');
+      console.log(event);
+    }
+  }
+  public removeAttachment(event) {
+    if (event) {
+      const index = this.attachments.findIndex(d => d.fileSizeKB === event.size);
+      this.attachments.splice(index, 1);
+      console.log('REMOVED:');
+      console.log(event.name);
+    }
+  }
 
   constructor(private router: Router, public activeModal: NgbActiveModal,
-    public messageService: MessageService, private alertService: AlertService) {}
+    public messageService: MessageService, private uploadService: UploadFileService, private alertService: AlertService) {}
 
     ngOnInit() {
+        this.attachments = [];
         this.createFormControls();
         this.createForm();
     }
@@ -54,6 +74,8 @@ export class ComposeComponent implements OnInit {
         message.subject = this.messageForm.value.subject;
         message.messageType = 'Announcement';
 
+        console.log(message);
+
         message.message = new ReplacePipe().transform(message.message, '<br>'); // Remove all occurences of <br>
 
         this.messageService.postMessage(message).subscribe(
@@ -62,6 +84,16 @@ export class ComposeComponent implements OnInit {
                 this.loading = false;
                 this.newMessageId = data['id'];
                 this.lastLink = '/messages/inquiry/' + this.newMessageId;
+                if (this.attachments.length) {
+                  this.uploadService.postAttachments(this.newMessageId, this.attachments).subscribe(
+                      data1 => {
+                          console.log('Attachments Posted');
+                          console.log(this.attachments);
+                      },
+                      error1 => {
+                          console.log('Failed to post Attachments');
+                      });
+                }
                 this.alertService.success('Your message has been sent', this.lastLink, true, false);
             },
             error => {
