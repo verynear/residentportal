@@ -34,7 +34,7 @@ export class CompanyService {
   }
 
   checkSubdomain(): Promise<boolean> {
-    if (!this.config.get().environments.includes(this.host)) {
+    if (!(this.config.get().environments.indexOf(this.host) > -1)) {
       return Promise.resolve(false);
     }
 

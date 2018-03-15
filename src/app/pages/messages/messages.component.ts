@@ -25,7 +25,7 @@ export class MessagesComponent implements OnInit {
   }
 
   viewingMessage() {
-    if (this.router.url.includes('messages/view')) {
+    if (this.router.url.indexOf('messages/view') > -1) {
       return true;
     }
 
@@ -33,7 +33,7 @@ export class MessagesComponent implements OnInit {
   }
 
   viewingInquiry() {
-    if (this.router.url.includes('messages/inquiry')) {
+    if (this.router.url.indexOf('messages/inquiry') > -1) {
       return true;
     }
 
