@@ -10,7 +10,7 @@
             <th style="width: 15px"> 
               <p-checkbox name="groupname" value="val1" [(ngModel)]="checkAll" (click)="selectAllMessages()" binary="true"></p-checkbox>
             </th>
-            <th><app-th columnName="subject" displayName="Subject"></app-th></th>
+            <th><app-th columnName="subject" displayName="Message"></app-th></th>
             <th><app-th columnName="createDate" displayName="Date"></app-th></th>
         </thead>
         <tbody>
@@ -24,7 +24,7 @@
                 <span class="previewMessage" [innerHTML]="message?.message | htmlToPlain">- </span>
             </td> 
             <td class="nowrap">
-              <b>{{message.createDate | date}}</b>
+              <b>{{message.createDate | date: 'MMM dd, y'}}</b>
               <i style="color: #fff" class="fa fa-angle-right"></i>
               <i *ngIf="message.messageAttachments.length" class="fa fa-paperclip fa-lg"></i>
             </td>
