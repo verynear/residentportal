@@ -33,9 +33,9 @@ import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.co
 import { BrandingComponent } from './pages/branding/branding.component';
 import { ComposeComponent } from './components/compose/compose.component';
 import { AccountComponent } from './pages/account/account.component';
-import { InquiryComponent } from './pages/messages/inquiry/inquiry.component';
+import { ViewSentComponent } from './pages/messages/viewsent/viewsent.component';
 import { MessageListComponent } from './components/message-list/message-list.component';
-import { MessageComponent } from './pages/messages/message/message.component';
+import { ViewReceivedComponent } from './pages/messages/viewreceived/viewreceived.component';
 import { FormUploadComponent } from './components/form-upload/form-upload.component';
 
 // Interceptor
@@ -100,7 +100,7 @@ import { ReplacePipe } from './pipes/replace.pipe';
     InboxComponent,
     SortableColumnComponent,
     SortableTableDirective,
-    MessageComponent,
+    ViewReceivedComponent,
     HtmlToPlainPipe,
     SafeHtmlPipe,
     ShortenPipe,
@@ -110,7 +110,7 @@ import { ReplacePipe } from './pipes/replace.pipe';
     ComposeComponent,
     ReplacePipe,
     AccountComponent,
-    InquiryComponent,
+    ViewSentComponent,
     MessageListComponent,
     FormUploadComponent
   ],

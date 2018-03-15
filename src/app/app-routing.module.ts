@@ -12,12 +12,12 @@ import { MaintenanceComponent } from './pages/maintenance/maintenance.component'
 import { MessagesComponent } from './pages/messages/messages.component';
 import { InboxComponent } from './pages/messages/inbox/inbox.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
-import { MessageComponent } from './pages/messages/message/message.component';
+import { ViewReceivedComponent } from './pages/messages/viewreceived/viewreceived.component';
 import { ActivityComponent } from './pages/activity/activity.component';
 import { InvalidDomainComponent } from './pages/invalid-domain/invalid-domain.component';
 import { BrandingComponent } from './pages/branding/branding.component';
 import { AccountComponent } from './pages/account/account.component';
-import { InquiryComponent } from './pages/messages/inquiry/inquiry.component';
+import { ViewSentComponent } from './pages/messages/viewsent/viewsent.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -37,8 +37,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/messages/inbox', pathMatch: 'full' },
       { path: 'inbox', component: InboxComponent },
-      { path: 'view/:id', component: MessageComponent },
-      { path: 'inquiry/:id', component: InquiryComponent }
+      { path: 'view/:id', component: ViewReceivedComponent },
+      { path: 'sent/:id', component: ViewSentComponent }
     ]
   },
   { path: 'branding', component: BrandingComponent },

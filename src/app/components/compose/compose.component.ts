@@ -83,7 +83,7 @@ export class ComposeComponent implements OnInit {
                 this.activeModal.close('success');
                 this.loading = false;
                 this.newMessageId = data['id'];
-                this.lastLink = '/messages/inquiry/' + this.newMessageId;
+                this.lastLink = '/messages/sent/' + this.newMessageId;
                 if (this.attachments.length) {
                   this.uploadService.postAttachments(this.newMessageId, this.attachments).subscribe(
                       data1 => {

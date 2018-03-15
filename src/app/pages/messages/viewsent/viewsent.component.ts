@@ -4,11 +4,11 @@ import { MessageService } from '../../../services/message.service';
 import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 
 @Component({
-  selector: 'app-inquiry',
-  templateUrl: './inquiry.component.html',
-  styleUrls: ['./inquiry.component.scss']
+  selector: 'app-viewsent',
+  templateUrl: './viewsent.component.html',
+  styleUrls: ['./viewsent.component.scss']
 })
-export class InquiryComponent implements OnInit, OnDestroy {
+export class ViewSentComponent implements OnInit, OnDestroy {
 
   id: number;
   private sub: any;
