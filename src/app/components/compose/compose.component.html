@@ -20,18 +20,22 @@
             <p-editor formControlName="message" [style]="{'height':'320px'}">
               <p-header>
                   <span class="ql-formats">
-                    <select class="ql-size">
+                    <select class="ql-size" tabindex="-1">
                         <option value="small"></option>
                         <option selected></option>
                         <option value="large"></option>
                         <option value="huge"></option>
                       </select>
-                      <button class="ql-bold" aria-label="Bold"></button>
-                      <button class="ql-italic" aria-label="Italic"></button>
-                      <button class="ql-underline" aria-label="Underline"></button>
+                      <button class="ql-bold" aria-label="Bold" tabindex="-1"></button>
+                      <button class="ql-italic" aria-label="Italic" tabindex="-1"></button>
+                      <button class="ql-underline" aria-label="Underline" tabindex="-1"></button>
                   </span>
               </p-header>
             </p-editor>
+            <div class="form-group">
+                <label>Attachments:</label>
+                <app-form-upload (uploadForm)="getDataFromChild($event)" (removeFile)="removeAttachment($event)"></app-form-upload>
+            </div>
           </div>
           
           <div class="modal-footer">
