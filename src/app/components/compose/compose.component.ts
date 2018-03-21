@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ElementRef, Renderer2 } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AlertService } from '../../services/alert.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -20,7 +20,7 @@ import { Attachment } from '../../models/attachment';
   templateUrl: './compose.component.html',
   styleUrls: ['./compose.component.scss']
 })
-export class ComposeComponent implements OnInit {
+export class ComposeComponent implements OnInit, AfterViewInit {
 
   loading = false;
   newMessageId: number;
@@ -45,13 +45,18 @@ export class ComposeComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router, public activeModal: NgbActiveModal,
-    public messageService: MessageService, private uploadService: UploadFileService, private alertService: AlertService) {}
+  constructor(private router: Router, public activeModal: NgbActiveModal, public messageService: MessageService,
+    private uploadService: UploadFileService, private alertService: AlertService, private rd: Renderer2) {}
 
     ngOnInit() {
         this.attachments = [];
         this.createFormControls();
         this.createForm();
+    }
+
+    ngAfterViewInit() {
+          const element = this.rd.selectRootElement('.ql-picker-label');
+          this.rd.setAttribute(element, 'tabindex', '-1');
     }
 
     createFormControls() {

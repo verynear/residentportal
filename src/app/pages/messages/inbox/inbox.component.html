@@ -13,7 +13,7 @@
             <th><app-th columnName="subject" displayName="Message"></app-th></th>
             <th><app-th columnName="createDate" displayName="Date"></app-th></th>
         </thead>
-        <tbody>
+        <tbody *ngIf="messages?.length; else no_data_templ">
           <tr *ngFor='let message of messages' (click)="openMessage(message.id)">
             <td>
                 <p-checkbox  name="groupname" value="val1" [(ngModel)]="message.selected" binary="true"></p-checkbox>
@@ -39,3 +39,22 @@
   <img *ngIf="loading" class="spinner" src="./assets/Spinner-100px.gif" />
 
 </div>
+
+<ng-template #no_data_templ>
+  <tbody>
+    <tr>
+      <td>
+        <p-checkbox  name="groupname" value="val1" binary="true"></p-checkbox>
+      </td>
+
+      <td class="nowrap">
+        <span class="previewTitle"> No Messages -</span> 
+        <span class="previewMessage"> Empty Message</span> 
+      </td> 
+
+      <td class="nowrap">
+        <span>Aug 10, 1984 </span>
+      </td>
+    </tr>     
+  </tbody>                     
+</ng-template>
