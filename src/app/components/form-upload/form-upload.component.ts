@@ -35,6 +35,8 @@ export class FormUploadComponent implements OnInit {
   fileNameTooLongMessageDetail = 'maxumum length: 46 charachters';
   filesTooLargeMessageSummary = 'attachments exceed size limit';
   filesTooLargeMessageDetail = 'please remove one or more attachments';
+  tooManyFilesMessageSummary = 'Maximum five attachments';
+  tooManyFilesMessageDetail = 'to add, first remove one or more attachments';
 
   constructor(private uploadService: UploadFileService,
     private alertService: AlertService, private sanitizer: DomSanitizer, private zone: NgZone ) { }
@@ -84,11 +86,24 @@ export class FormUploadComponent implements OnInit {
             file.isImage = /^image\//.test(file.type);
             this.uploadedFiles.push(file);
             this.totalAttachSize += (file.size / 1000000);
-            if (this.totalAttachSize > 26) {
+            if (this.totalAttachSize > 10.5) {
               this.pFileUpload.msgs.push({
                   severity: 'error',
                   summary: this.filesTooLargeMessageSummary,
                   detail: this.filesTooLargeMessageDetail
+              });
+              this.totalAttachSize -= (file.size / 1000000);
+              const index = this.uploadedFiles.indexOf(file);
+              this.remove(index);
+              this.uploadReady = false;
+              this.currentUpload = false;
+              break;
+            }
+            if (this.uploadedFiles.length > 5 ) {
+              this.pFileUpload.msgs.push({
+                  severity: 'error',
+                  summary: this.tooManyFilesMessageSummary,
+                  detail: this.tooManyFilesMessageDetail
               });
               this.totalAttachSize -= (file.size / 1000000);
               const index = this.uploadedFiles.indexOf(file);

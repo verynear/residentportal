@@ -34,6 +34,7 @@
             </p-editor>
             <div class="form-group">
                 <label>Attachments:</label>
+                <small class="sizeGuide">Maximum size: 10 MB (combined). Maximum 5 Attachments per message.</small>
                 <app-form-upload (uploadForm)="getDataFromChild($event)" (removeFile)="removeAttachment($event)"></app-form-upload>
             </div>
           </div>
