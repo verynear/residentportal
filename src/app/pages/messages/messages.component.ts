@@ -24,7 +24,7 @@ export class MessagesComponent implements OnInit {
     return this.router.url === '/messages/inbox';
   }
 
-  viewingMessage() {
+  viewingReceived() {
     if (this.router.url.indexOf('messages/view') > -1) {
       return true;
     }
@@ -32,8 +32,8 @@ export class MessagesComponent implements OnInit {
     return false;
   }
 
-  viewingInquiry() {
-    if (this.router.url.indexOf('messages/inquiry') > -1) {
+  viewingSent() {
+    if (this.router.url.indexOf('messages/sent') > -1) {
       return true;
     }
 

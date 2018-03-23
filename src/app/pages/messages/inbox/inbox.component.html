@@ -10,10 +10,10 @@
             <th style="width: 15px"> 
               <p-checkbox name="groupname" value="val1" [(ngModel)]="checkAll" (click)="selectAllMessages()" binary="true"></p-checkbox>
             </th>
-            <th><app-th columnName="subject" displayName="Subject"></app-th></th>
+            <th><app-th columnName="subject" displayName="Message"></app-th></th>
             <th><app-th columnName="createDate" displayName="Date"></app-th></th>
         </thead>
-        <tbody>
+        <tbody *ngIf="messages?.length; else no_data_templ">
           <tr *ngFor='let message of messages' (click)="openMessage(message.id)">
             <td>
                 <p-checkbox  name="groupname" value="val1" [(ngModel)]="message.selected" binary="true"></p-checkbox>
@@ -24,8 +24,8 @@
                 <span class="previewMessage" [innerHTML]="message?.message | htmlToPlain">- </span>
             </td> 
             <td class="nowrap">
-              <b>{{message.createDate | date}}</b>
-              <i style="color: #fff" class="fa fa-minus"></i>
+              <b>{{message.createDate | date: 'MMM dd, y'}}</b>
+              <i style="color: #fff" class="fa fa-angle-right"></i>
               <i *ngIf="message.messageAttachments.length" class="fa fa-paperclip fa-lg"></i>
             </td>
           </tr>
@@ -39,3 +39,22 @@
   <img *ngIf="loading" class="spinner" src="./assets/Spinner-100px.gif" />
 
 </div>
+
+<ng-template #no_data_templ>
+  <tbody>
+    <tr>
+      <td>
+        <p-checkbox  name="groupname" value="val1" binary="true"></p-checkbox>
+      </td>
+
+      <td class="nowrap">
+        <span class="previewTitle"> No Messages -</span> 
+        <span class="previewMessage"> Empty Message</span> 
+      </td> 
+
+      <td class="nowrap">
+        <span>Aug 10, 1984 </span>
+      </td>
+    </tr>     
+  </tbody>                     
+</ng-template>

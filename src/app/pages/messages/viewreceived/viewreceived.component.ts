@@ -4,11 +4,11 @@ import { MessageService } from '../../../services/message.service';
 import { SafeHtmlPipe } from '../../../pipes/safe-html.pipe';
 
 @Component({
-  selector: 'app-message',
-  templateUrl: './message.component.html',
-  styleUrls: ['./message.component.scss']
+  selector: 'app-viewreceived',
+  templateUrl: './viewreceived.component.html',
+  styleUrls: ['./viewreceived.component.scss']
 })
-export class MessageComponent implements OnInit, OnDestroy {
+export class ViewReceivedComponent implements OnInit, OnDestroy {
 
   id: number;
   private sub: any;
