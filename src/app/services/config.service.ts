@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {environment} from '../../environments/environment';
 
 @Injectable()
 export class ConfigService {
@@ -23,7 +24,8 @@ export class ConfigService {
         subdomain: site,
         host: branch
       },
-      environments: ['localhost', 'devdemo', 'stage', 'api']
+      environments: ['localhost', 'devdemo', 'stage', 'api'],
+      s3: environment.s3
     };
   }
 
