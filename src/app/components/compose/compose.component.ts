@@ -29,6 +29,7 @@ export class ComposeComponent implements OnInit, AfterViewInit {
   messageForm: FormGroup;
   subject: FormControl;
   message: FormControl;
+  messageType: FormControl;
   public getDataFromChild(event: Attachment) {
     if (event) {
       this.attachments.push(event);
@@ -52,6 +53,7 @@ export class ComposeComponent implements OnInit, AfterViewInit {
         this.attachments = [];
         this.createFormControls();
         this.createForm();
+        this.setDefaultValues();
     }
 
     ngAfterViewInit() {
@@ -59,15 +61,22 @@ export class ComposeComponent implements OnInit, AfterViewInit {
           this.rd.setAttribute(element, 'tabindex', '-1');
     }
 
+    // sets radio button
+    setDefaultValues() {
+       this.messageForm.patchValue({messageType: 'GENERAL_INQUIRY'});
+    }
+
     createFormControls() {
         this.subject = new FormControl('');
         this.message = new FormControl('', Validators.required);
+        this.messageType = new FormControl('', Validators.required);
     }
 
     createForm() {
         this.messageForm = new FormGroup({
             subject: this.subject,
-            message: this.message
+            message: this.message,
+            messageType: this.messageType,
         });
     }
 
@@ -75,9 +84,9 @@ export class ComposeComponent implements OnInit, AfterViewInit {
         this.loading = true;
         const message = new Message();
 
+        message.messageType = this.messageForm.value.messageType;
         message.message = this.messageForm.value.message;
         message.subject = this.messageForm.value.subject;
-        message.messageType = 'Announcement';
 
         console.log(message);
 
