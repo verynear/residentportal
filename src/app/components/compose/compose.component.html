@@ -10,6 +10,33 @@
   
           <div class="modal-body">
             <div class="form-group">
+              <p class="mb-0"><label for="messageType">Message Type:</label></p>
+              <div class="row">
+                <div class="col-sm-12">
+                  <ul class="list-inline mb-0">
+                    <li class="list-inline-item">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" formControlName="messageType" id="messageStandard" value="GENERAL_INQUIRY">
+                        <label class="form-check-label" for="messageStandard">Standard Message</label>
+                      </div>
+                    </li>
+                    <li class="list-inline-item">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" formControlName="messageType" id="maintenceRequest" value="MAINTENANCE">
+                        <label class="form-check-label" for="maintenceRequest">Maintenance Request</label>
+                      </div>
+                    </li>
+                    <li class="list-inline-item">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" formControlName="messageType" id="residentFeedback" value="FEEDBACK">
+                        <label class="form-check-label" for="residentFeedback">Resident Feedback</label>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
               <label for="fromEmail">From:</label>
               <input type="text" readonly class="form-control-plaintext" id="fromEmail" value="info@treetopvillage.com">
             </div>
