@@ -11,6 +11,14 @@
           <div class="modal-body">
             <div class="form-group">
               <p class="mb-0"><label for="messageType">Message Type:</label></p>
+              <div class="btn-group btn-group-toggle" ngbRadioGroup" formControlName="isUrgent">
+                  <label ngbButtonLabel class="btn-primary">
+                    <input ngbButton type="radio" [value]="2"> No
+                  </label>
+                  <label ngbButtonLabel class="btn-primary">
+                    <input ngbButton type="radio" [value]="1"> Yes
+                  </label>
+                </div>
               <div class="row">
                 <div class="col-sm-12">
                   <ul class="list-inline mb-0">
@@ -22,13 +30,13 @@
                     </li>
                     <li class="list-inline-item">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" formControlName="messageType" id="maintenceRequest" value="MAINTENANCE">
+                        <input class="form-check-input" type="radio" formControlName="messageType" id="maintenceRequest" value="MAINTENANCE_REQUEST">
                         <label class="form-check-label" for="maintenceRequest">Maintenance Request</label>
                       </div>
                     </li>
                     <li class="list-inline-item">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" formControlName="messageType" id="residentFeedback" value="FEEDBACK">
+                        <input class="form-check-input" type="radio" formControlName="messageType" id="residentFeedback" value="RESIDENT_FEEDBACK">
                         <label class="form-check-label" for="residentFeedback">Resident Feedback</label>
                       </div>
                     </li>
