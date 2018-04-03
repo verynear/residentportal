@@ -54,12 +54,14 @@ tr {
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	display: inline-block;
+	vertical-align: middle !important;
 }
 
 .previewTitle {
 	font-style: bold;
 	overflow: hidden;
 	display: inline-block;
+	vertical-align: middle !important;
 }
 
 .mailHeader {

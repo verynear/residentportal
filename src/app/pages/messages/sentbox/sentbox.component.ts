@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from '../../../services/message.service';
-import { Message } from '../../../models/message';
+import { Inquiry } from '../../../models/inquiry';
 import { NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { CheckboxModule, TooltipModule } from 'primeng/primeng';
 import { HtmlToPlainPipe } from '../../../pipes/html-to-plain.pipe';
 
 @Component({
-  selector: 'app-inbox',
-  templateUrl: './inbox.component.html',
-  styleUrls: ['./inbox.component.scss']
+  selector: 'app-sentbox',
+  templateUrl: './sentbox.component.html',
+  styleUrls: ['./sentbox.component.scss']
 })
-export class InboxComponent implements OnInit {
-  messages: Array<any>;
+export class SentboxComponent implements OnInit {
+  inquiries: Array<Inquiry>;
   itemsPerPage: number;      // The number of messages per page.
   totalItems: number;
   page: number;
@@ -21,7 +21,7 @@ export class InboxComponent implements OnInit {
   test: boolean;
 
   constructor(private router: Router, public messageService: MessageService, config: NgbDropdownConfig) {
-    messageService.onRefresh$.subscribe(sent => {
+     messageService.onRefresh$.subscribe(sent => {
       this.onRefresh();
     });
     // Default values for dropdowns.
@@ -32,7 +32,7 @@ export class InboxComponent implements OnInit {
     this.itemsPerPage = 25;     // Number of Mail Items per page.
     this.page = 1;              // Starting Page
     this.checkAll = false;      // By Default, all mail items unchecked.
-    this.getMessages(this.page - 1, this.itemsPerPage); // Get Messages.
+    this.getSent(this.page - 1, this.itemsPerPage); // Get Messages.
   }
 
   pageChange() {
@@ -41,41 +41,42 @@ export class InboxComponent implements OnInit {
 
   nextPage(page, itemsPerPage) {
     this.loading = true;
-    this.messageService.getAll(page, itemsPerPage).subscribe(
+    this.messageService.getSent(page, itemsPerPage).subscribe(
       data => {
         this.loading = false;
-        this.messages = data['messages'];
+        this.inquiries = data['content'];
       });
   }
 
-  getMessages(page, itemsPerPage) {
+  getSent(page, itemsPerPage) {
     this.loading = true;
-    this.messageService.getAll(page, itemsPerPage).subscribe(
+    this.messageService.getSent(page, itemsPerPage).subscribe(
       data => {
         this.loading = false;
-        this.messages = data['messages'];
+        this.inquiries = data['content'];
         this.totalItems = data['totalPages'] * data['numberOfElements'];
       });
   }
 
-  selectAllMessages() {
-    console.log('select all messages');
-    for (const message of this.messages) {
-      message.selected = this.checkAll;
+  selectAllInquiries() {
+    console.log('select all inquiries');
+    for (const inquiry of this.inquiries) {
+      inquiry.selected = this.checkAll;
     }
   }
 
   onRefresh() {
     this.page = 0;
-    this.getMessages(this.page, this.itemsPerPage);
+    this.getSent(this.page, this.itemsPerPage);
   }
 
   // For sort event./
   onSorted($event) {
-    this.messages = this.messageService.sortMessages(this.messages, $event);
+    this.inquiries = this.messageService.sortInquiries(this.inquiries, $event);
   }
 
-  openMessage(id) {
-    this.router.navigate(['/messages/inbox', id]);
+  openInquiry(id) {
+    this.router.navigate(['/messages/sent', id]);
   }
+
 }
