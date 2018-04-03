@@ -71,12 +71,6 @@ export class ComposeComponent implements OnInit, AfterViewInit {
        this.messageForm.patchValue({urgentBool: false});
     }
 
-    // setUrgent(event) {
-    //   console.log('URGENT');
-    //   this.isUrgent = event.target.defaultValue;
-    //   console.log(this.isUrgent);
-    // }
-
     createFormControls() {
         this.subject = new FormControl('');
         this.urgentBool = new FormControl('');
