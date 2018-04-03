@@ -7,6 +7,6 @@ export class Message {
     rentalsitesId: number;
     subject: string;
     isRead: boolean;
-    isUrgent: boolean;
+    isUrgent: number;
 }
 
