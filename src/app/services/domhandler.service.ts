@@ -66,8 +66,8 @@ export class DomHandler {
         const children = element.parentNode.childNodes;
         let num = 0;
         for (let i = 0; i < children.length; i++) {
-            if (children[i] == element) { return num; }
-            if (children[i].nodeType == 1) { num++; }
+            if (children[i] === element) { return num; }
+            if (children[i].nodeType === 1) { num++; }
         }
         return -1;
     }
@@ -204,18 +204,14 @@ export class DomHandler {
             opacity = +element.style.opacity.replace(',', '.') + (new Date().getTime() - last) / duration;
             element.style.opacity = opacity;
             last = +new Date();
-
-            if ( +opacity < 1 ) {
-                ( window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16);
-            }
         };
 
         tick();
     }
 
     public fadeOut(element, ms) {
-        let opacity = 1,
-            interval = 50,
+        let opacity = 1;
+        const interval = 50,
             duration = ms,
             gap = interval / duration;
 
@@ -381,7 +377,7 @@ export class DomHandler {
         } else if (target.el && target.el.nativeElement) {
             target.el.nativeElement.appendChild(element);
         } else {
-            throw 'Cannot append ' + target + ' to ' + element;
+            throw new Error('Cannot append ' + target + ' to ' + element);
         }
     }
 
@@ -391,7 +387,7 @@ export class DomHandler {
         } else if (target.el && target.el.nativeElement) {
             target.el.nativeElement.removeChild(element);
         } else {
-            throw 'Cannot remove ' + element + ' from ' + target;
+            throw new Error('Cannot remove ' + element + ' from ' + target);
         }
     }
 
