@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Message } from '../models/message';
+import { Inquiry } from '../models/inquiry';
 import { PACKAGE_ROOT_URL } from '@angular/core/src/application_tokens';
 import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 import { SortService } from '../components/sortable-table/sort.service';
@@ -17,6 +18,7 @@ export class MessageService {
   messages: Array<Message>;
   private _listeners = new Subject<any>();
   onRefresh$ = this._listeners.asObservable();
+  onSent$ = this._listeners.asObservable();
 
   constructor(private http: HttpClient,
               private config: ConfigService,
@@ -27,6 +29,13 @@ export class MessageService {
 
   getAll(page: number, itemsPerPage: number): Observable<Message[]> {
     return this.http.get<Message[]>(this.baseURL + '/messages?page=' + page + '&size=' + itemsPerPage)
+    .catch((error: any) => {
+      return Observable.throw(this.errorHandler(error));
+    });
+  }
+
+  getSent(page: number, itemsPerPage: number): Observable<Inquiry[]> {
+    return this.http.get<Inquiry[]>(this.baseURL + '/inquiry?page=' + page + '&size=' + itemsPerPage)
     .catch((error: any) => {
       return Observable.throw(this.errorHandler(error));
     });
@@ -47,8 +56,8 @@ export class MessageService {
     });
   }
 
-  postMessage(message: Message): Observable<Message> {
-    return this.http.post(this.baseURL + '/inquiry', message)
+  postInquiry(inquiry: Inquiry): Observable<Inquiry> {
+    return this.http.post(this.baseURL + '/inquiry', inquiry)
     .catch((error: any) => {
       return Observable.throw(this.errorHandler(error));
     });
@@ -63,9 +72,20 @@ export class MessageService {
     this._listeners.next();
   }
 
+  onSent() {
+    this._listeners.next();
+  }
+
   // Helpers
   sortMessages (messages, criteria: MessageSearchCriteria): Message[] {
       return messages.sort((a, b) => {
+        return this.sortService.sortHelper(a, b, criteria);
+      }
+    );
+  }
+
+  sortInquiries (inquiries, criteria: MessageSearchCriteria): Inquiry[] {
+      return inquiries.sort((a, b) => {
         return this.sortService.sortHelper(a, b, criteria);
       }
     );

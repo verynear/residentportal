@@ -69,6 +69,8 @@ import { HtmlToPlainPipe } from './pipes/html-to-plain.pipe';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ReplacePipe } from './pipes/replace.pipe';
+import { InputSwitchModule } from './components/inputswitch/inputswitch.component';
+import { SentboxComponent } from './pages/messages/sentbox/sentbox.component';
 
 @NgModule({
   imports: [
@@ -80,6 +82,7 @@ import { ReplacePipe } from './pipes/replace.pipe';
     HttpClientModule,
     AppRoutingModule,
     CheckboxModule,
+    InputSwitchModule,
     TooltipModule,
     EditorModule,
     NgbModule.forRoot()
@@ -112,7 +115,8 @@ import { ReplacePipe } from './pipes/replace.pipe';
     AccountComponent,
     ViewSentComponent,
     MessageListComponent,
-    FormUploadComponent
+    FormUploadComponent,
+    SentboxComponent
   ],
   providers: [
     {

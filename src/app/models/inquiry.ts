@@ -1,17 +1,19 @@
-export class Message {
+export class Inquiry {
     id: number;
-    messageType: string;
     createDate: Date;
     managementUserId: string;
     message: string;
-    isRead: boolean;
+    messageType: string;
     rentalsitesId: number;
     subject: string;
+    isRead: boolean;
+    selected?: boolean;
     attachmentSize: number;
-    messageAttachments: MessageAttachments[];
+    isUrgent: number;
+    generalInquiryAttachments: GeneralInquiryAttachments[];
 }
 
-export class MessageAttachments {
+export class GeneralInquiryAttachments {
   url: string;
   fileName: string;
   fileSizeKB: number;

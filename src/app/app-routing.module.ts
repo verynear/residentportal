@@ -11,6 +11,7 @@ import { UnitSelectionComponent } from './pages/unit-selection/unit-selection.co
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { InboxComponent } from './pages/messages/inbox/inbox.component';
+import { SentboxComponent } from './pages/messages/sentbox/sentbox.component';
 import { AnnouncementsComponent } from './pages/announcements/announcements.component';
 import { ViewReceivedComponent } from './pages/messages/viewreceived/viewreceived.component';
 import { ActivityComponent } from './pages/activity/activity.component';
@@ -36,8 +37,9 @@ const routes: Routes = [
     // TODO create a page/component for each children
     children: [
       { path: '', redirectTo: '/messages/inbox', pathMatch: 'full' },
+      { path: 'sent', component: SentboxComponent},
       { path: 'inbox', component: InboxComponent },
-      { path: 'view/:id', component: ViewReceivedComponent },
+      { path: 'inbox/:id', component: ViewReceivedComponent },
       { path: 'sent/:id', component: ViewSentComponent }
     ]
   },

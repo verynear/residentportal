@@ -24,8 +24,12 @@ export class MessagesComponent implements OnInit {
     return this.router.url === '/messages/inbox';
   }
 
+  onSentbox() {
+    return this.router.url === '/messages/sent';
+  }
+
   viewingReceived() {
-    if (this.router.url.indexOf('messages/view') > -1) {
+    if (this.router.url.includes('messages/inbox/')) {
       return true;
     }
 
@@ -33,7 +37,7 @@ export class MessagesComponent implements OnInit {
   }
 
   viewingSent() {
-    if (this.router.url.indexOf('messages/sent') > -1) {
+    if (this.router.url.includes('messages/sent/')) {
       return true;
     }
 
@@ -42,6 +46,10 @@ export class MessagesComponent implements OnInit {
 
   refreshInbox() {
       this.messageService.onRefresh();
+  }
+
+  refreshSentbox() {
+      this.messageService.onSent();
   }
 
   compose() {

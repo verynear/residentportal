@@ -1,0 +1,159 @@
+/* Message Center Custom Styles
+-------------------------------------------------- */
+/* Mailbox */
+.mail-nav.btn-group-vertical {
+  margin-top: 1px;
+}
+
+.mail-nav.btn-group-vertical .btn {
+  text-align: left;
+}
+
+.mail-nav.btn-group-vertical span.badge {
+  float: right;
+  margin-top: 4px;
+}
+
+.mail-nav.btn-group-vertical i {
+  float: left;
+  margin-top: 4px;
+  margin-right: 5px;
+  width: 20px;
+}
+
+.inbox {
+  margin-top: 17px;
+}
+
+// John Styles
+.container-fluid {
+    min-height: 768px;
+}
+
+tr {
+    cursor: pointer;
+}
+
+.fa-sort {
+  cursor: pointer;
+}
+
+.noBorder {
+  border: 0px;
+}
+
+.sort {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.previewMessage {
+  opacity: .75;
+  width: 15em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: middle !important;
+}
+
+.previewTitle {
+  font-style: bold;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle !important;
+}
+
+.mailHeader {
+  cursor: pointer;
+  color: white; 
+}
+
+.mailHead {
+  cursor: pointer;
+}
+
+.mailTable {
+  font-size: 14px;
+}
+
+.noPadding {
+  padding: 0px;
+}
+
+.thead-light {
+  cursor:pointer;
+}
+
+.addOpacity {
+  opacity: .5;
+}
+
+.spinner {
+  margin-top: 150px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+/*
+  As browser width decreases, change padding in table.
+*/
+@media screen and (max-width: 745px) {
+  td {
+    padding: .1rem;
+  }
+  th {
+    padding: .1rem;
+  }
+  }
+  
+@media screen and (max-width: 1182px) {
+  td {
+    padding: .2rem;
+  }
+  th {
+    padding: .2rem;
+  }
+}
+
+tr:hover {
+  background-color: #f2f2f2;
+}
+
+#marginFix {
+  margin-top: -50px;
+}
+
+
+::ng-deep .page-item.active .page-link {
+  color: black;
+  background-color: #efefef;
+  border: 1px solid #ddd;
+}
+
+::ng-deep .page-link {
+  color: black;
+} 
+
+.urgent {
+  position: absolute;
+  margin-top: 4px;
+  margin-left: 5px;
+  cursor: pointer;
+  color: #ce7300;
+}
+
+.standard {
+  position: absolute;
+  margin-top: 4px;
+  margin-left: 5px;
+  cursor: pointer;
+  color: #123475;
+}
+
+.ui-tooltip .ui-tooltip-text {
+  background-color: red !important;
+  color: #fff !important;
+}

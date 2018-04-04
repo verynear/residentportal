@@ -22,18 +22,25 @@
                     </li>
                     <li class="list-inline-item">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" formControlName="messageType" id="maintenceRequest" value="MAINTENANCE">
+                        <input class="form-check-input" type="radio" formControlName="messageType" id="maintenceRequest" value="MAINTENANCE_REQUEST">
                         <label class="form-check-label" for="maintenceRequest">Maintenance Request</label>
                       </div>
                     </li>
                     <li class="list-inline-item">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" formControlName="messageType" id="residentFeedback" value="FEEDBACK">
+                        <input class="form-check-input" type="radio" formControlName="messageType" id="residentFeedback" value="RESIDENT_FEEDBACK">
                         <label class="form-check-label" for="residentFeedback">Resident Feedback</label>
                       </div>
                     </li>
                   </ul>
                 </div>
+                <div class="col-sm-12">
+                  <input type="hidden" name="toggle">
+                    <div class="checkbox">
+                      Urgent
+                     <app-inputswitch formControlName="urgentBool"></app-inputswitch>
+                    </div>
+                  </div>
               </div>
             </div>
             <div class="form-group">

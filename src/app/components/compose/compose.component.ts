@@ -3,6 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AlertService } from '../../services/alert.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CheckboxModule } from 'primeng/primeng';
 
 import { MessageService } from '../../services/message.service';
 import { UploadFileService } from '../../services/upload-file.service';
@@ -13,6 +14,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditorModule, ProgressSpinnerModule } from 'primeng/primeng';
 
 import { Message } from '../../models/message';
+import { Inquiry } from '../../models/inquiry';
 import { Attachment } from '../../models/attachment';
 
 @Component({
@@ -30,6 +32,8 @@ export class ComposeComponent implements OnInit, AfterViewInit {
   subject: FormControl;
   message: FormControl;
   messageType: FormControl;
+  urgentBool: FormControl;
+  isUrgent: number;
   public getDataFromChild(event: Attachment) {
     if (event) {
       this.attachments.push(event);
@@ -56,6 +60,7 @@ export class ComposeComponent implements OnInit, AfterViewInit {
         this.setDefaultValues();
     }
 
+
     ngAfterViewInit() {
           const element = this.rd.selectRootElement('.ql-picker-label');
           this.rd.setAttribute(element, 'tabindex', '-1');
@@ -64,10 +69,12 @@ export class ComposeComponent implements OnInit, AfterViewInit {
     // sets radio button
     setDefaultValues() {
        this.messageForm.patchValue({messageType: 'GENERAL_INQUIRY'});
+       this.messageForm.patchValue({urgentBool: false});
     }
 
     createFormControls() {
         this.subject = new FormControl('');
+        this.urgentBool = new FormControl('');
         this.message = new FormControl('', Validators.required);
         this.messageType = new FormControl('', Validators.required);
     }
@@ -75,6 +82,7 @@ export class ComposeComponent implements OnInit, AfterViewInit {
     createForm() {
         this.messageForm = new FormGroup({
             subject: this.subject,
+            urgentBool: this.urgentBool,
             message: this.message,
             messageType: this.messageType,
         });
@@ -82,9 +90,14 @@ export class ComposeComponent implements OnInit, AfterViewInit {
 
     send() {
         this.loading = true;
-        const message = new Message();
+        const message = new Inquiry();
 
         message.messageType = this.messageForm.value.messageType;
+        if (this.messageForm.value.urgentBool) {
+          message.isUrgent = 1;
+        } else {
+          message.isUrgent = 0;
+        }
         message.message = this.messageForm.value.message;
         message.subject = this.messageForm.value.subject;
 
@@ -92,7 +105,7 @@ export class ComposeComponent implements OnInit, AfterViewInit {
 
         message.message = new ReplacePipe().transform(message.message, '<br>'); // Remove all occurences of <br>
 
-        this.messageService.postMessage(message).subscribe(
+        this.messageService.postInquiry(message).subscribe(
             data => {
                 this.activeModal.close('success');
                 this.loading = false;
