@@ -21,8 +21,7 @@
             <td class="nowrap">
                 <i *ngIf="inquiry.isUrgent === 1" class="fa fa-exclamation-circle fa-lg" style="color: #ce7300"></i>
                 <i *ngIf="inquiry.isUrgent === 1" style="color: #fff" class="fa fa-angle-right"></i>
-                <span class="previewTitle" [innerHTML]="inquiry?.subject"></span>
-                <span class="previewMessage" [innerHTML]="inquiry?.message | htmlToPlain">- </span>
+                <span class="previewTitle" [innerHTML]="inquiry?.message | htmlToPlain">- </span>
             </td> 
             <td class="nowrap">
               <b>{{inquiry.createDate | date: 'MMM dd, y'}}</b>

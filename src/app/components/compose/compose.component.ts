@@ -29,7 +29,6 @@ export class ComposeComponent implements OnInit, AfterViewInit {
   lastLink: any;
   attachments: Attachment[];
   messageForm: FormGroup;
-  subject: FormControl;
   message: FormControl;
   messageType: FormControl;
   urgentBool: FormControl;
@@ -73,7 +72,6 @@ export class ComposeComponent implements OnInit, AfterViewInit {
     }
 
     createFormControls() {
-        this.subject = new FormControl('');
         this.urgentBool = new FormControl('');
         this.message = new FormControl('', Validators.required);
         this.messageType = new FormControl('', Validators.required);
@@ -81,7 +79,6 @@ export class ComposeComponent implements OnInit, AfterViewInit {
 
     createForm() {
         this.messageForm = new FormGroup({
-            subject: this.subject,
             urgentBool: this.urgentBool,
             message: this.message,
             messageType: this.messageType,
@@ -99,7 +96,6 @@ export class ComposeComponent implements OnInit, AfterViewInit {
           message.isUrgent = 0;
         }
         message.message = this.messageForm.value.message;
-        message.subject = this.messageForm.value.subject;
 
         console.log(message);
 
