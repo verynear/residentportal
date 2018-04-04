@@ -3,7 +3,7 @@
     <div>
         <div class="container-fluid">
             <app-alert class='messages'></app-alert>
-            <h1>Messages</h1>
+            <h1>Messages<small *ngIf="onInbox()" class="boxheader">  Received </small><small *ngIf="onSentbox()" class="boxheader">  Sent</small></h1>
 
             <section class="top">
                 <form>
