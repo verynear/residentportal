@@ -70,6 +70,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ReplacePipe } from './pipes/replace.pipe';
 import { InputSwitchModule } from './components/inputswitch/inputswitch.component';
+import { SentboxComponent } from './pages/messages/sentbox/sentbox.component';
 
 @NgModule({
   imports: [
@@ -114,7 +115,8 @@ import { InputSwitchModule } from './components/inputswitch/inputswitch.componen
     AccountComponent,
     ViewSentComponent,
     MessageListComponent,
-    FormUploadComponent
+    FormUploadComponent,
+    SentboxComponent
   ],
   providers: [
     {

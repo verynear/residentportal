@@ -14,6 +14,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditorModule, ProgressSpinnerModule } from 'primeng/primeng';
 
 import { Message } from '../../models/message';
+import { Inquiry } from '../../models/inquiry';
 import { Attachment } from '../../models/attachment';
 
 @Component({
@@ -89,7 +90,7 @@ export class ComposeComponent implements OnInit, AfterViewInit {
 
     send() {
         this.loading = true;
-        const message = new Message();
+        const message = new Inquiry();
 
         message.messageType = this.messageForm.value.messageType;
         if (this.messageForm.value.urgentBool) {
@@ -104,7 +105,7 @@ export class ComposeComponent implements OnInit, AfterViewInit {
 
         message.message = new ReplacePipe().transform(message.message, '<br>'); // Remove all occurences of <br>
 
-        this.messageService.postMessage(message).subscribe(
+        this.messageService.postInquiry(message).subscribe(
             data => {
                 this.activeModal.close('success');
                 this.loading = false;
